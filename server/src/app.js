@@ -2,12 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-// routes import
-const projectRoutes = require("./routes/project.routes");
-const authRoutes = require("./routes/auth.routes");
-const serviceRoutes = require("./routes/service.routes");
-const uploadRoutes = require("./routes/upload.routes");
-
 const app = express();
 
 const allowedOrigins = [
@@ -32,6 +26,13 @@ app.use(
   })
 );
 console.log("CLIENT_URL:", process.env.CLIENT_URL);
+
+
+// routes import
+const projectRoutes = require("./routes/project.routes");
+const authRoutes = require("./routes/auth.routes");
+const serviceRoutes = require("./routes/service.routes");
+const uploadRoutes = require("./routes/upload.routes");
 // app.use(
 //   cors({
 //     origin: process.env.CLIENT_URL,
