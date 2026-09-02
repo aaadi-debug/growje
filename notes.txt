@@ -1,0 +1,55 @@
+creative-agency/
+│
+├── client/
+│   │
+│   ├── app/
+│   │   ├── Public Website
+│   │   └── Admin Panel
+│   │
+│   ├── components/
+│   │
+│   └── services/
+│       │
+│       ├── api.js
+│       ├── auth.service.js
+│       └── project.service.js
+│
+└── server/
+    │
+    └── src/
+        │
+        ├── config/
+        ├── controllers/
+        ├── middleware/
+        ├── models/
+        ├── routes/
+        ├── services/
+        └── utils/
+
+
+-------------------------------------------------------
+
+client/
+└── src/
+    └── app/
+        └── admin/
+            │
+            ├── login/
+            │   └── page.js
+            │
+            └── (dashboard)/
+                │
+                ├── layout.js
+                ├── page.js
+                │
+                ├── projects/
+                │   └── page.js
+                │
+                ├── services/
+                │   └── page.js
+                │
+                ├── blogs/
+                │   └── page.js
+                │
+                └── leads/
+                    └── page.js
