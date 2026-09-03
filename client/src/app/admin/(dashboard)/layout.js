@@ -1,4 +1,4 @@
-// client/src/app/admin/(dashboard)/page.js
+// client/src/app/admin/(dashboard)/layout.js
 import { redirect } from "next/navigation";
 
 import AdminSidebar from "@/components/admin/AdminSidebar";

@@ -7,7 +7,12 @@ const protect = async (req, res, next) => {
     console.log("Cookies received:", req.cookies);
     console.log("Token:", req.cookies?.token);
 
-    const token = req.cookies.token;
+    // const token = req.cookies.token;
+    const authHeader = req.headers.authorization;
+
+    const token = authHeader?.startsWith("Bearer ")
+      ? authHeader.split(" ")[1]
+      : req.cookies.token;
 
     if (!token) {
       return res.status(401).json({

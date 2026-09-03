@@ -110,6 +110,7 @@ const loginAdmin = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Login successful",
+            token,                       // ← add this
             data: {
                 id: user._id,
                 name: user.name,
