@@ -4,7 +4,11 @@ import { apiFetch } from "./api";
 export async function loginAdmin(email, password) {
   return apiFetch("/auth/login", {
     method: "POST",
-    
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",        // ← very important
+
     body: JSON.stringify({
       email,
       password,
