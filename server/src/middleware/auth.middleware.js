@@ -3,6 +3,10 @@ const User = require("../models/User");
 
 const protect = async (req, res, next) => {
   try {
+    console.log("======= AUTH CHECK =======");
+    console.log("Cookies received:", req.cookies);
+    console.log("Token:", req.cookies?.token);
+
     const token = req.cookies.token;
 
     if (!token) {

@@ -54,6 +54,10 @@ const registerAdmin = async (req, res) => {
 // Login admin
 const loginAdmin = async (req, res) => {
     try {
+        console.log("======= LOGIN ATTEMPT =======");
+        console.log("Origin:", req.headers.origin);
+        console.log("Body:", req.body);
+
         const { email, password } = req.body;
 
         if (!email || !password) {
@@ -85,6 +89,7 @@ const loginAdmin = async (req, res) => {
         }
 
         const token = generateToken(user._id);
+        console.log("Token generated successfully");
 
         // res.cookie("token", token, {
         //   httpOnly: true,
@@ -100,6 +105,7 @@ const loginAdmin = async (req, res) => {
             // sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         });
+        console.log("Cookie set with sameSite: none");
 
         res.status(200).json({
             success: true,
@@ -112,6 +118,7 @@ const loginAdmin = async (req, res) => {
             },
         });
     } catch (error) {
+        console.error("LOGIN ERROR:", error);
         res.status(500).json({
             success: false,
             message: error.message,
@@ -121,18 +128,18 @@ const loginAdmin = async (req, res) => {
 
 // Logout Admin
 const logoutAdmin = async (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    // secure: process.env.NODE_ENV === "production",
-    secure: true,
-    sameSite: "none",
-    // sameSite: "lax",
-  });
+    res.clearCookie("token", {
+        httpOnly: true,
+        // secure: process.env.NODE_ENV === "production",
+        secure: true,
+        sameSite: "none",
+        // sameSite: "lax",
+    });
 
-  res.status(200).json({
-    success: true,
-    message: "Logged out successfully",
-  });
+    res.status(200).json({
+        success: true,
+        message: "Logged out successfully",
+    });
 };
 
 module.exports = {
