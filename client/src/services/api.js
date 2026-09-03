@@ -1,4 +1,3 @@
-// client/src/services/api.js
 // const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // export async function apiFetch(endpoint, options = {}) {
@@ -32,6 +31,7 @@
 //   return data;
 // }
 
+// client/src/services/api.js
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function apiFetch(endpoint, options = {}) {

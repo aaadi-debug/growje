@@ -3,28 +3,21 @@ import { redirect } from "next/navigation";
 
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminHeader from "@/components/admin/AdminHeader";
+import AdminAuthGuard from "@/components/admin/AdminAuthGuard";
 import { getServerCurrentUser } from "@/services/server-auth.service";
 
-export default async function AdminDashboardLayout({
-  children,
-}) {
-  const user = await getServerCurrentUser();
-
-  if (!user || user.role !== "admin") {
-    redirect("/admin/login");
-  }
-
+export default function AdminDashboardLayout({ children }) {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminSidebar />
+    <AdminAuthGuard>
+      <div className="min-h-screen bg-gray-50">
+        <AdminSidebar />
 
-      <div className="ml-64">
-        <AdminHeader user={user} />
-
-        <main className="">
-          {children}
-        </main>
+        <div className="ml-64">
+          <AdminHeader />
+          <main>{children}</main>
+        </div>
       </div>
-    </div>
+    </AdminAuthGuard>
   );
 }
+
