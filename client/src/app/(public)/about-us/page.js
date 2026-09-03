@@ -1,134 +1,222 @@
-"use client"
-import React, { useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  Target,
+  Lightbulb,
+  Layers3,
+  Users,
+  Sparkles,
+} from "lucide-react";
 
-const page = () => {
-    const animatedHorizontalServices = [
-        "Digital Marketing",
-        "Website UI/UX",
-        "Web/Mobile Application",
-        "Brand Consultancy",
-        "Live Videos",
-        "2D/3D Animations",
-        "PR (public Relations)",
-    ];
+const values = [
+  {
+    number: "01",
+    icon: Target,
+    title: "Purpose First",
+    description:
+      "Every project starts with understanding the problem, the audience and the bigger business objective.",
+  },
+  {
+    number: "02",
+    icon: Lightbulb,
+    title: "Ideas That Matter",
+    description:
+      "We combine strategy, creativity and technology to turn ideas into digital experiences people remember.",
+  },
+  {
+    number: "03",
+    icon: Layers3,
+    title: "Built End to End",
+    description:
+      "From branding and design to websites and digital experiences, we bring everything together under one roof.",
+  },
+  {
+    number: "04",
+    icon: Users,
+    title: "Built Together",
+    description:
+      "We work closely with our clients, treating every collaboration as a partnership rather than a handoff.",
+  },
+];
 
-    const sectionRef = useRef(null);
-    const trackRef = useRef(null);
+export default function AboutUsPage() {
+  return (
+    <main className="bg-white text-black">
+      {/* HERO */}
+      <section className="relative min-h-[85vh] overflow-hidden bg-black text-white">
+        <div className="absolute inset-0">
+          <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -right-20 bottom-0 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl" />
+        </div>
 
-    useEffect(() => {
-        const section = sectionRef.current;
-        const track = trackRef.current;
-        if (!section || !track) return;
+        <div className="relative mx-auto flex min-h-[85vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-32 lg:px-10 lg:pb-24">
+          <p className="mb-8 text-sm font-medium uppercase tracking-[0.25em] text-white/50">
+            About GROWJE
+          </p>
 
-        const update = () => {
-            const rect = section.getBoundingClientRect();
-            const sectionHeight = section.offsetHeight;
-            const viewportHeight = window.innerHeight;
+          <h1 className="max-w-6xl text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
+            We build brands
+            <br />
+            <span className="text-white/40">people remember.</span>
+          </h1>
 
-            // progress through the tall section (0 → 1)
-            const progress = Math.min(
-                Math.max(-rect.top / (sectionHeight - viewportHeight), 0),
-                1
-            );
+          <div className="mt-12 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <p className="max-w-2xl text-lg leading-relaxed text-white/60 lg:text-xl">
+              GROWJE is a creative digital agency focused on building
+              meaningful brands, digital experiences and technology that
+              helps businesses move forward.
+            </p>
 
-            const maxTranslate = track.scrollWidth - window.innerWidth;
-            track.style.transform = `translateX(${-progress * maxTranslate}px)`;
-        };
-
-        window.addEventListener("scroll", update, { passive: true });
-        window.addEventListener("resize", update);
-        update();
-
-        return () => {
-            window.removeEventListener("scroll", update);
-            window.removeEventListener("resize", update);
-        };
-    }, []);
-
-    return (
-        <main>
-            {/* ========== HERO ========== */}
-            <section className="relative min-h-screen bg-black text-white overflow-hidden flex items-end">
-                <div className="relative z-20 w-full px-6 lg:px-10 pb-12 lg:pb-16">
-                    <div className="max-w-[1500px]">
-                        <p className="text-sm uppercase tracking-[0.2em] mb-8">
-                            Creative Digital Agency
-                        </p>
-
-                        <h1 className="text-[clamp(4rem,10vw,10rem)] leading-[0.82] tracking-[-0.06em] font-medium max-w-6xl">
-                            We create
-                            <br />
-                            brands people
-                            <br />
-                            <span className="italic font-serif">
-                                remember.
-                            </span>
-                        </h1>
-
-                        <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                            <p className="max-w-md text-white/70 text-base lg:text-lg leading-relaxed">
-                                We build brands, digital experiences and
-                                identities that turn attention into
-                                meaningful connections.
-                            </p>
-
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center justify-center gap-3 border border-white rounded-full px-7 py-4 text-sm hover:bg-white hover:text-black transition duration-300"
-                            >
-                                Start a project
-                                <ArrowUpRight size={18} />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== HORIZONTAL PINNED MARQUEE ========== */}
-            <section
-                ref={sectionRef}
-                className="relative border-b border-black/10"
-                style={{ height: "250vh" }}   // increase this if the track is very long
+            <Link
+              href="/contact"
+              className="group inline-flex w-fit items-center gap-3 rounded-full border border-white/30 px-6 py-3 text-sm transition hover:bg-white hover:text-black"
             >
-                {/* sticky viewport-height container */}
-                <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-                    <p className="px-6 lg:px-10 text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
-                        Trusted by ambitious brands
-                    </p>
+              Start a conversation
+              <ArrowUpRight
+                size={18}
+                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-                    <div className="relative w-full overflow-hidden">
-                        <div
-                            ref={trackRef}
-                            className="flex whitespace-nowrap will-change-transform"
-                        >
-                            {animatedHorizontalServices.map((service, index) => (
-                                <div
-                                    key={`${service}-${index}`}
-                                    className="flex items-center gap-10 mx-8 shrink-0"
-                                >
-                                    <span className="text-3xl lg:text-5xl font-medium tracking-tight">
-                                        {service}
-                                    </span>
-                                    <span className="text-2xl text-black/20">✦</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+      {/* INTRO */}
+      <section className="px-6 py-24 lg:px-10 lg:py-36">
+        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Who we are
+            </p>
+          </div>
 
-            {/* rest of page */}
-            <div className="px-6 lg:px-10 py-24">
-                <p className="max-w-3xl text-lg leading-relaxed text-black/70">
-                    {/* your content here */}Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem. Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Mauris sollicitudin fermentum libero. Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Morbi mollis tellus ac sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo. Suspendisse feugiat. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Praesent nec nisl a purus blandit viverra. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi odio, faucibus at, scelerisque quis,
+          <div>
+            <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Creative thinking meets digital execution.
+            </h2>
 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem. Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Mauris sollicitudin fermentum libero. Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Morbi mollis tellus ac sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo. Suspendisse feugiat. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Praesent nec nisl a purus blandit viverra. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi odio, faucibus at, scelerisque quis,
-                </p>
+            <div className="mt-10 max-w-3xl space-y-6 text-lg leading-relaxed text-gray-600">
+              <p>
+                We believe great digital work isn't just about making
+                something look good. It should communicate clearly, solve
+                real problems and create measurable value.
+              </p>
+
+              <p>
+                At GROWJE, designers, developers, strategists and creative
+                thinkers work together to create digital experiences that
+                connect brands with people.
+              </p>
+
+              <p>
+                Whether you're building something from scratch or looking
+                to transform an existing brand, we bring strategy,
+                creativity and technology together to make it happen.
+              </p>
             </div>
-        </main>
-    )
-}
+          </div>
+        </div>
+      </section>
 
-export default page
+      {/* STATS / STATEMENT */}
+      <section className="bg-zinc-100 px-6 py-24 lg:px-10 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 md:grid-cols-3">
+            <div>
+              <p className="text-6xl font-semibold tracking-tight">01</p>
+              <p className="mt-4 max-w-xs text-gray-500">
+                Understand the business before designing the solution.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-6xl font-semibold tracking-tight">02</p>
+              <p className="mt-4 max-w-xs text-gray-500">
+                Create experiences that are simple, memorable and useful.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-6xl font-semibold tracking-tight">03</p>
+              <p className="mt-4 max-w-xs text-gray-500">
+                Build technology that turns creative ideas into reality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="px-6 py-24 lg:px-10 lg:py-36">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              What drives us
+            </p>
+
+            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+              Our way of working.
+            </h2>
+          </div>
+
+          <div className="grid border-l border-t border-black/10 md:grid-cols-2">
+            {values.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.number}
+                  className="group border-b border-r border-black/10 p-8 transition hover:bg-black hover:text-white lg:p-12"
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="text-sm text-gray-400 group-hover:text-white/40">
+                      {item.number}
+                    </span>
+
+                    <Icon
+                      size={25}
+                      strokeWidth={1.5}
+                      className="text-gray-400 transition group-hover:text-white"
+                    />
+                  </div>
+
+                  <h3 className="mt-16 text-2xl font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-5 max-w-md leading-relaxed text-gray-500 group-hover:text-white/60">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-black px-6 py-28 text-white lg:px-10 lg:py-40">
+        <div className="mx-auto max-w-7xl">
+          <Sparkles size={32} strokeWidth={1.5} className="mb-10" />
+
+          <h2 className="max-w-5xl text-5xl font-semibold leading-tight tracking-tight sm:text-6xl lg:text-8xl">
+            Have an idea?
+            <br />
+            Let's make it real.
+          </h2>
+
+          <Link
+            href="/contact-us"
+            className="group mt-12 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-medium text-black transition hover:bg-gray-200"
+          >
+            Talk to us
+            <ArrowUpRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
