@@ -92,7 +92,7 @@ export default function HeroSection() {
 
     return (
         <>
-            <section ref={sceneRef} id="home-hero" className="relative h-[350vh] bg-[#070909] text-white">
+            {/* <section ref={sceneRef} id="home-hero" className="relative h-[350vh] bg-[#070909] text-white">
                 <div className="sticky top-0 h-screen overflow-hidden">
                     <canvas
                         ref={canvasRef}
@@ -103,22 +103,7 @@ export default function HeroSection() {
                     <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,.7),transparent_35%)]" />
 
                     <div className="relative z-10 flex h-full flex-col justify-end px-6 py-28 md:px-10 lg:px-16 lg:py-32">
-                        {/* <div className="flex items-center justify-between text-[11px] uppercase tracking-[.22em] text-white/60">
-              <span>Growje / Contact</span>
-              <span>{String(loadedCount).padStart(3, "0")} / {FRAME_COUNT}</span>
-            </div> */}
-
-                        {/* <div className="max-w-3xl">
-              <p className="mb-6 text-xs uppercase tracking-[.25em] text-[#d9f04b]">
-                Let&apos;s make something impossible to ignore
-              </p>
-              <h1 className="text-[clamp(3.5rem,9vw,9rem)] font-medium leading-[.83] tracking-[-.07em]">
-                Bring the<br /><span className="font-serif italic">good stuff.</span>
-              </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-white/70 md:text-lg">
-                Tell us what you&apos;re building, where you want to go, and what keeps you up at night. We&apos;ll bring the sharp questions.
-              </p>
-            </div> */}
+                        
 
                         <div className="flex items-end justify-between">
                             <div className="flex items-center gap-3 text-xs uppercase tracking-[.2em] text-white/55">
@@ -131,11 +116,11 @@ export default function HeroSection() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* <section className="relative min-h-screen overflow-hidden bg-black text-white">
+            <section className="relative min-h-screen overflow-hidden bg-black text-white">
                 <video
-                    src="/videos/home-hero.mp4"
+                    src="/videos/home-hero2.mp4"
                     className="absolute inset-0 h-full w-full object-cover"
                     autoPlay
                     muted
@@ -144,21 +129,21 @@ export default function HeroSection() {
                     preload="metadata"
                 />
 
-                <div className="absolute inset-0 bg-black/60" />
+                {/* <div className="absolute inset-0 bg-black/60" /> */}
 
                 <div className="relative z-10 flex min-h-screen items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
                     <div className="max-w-7xl">
                         <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/60">
                             GROWJE
                         </p>
-                        <h1 className="max-w-6xl text-3xl font-medium leading-[0.92] md:text-5xl lg:text-[5vw]">
+                        {/* <h1 className="max-w-6xl text-3xl font-medium leading-[0.92] md:text-5xl lg:text-[5vw]">
                             Your headline here
-                        </h1>
+                        </h1> */}
                     </div>
                 </div>
             </section>
 
-            <section className="relative min-h-screen bg-primary text-white overflow-hidden flex items-end">
+            {/* <section className="relative min-h-screen bg-primary text-white overflow-hidden flex items-end">
                 BACKGROUND
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/80 z-10" />

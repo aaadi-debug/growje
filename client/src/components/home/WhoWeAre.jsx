@@ -71,10 +71,11 @@ export default function WhoAreWe() {
                                 after:left-0
                                 after:h-px
                                 after:w-0
-                                after:bg-black
+                                after:bg-primary
                                 after:transition-all
                                 after:duration-300
                                 hover:after:w-full
+                                hover:text-primary hover:border-primary
                             "
                         >
                             More about us

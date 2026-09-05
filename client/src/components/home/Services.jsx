@@ -1,34 +1,46 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
-export default function Services({services}) {
+export default function Services({ services }) {
 
     return (
         <>
-            <section className="bg-black text-white px-6 lg:px-10 py-16 lg:py-24">
-                <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20">
-                    <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
-                            02 — What we do
+            <section className="relative bg-black text-white px-6 lg:px-10 py-16 lg:py-24">
+                {/* Background image */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
+                    style={{
+                        backgroundImage: "url('assets/images/home/services_bg.avif')", // ← change to your actual filename
+                    }}
+                />
+
+                {/* Optional dark overlay for better text contrast */}
+                {/* <div className="absolute inset-0 bg-black/60" /> */}
+
+                <div className="relative z-10">
+                    <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20">
+                        <div>
+                            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+                                02 — What we do
+                            </p>
+                            <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
+                                Services
+                            </h2>
+                        </div>
+
+                        <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
+                            From strategy and branding to digital
+                            experiences, we help businesses become
+                            impossible to ignore.
                         </p>
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-                            Services
-                        </h2>
                     </div>
 
-                    <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
-                        From strategy and branding to digital
-                        experiences, we help businesses become
-                        impossible to ignore.
-                    </p>
-                </div>
-
-                <div className="border-t border-white/20">
-                    {services.map((service, index) => (
-                        <Link
-                            href={`/${service.slug}`}
-                            key={service._id}
-                            className="
+                    <div className="border-t border-white/20">
+                        {services.map((service, index) => (
+                            <Link
+                                href={`/${service.slug}`}
+                                key={service._id}
+                                className="
                                 group
                                 grid
                                 grid-cols-12
@@ -41,17 +53,18 @@ export default function Services({services}) {
                                 hover:px-4
                                 transition-all
                                 duration-500
+                                hover:bg-white/10
                             "
-                        >
-                            <span className="col-span-1 text-sm text-white/30">
-                                {String(index + 1).padStart(2, "0")}
-                            </span>
-                            <h3 className="col-span-9 text-xl md:text-3xl lg:text-4xl tracking-tight">
-                                {service.title}
-                            </h3>
-                            <span className="col-span-2 flex justify-end">
-                                <span 
-                                    className="
+                            >
+                                <span className="col-span-1 text-sm text-white/30">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+                                <h3 className="col-span-9 text-xl md:text-3xl lg:text-4xl tracking-tight">
+                                    {service.title}
+                                </h3>
+                                <span className="col-span-2 flex justify-end">
+                                    <span
+                                        className="
                                         w-10
                                         h-10
                                         lg:w-14
@@ -66,12 +79,13 @@ export default function Services({services}) {
                                         group-hover:text-black
                                         transition
                                     "
-                                >
-                                    <ArrowUpRight size={20} />
+                                    >
+                                        <ArrowUpRight size={20} />
+                                    </span>
                                 </span>
-                            </span>
-                        </Link>
-                    ))}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </section>
         </>

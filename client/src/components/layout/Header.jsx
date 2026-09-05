@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import Logo from "../../../public/assets/images/logo-growje.png";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -185,19 +185,54 @@ export default function Header() {
                         >
                             Careers
                         </Link>
+
+                        <Link
+                            href="/contact-us"
+                            className="text-sm font-medium hover:opacity-60 transition"
+                        >
+                            Contact
+                        </Link>
                     </nav>
 
                     <div className="lg:block hidden">
                         <div className="flex gap-6 justify-end items-center">
-                            <Link href="tel:+919625870021" className={`rounded-full px-6 py-2 hover:bg-primary trasition duration-300
+                            {/* <Link href="tel:+919625870021" className={`rounded-full px-6 py-2 hover:bg-primary trasition duration-300
                             ${scrolled ? "bg-black text-white" : "bg-white text-black hover:text-white"}`}
                             >
                                 Call Now
-                            </Link>
-                            <Link href="/contact-us" className={`rounded-full px-6 py-2 hover:bg-primary trasition duration-300 
+                            </Link> */}
+                            {/* <Link href="/contact-us" className={`rounded-full px-6 py-2 hover:bg-primary trasition duration-300 
                             ${scrolled ? "bg-black text-white" : "bg-white text-black hover:text-white"}`}
                             >
                                 Request A Quote
+                            </Link> */}
+
+                            <Link
+                                href="tel:+919625870021"
+                                className={`group
+                                    inline-flex
+                                    items-center
+                                    gap-2
+                                    text-sm
+                                    font-medium
+                                    border-b
+                                    
+                                    pb-2
+                                    relative
+                                    after:absolute
+                                    after:bottom-0
+                                    after:left-0
+                                    after:h-px
+                                    after:w-0
+                                    
+                                    after:transition-all
+                                    after:duration-300
+                                    hover:after:w-full
+                                    ${scrolled ? "border-black after:bg-primary hover:text-primary hover:border-primary hover:text-primary" : " border-white after:bg-white"}`
+                                }
+                            >
+                                <Phone size={16} />
+                                Call Now
                             </Link>
                         </div>
                     </div>

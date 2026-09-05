@@ -5,6 +5,8 @@ import Services from "@/components/home/Services";
 import OurWork from "@/components/home/OurWork";
 import Approach from "@/components/home/Approach";
 import LetsTalk from "@/components/home/LetsTalk";
+import Testimonials from "@/components/home/Testimonials";
+import NumbersSection from "@/components/home/Numbers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -64,6 +66,8 @@ export default async function HomePage() {
       <Services services={services} />
       <OurWork featuredProjects={featuredProjects} services={services} />
       <Approach />
+      <Testimonials />
+      <NumbersSection />
       <LetsTalk />
     </main>
   );

@@ -51,7 +51,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
 
                 <Link
                     href="/portfolio"
-                    className="group hidden md:inline-flex items-center gap-3 text-sm font-medium border-b border-black pb-2 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+                    className="group hidden md:inline-flex items-center gap-3 text-sm font-medium border-b border-black pb-2 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:text-primary hover:border-primary"
                 >
                     View all work
                     <ArrowUpRight
@@ -69,7 +69,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                         className={`
                             px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
                             ${activeTab === "all"
-                                ? "bg-black text-white" : "bg-black/5 text-black/70 hover:bg-black/10"
+                                ? "bg-primary text-white" : "bg-black/5 text-black/70 hover:bg-black/10"
                             }
                         `}
                     >
@@ -83,7 +83,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                             className={`
                                 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                 ${activeTab === service._id
-                                    ? "bg-black text-white" : "bg-black/5 text-black/70 hover:bg-black/10"
+                                    ? "bg-primary text-white" : "bg-black/5 text-black/70 hover:bg-black/10"
                                 }
                             `}
                         >
