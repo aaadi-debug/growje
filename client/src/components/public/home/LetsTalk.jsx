@@ -22,41 +22,49 @@ export default function LetsTalk() {
                     aria-hidden="true"
                 />
 
-                <div className="max-w-6xl">
-                    <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
-                        Have a project in mind?
-                    </p>
+                <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
+                    <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
+                            Have a project in mind?
+                        </p>
 
-                    <h2 className="text-5xl md:text-7xl lg:text-[9rem] leading-[0.82] tracking-[-0.07em]">
-                        Let's make
-                        <br />
-                        something
-                        <br />
-                        <span className="italic font-serif">
-                            unforgettable.
-                        </span>
-                    </h2>
+                        <h2 className="text-5xl md:text-7xl lg:text-[9rem] text-primary leading-[0.82] tracking-[-0.07em]">
+                            Let's make
+                            <br />
+                            something
+                            <br />
+                            <span className="italic font-serif">
+                                unforgettable.
+                            </span>
+                        </h2>
+                    </div>
 
-                    <Link
-                        href="/contact"
-                        className="
+                    <div>
+                        <Link
+                            href="/contact-us"
+                            className="
                             inline-flex
                             items-center
                             gap-4
                             mt-14
+                            max-sm:mt-2
                             border
                             border-black
                             rounded-full
                             px-8
+                            max-sm:px-6
                             py-5
+                            max-sm:py-3
+                            max-sm:text-sm
                             hover:bg-black
                             hover:text-white
                             transition
                         "
-                    >
-                        Start a conversation
-                        <ArrowUpRight size={20} />
-                    </Link>
+                        >
+                            Start a conversation
+                            <ArrowUpRight size={20} />
+                        </Link>
+                    </div>
                 </div>
             </section>
         </>

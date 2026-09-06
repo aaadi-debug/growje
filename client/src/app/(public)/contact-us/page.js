@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -21,6 +21,78 @@ const initialForm = {
   service: "",
   message: "",
 };
+
+function FadeUp({ children, delay = 0, className = "" }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function RotatingBadge() {
+  return (
+    <div className="relative w-36 h-36 lg:w-44 lg:h-44">
+      {/* Rotating text */}
+      <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <defs>
+            <path
+              id="circlePath"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+            />
+          </defs>
+          <text className="text-2xl tracking-[0.25em] fill-white/90">
+            <textPath href="#circlePath" startOffset="0%">
+              Let’s Build Something Great • Let’s Build Something Great •
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      {/* Center arrow */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 17L17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
@@ -178,38 +250,66 @@ export default function ContactPage() {
   return (
     <main className="bg-white text-black">
       {/* HERO */}
-      <section className="bg-black px-6 pb-20 pt-32 text-white lg:px-10 lg:pb-28 lg:pt-44">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-white/40">
-            Contact GROWJE
-          </p>
+      <section className="relative overflow-hidden min-h-screen flex lg:flex-row flex-col lg:justify-between justify-end lg:pb-20 pb-10">
+        {/* Soft background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
-          <h1 className="mt-8 max-w-5xl text-6xl font-semibold leading-[0.9] tracking-tight sm:text-7xl lg:text-[9rem]">
-            Let's
-            <br />
-            talk.
-          </h1>
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-top bg-no-repeat"
+          style={{
+            backgroundImage: "url('assets/images/contact_hero_bg.png')", // ← change to your actual filename
+          }}
+        />
 
-          <p className="mt-12 max-w-xl text-lg leading-relaxed text-white/60 lg:text-xl">
-            Have a project, idea or business challenge in mind?
-            Tell us about it. We'd love to hear what you're
-            working on.
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08689A]/90 via-[#08689A]/50 to-transparent" />
+
+        {/* left */}
+        <div className="relative flex flex-col justify-end lg:px-12 px-6">
+          <FadeUp className="mb-4">
+            <RotatingBadge />
+          </FadeUp>
+          <FadeUp>
+            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-white/75">
+              Contact GROWJE
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={100}>
+            <h1 className="text-[clamp(2.5rem,6vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.06em] text-white">
+              Let's
+              <span className="text-white/75"> Talk</span>
+            </h1>
+          </FadeUp>
+
+        </div>
+
+        {/* right */}
+        <div className="relative flex flex-col justify-end lg:px-16 px-6">
+          <FadeUp delay={200}>
+            <p className="mt-10 max-sm:mt-6 max-w-xl lg:text-xl text-lg max-sm:text-base lg:font-semibold leading-relaxed text-white">
+              Have a project, idea or business challenge in mind? Tell us about it. We'd love to hear what you're working on.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
       {/* CONTACT CONTENT */}
-      <section className="px-6 py-20 lg:px-10 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-20 lg:grid-cols-[0.75fr_1.25fr]">
-          {/* CONTACT DETAILS */}
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
-              Get in touch
-            </p>
-
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight">
-              Start a conversation.
-            </h2>
+      <section className="">
+        <div className="mx-auto grid gap-20 lg:grid-cols-[0.75fr_1.25fr]">
+          {/* Left Side - CONTACT DETAILS */}
+          <div className="px-6 lg:px-10 py-10 lg:py-16">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row lg:justify-between gap-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
+                  Get in touch
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-[-0.06em] leading-none">
+                  Start a conversation
+                </h2>
+              </div>
+            </div>
 
             <p className="mt-6 max-w-md leading-relaxed text-gray-500">
               Whether you need a new website, branding,
@@ -284,16 +384,18 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* FORM */}
-          <div>
-            <div className="mb-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
-                Project enquiry
-              </p>
-
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">
-                Tell us about your project
-              </h2>
+          {/* Right Side - FORM */}
+          <div className="border bg-gray-100 px-6 lg:px-10 py-10 lg:py-16">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-10">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
+                  Project enquiry
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-[-0.06em] leading-none">
+                  Tell us about your project
+                </h2>
+              </div>
             </div>
 
             {status === "success" && (
@@ -439,7 +541,7 @@ export default function ContactPage() {
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  rows={6}
+                  rows={4}
                   maxLength={2000}
                   placeholder="Tell us about your business, project, goals and what you're looking to build..."
                   className={`w-full resize-none border-b bg-transparent px-0 py-4 text-base outline-none transition ${errors.message
@@ -464,11 +566,11 @@ export default function ContactPage() {
               </div>
 
               {/* SUBMIT */}
-              <div className="pt-4">
+              <div className="-mt-6">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group inline-flex items-center gap-4 rounded-full bg-black px-7 py-4 text-sm font-medium text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="group inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-medium text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading
                     ? "Sending..."
@@ -488,30 +590,69 @@ export default function ContactPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="bg-zinc-100 px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 md:flex-row md:items-end">
+      <section className="relative overflow-hidden text-black px-6 lg:px-10 py-16 lg:py-24">
+        <div
+          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl"
+          aria-hidden="true"
+        />
+
+        {/* Optional light grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.65]
+                    [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+                    [background-size:48px_48px]"
+          aria-hidden="true"
+        />
+
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-400">
+            <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
               Prefer WhatsApp?
             </p>
 
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Let's chat there.
+            <h2 className="text-5xl md:text-7xl lg:text-[9rem] text-primary leading-[0.82] tracking-[-0.07em]">
+              Let's
+              <br />
+              chat on
+              <br />
+              <span className="italic font-serif">
+                WhatsApp.
+              </span>
             </h2>
           </div>
 
-          <a
-            href="https://wa.me/919625870021?text=Hello!%20I%20want%20to%20connect%20with%20you"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex w-fit items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white"
-          >
-            Open WhatsApp
-            <ArrowUpRight
-              size={18}
-              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-            />
-          </a>
+          <div>
+            <a
+              href="https://wa.me/919625870021?text=Hello!%20I%20want%20to%20connect%20with%20you"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                            inline-flex
+                            items-center
+                            gap-4
+                            mt-14
+                            max-sm:mt-2
+                            border
+                            border-black
+                            rounded-full
+                            px-8
+                            max-sm:px-6
+                            py-5
+                            max-sm:py-3
+                            max-sm:text-sm
+                            hover:bg-black
+                            hover:text-white
+                            transition
+                        "
+            >
+              Open WhatsApp
+              <ArrowUpRight size={20} />
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -588,7 +729,7 @@ function FormField({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full border-b bg-transparent px-0 py-4 text-base outline-none transition placeholder:text-gray-300 ${error
+        className={`w-full border-b bg-transparent px-0 py-4 text-base outline-none transition placeholder:text-gray-400 ${error
           ? "border-red-500"
           : "border-black/20 focus:border-black"
           }`}

@@ -179,12 +179,12 @@ export default function Header() {
                             Blogs
                         </Link>
 
-                        <Link
+                        {/* <Link
                             href="/careers"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
                             Careers
-                        </Link>
+                        </Link> */}
 
                         <Link
                             href="/contact-us"
