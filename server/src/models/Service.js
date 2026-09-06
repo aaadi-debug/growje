@@ -71,6 +71,58 @@ const serviceSchema = new mongoose.Schema(
       default: "",
     },
 
+    // Dynamic content sections (left title + right cards)
+    servicesSection: {
+      title: { type: String, default: "" },
+      items: [
+        {
+          title: { type: String, trim: true },
+          description: { type: String, default: "" },
+        },
+      ],
+    },
+
+    // Process Section
+    processSection: {
+      title: { type: String, default: "" },
+      steps: [
+        {
+          title: { type: String, trim: true },
+          description: { type: String, default: "" },
+        },
+      ],
+    },
+
+    // About Sections (alternating)
+    aboutSections: [
+      {
+        title: { type: String, default: "" },
+        description: { type: String, default: "" },
+        bullets: [{ type: String }],
+        image: {
+          url: { type: String, default: "" },
+          alt: { type: String, default: "" },
+          publicId: { type: String, default: "" },
+        },
+      },
+    ],
+
+    // FAQs
+    faqs: [
+      {
+        question: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        answer: {
+          type: String,
+          default: "",
+          trim: true,
+        },
+      },
+    ],
+
     // Publishing control
     status: {
       type: String,

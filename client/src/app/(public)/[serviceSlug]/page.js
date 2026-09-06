@@ -71,7 +71,7 @@ export default async function ServiceSlugPage({
     notFound();
   }
 
-  console.log("Projects: ", data.projects)
+  // console.log("Projects: ", data.projects)
 
   return (
     <ServicePage

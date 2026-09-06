@@ -4,14 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import Approach1 from "../../../public/assets/images/home/approach_1.png"
 import HorizontalImageScroll from "./HorizontalImageScroll";
 
 const images = [
     "/assets/images/home/approach_1.png",
     "/assets/images/home/approach_2.png",
     "/assets/images/home/approach_3.png",
-    "/assets/images/home/approach_3.png"
+    "/assets/images/home/approach_4.png"
 ]
 
 export default function Approach() {

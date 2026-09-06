@@ -16,6 +16,10 @@ const createService = async (req, res) => {
       clients,
       portfolioTitle,
       portfolioSubtitle,
+      servicesSection,
+      processSection,
+      aboutSections,
+      faqs = [],
       status,
       order,
       seo,
@@ -41,6 +45,10 @@ const createService = async (req, res) => {
       clients,
       portfolioTitle,
       portfolioSubtitle,
+      servicesSection,
+      processSection,
+      aboutSections,
+      faqs,
       status,
       order,
       seo,
@@ -190,6 +198,10 @@ const updateService = async (req, res) => {
       clients,
       portfolioTitle,
       portfolioSubtitle,
+      servicesSection,
+      processSection,
+      aboutSections,
+      faqs,
       status,
       order,
       seo,
@@ -225,6 +237,11 @@ const updateService = async (req, res) => {
 
     service.portfolioSubtitle =
       portfolioSubtitle ?? service.portfolioSubtitle;
+
+    service.servicesSection = servicesSection ?? service.servicesSection;
+    service.processSection = processSection ?? service.processSection;
+    service.aboutSections = aboutSections ?? service.aboutSections;
+    service.faqs = faqs ?? service.faqs;
 
     service.status = status ?? service.status;
     service.order = order ?? service.order;

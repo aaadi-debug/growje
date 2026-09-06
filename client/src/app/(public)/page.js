@@ -1,12 +1,12 @@
-import HeroSection from "@/components/home/HeroSection";
-import ClientMarquee from "@/components/home/ServicesMarquee";
-import WhoAreWe from "@/components/home/WhoWeAre";
-import Services from "@/components/home/Services";
-import OurWork from "@/components/home/OurWork";
-import Approach from "@/components/home/Approach";
-import LetsTalk from "@/components/home/LetsTalk";
-import Testimonials from "@/components/home/Testimonials";
-import NumbersSection from "@/components/home/Numbers";
+import HeroSection from "@/components/public/home/HeroSection";
+import ClientMarquee from "@/components/public/home/ServicesMarquee";
+import WhoAreWe from "@/components/public/home/WhoWeAre";
+import Services from "@/components/public/home/Services";
+import OurWork from "@/components/public/home/OurWork";
+import Approach from "@/components/public/home/Approach";
+import LetsTalk from "@/components/public/home/LetsTalk";
+import Testimonials from "@/components/public/home/Testimonials";
+import NumbersSection from "@/components/public/home/Numbers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
