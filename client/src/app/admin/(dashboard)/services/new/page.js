@@ -19,13 +19,6 @@ export default function CreateServicePage() {
     title: "",
     slug: "",
     shortDescription: "",
-
-    // hero: {
-    //   title: "",
-    //   mediaType: "image",
-    //   media: "",
-    // },
-
     hero: {
       title: "",
       mediaType: "image",
@@ -36,10 +29,19 @@ export default function CreateServicePage() {
         alt: "",
       },
     },
-
     clients: [],
     portfolioTitle: "PORTFOLIO",
     portfolioSubtitle: "",
+    servicesSection: {
+      title: "",
+      items: [],
+    },
+    processSection: {
+      title: "",
+      steps: [],
+    },
+    aboutSections: [],
+    faqs: [],
     status: "draft",
     order: 0,
     seo: {
@@ -147,13 +149,10 @@ export default function CreateServicePage() {
         `${API_URL}/services`,
         {
           method: "POST",
-
           headers: {
             "Content-Type": "application/json",
           },
-
           credentials: "include",
-
           body: JSON.stringify({
             ...formData,
             order: Number(formData.order),
@@ -401,6 +400,423 @@ export default function CreateServicePage() {
               />
             </div>
           </div>
+        </section>
+
+        {/* ====================== SERVICES SECTION ====================== */}
+        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+          <h2 className="text-xl font-semibold mb-2">Services Section</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Only one section allowed. Add as many service cards as you want.
+          </p>
+
+          <div className="mb-5">
+            <label className="block mb-2 text-sm font-medium">Section Title</label>
+            <input
+              type="text"
+              value={formData.servicesSection?.title || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  servicesSection: {
+                    ...prev.servicesSection,
+                    title: e.target.value,
+                    items: prev.servicesSection?.items || [],
+                  },
+                }))
+              }
+              placeholder="Our Digital Marketing Services in India"
+              className="w-full border rounded-lg px-4 py-3"
+            />
+          </div>
+
+          <div className="space-y-4">
+            {(formData.servicesSection?.items || []).map((item, index) => (
+              <div key={index} className="border rounded-lg p-4 relative bg-gray-50">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const items = [...(formData.servicesSection?.items || [])];
+                    items.splice(index, 1);
+                    setFormData((prev) => ({
+                      ...prev,
+                      servicesSection: { ...prev.servicesSection, items },
+                    }));
+                  }}
+                  className="absolute top-3 right-3 text-red-500"
+                >
+                  ×
+                </button>
+
+                <input
+                  type="text"
+                  value={item.title}
+                  onChange={(e) => {
+                    const items = [...(formData.servicesSection?.items || [])];
+                    items[index].title = e.target.value;
+                    setFormData((prev) => ({
+                      ...prev,
+                      servicesSection: { ...prev.servicesSection, items },
+                    }));
+                  }}
+                  placeholder="Service Title (e.g. SEO Services)"
+                  className="w-full border rounded-lg px-3 py-2 mb-3"
+                />
+
+                <textarea
+                  value={item.description}
+                  onChange={(e) => {
+                    const items = [...(formData.servicesSection?.items || [])];
+                    items[index].description = e.target.value;
+                    setFormData((prev) => ({
+                      ...prev,
+                      servicesSection: { ...prev.servicesSection, items },
+                    }));
+                  }}
+                  rows={3}
+                  placeholder="Short description..."
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                servicesSection: {
+                  title: prev.servicesSection?.title || "",
+                  items: [
+                    ...(prev.servicesSection?.items || []),
+                    { title: "", description: "" },
+                  ],
+                },
+              }));
+            }}
+            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg"
+          >
+            + Add Service Card
+          </button>
+        </section>
+
+        {/* ====================== PROCESS SECTION ====================== */}
+        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+          <h2 className="text-xl font-semibold mb-2">Process Section</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Show the step-by-step process of this service.
+          </p>
+
+          <div className="mb-5">
+            <label className="block mb-2 text-sm font-medium">Process Title</label>
+            <input
+              type="text"
+              value={formData.processSection?.title || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  processSection: {
+                    ...prev.processSection,
+                    title: e.target.value,
+                    steps: prev.processSection?.steps || [],
+                  },
+                }))
+              }
+              placeholder="Our SEO Process"
+              className="w-full border rounded-lg px-4 py-3"
+            />
+          </div>
+
+          <div className="space-y-4">
+            {(formData.processSection?.steps || []).map((step, index) => (
+              <div key={index} className="border rounded-lg p-4 relative bg-gray-50">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const steps = [...(formData.processSection?.steps || [])];
+                    steps.splice(index, 1);
+                    setFormData((prev) => ({
+                      ...prev,
+                      processSection: { ...prev.processSection, steps },
+                    }));
+                  }}
+                  className="absolute top-3 right-3 text-red-500"
+                >
+                  ×
+                </button>
+
+                <input
+                  type="text"
+                  value={step.title}
+                  onChange={(e) => {
+                    const steps = [...(formData.processSection?.steps || [])];
+                    steps[index].title = e.target.value;
+                    setFormData((prev) => ({
+                      ...prev,
+                      processSection: { ...prev.processSection, steps },
+                    }));
+                  }}
+                  placeholder="1. Audit"
+                  className="w-full border rounded-lg px-3 py-2 mb-3"
+                />
+
+                <textarea
+                  value={step.description}
+                  onChange={(e) => {
+                    const steps = [...(formData.processSection?.steps || [])];
+                    steps[index].description = e.target.value;
+                    setFormData((prev) => ({
+                      ...prev,
+                      processSection: { ...prev.processSection, steps },
+                    }));
+                  }}
+                  rows={2}
+                  placeholder="Website & competitor analysis."
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                processSection: {
+                  title: prev.processSection?.title || "",
+                  steps: [
+                    ...(prev.processSection?.steps || []),
+                    { title: "", description: "" },
+                  ],
+                },
+              }));
+            }}
+            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg"
+          >
+            + Add Step
+          </button>
+        </section>
+
+        {/* ====================== ABOUT SECTIONS ====================== */}
+        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-semibold">About Sections</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Layout alternates automatically (Content-Image / Image-Content)
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setFormData((prev) => ({
+                  ...prev,
+                  aboutSections: [
+                    ...(prev.aboutSections || []),
+                    {
+                      title: "",
+                      description: "",
+                      bullets: [""],
+                      image: { url: "", alt: "", publicId: "" },
+                    },
+                  ],
+                }));
+              }}
+              className="bg-black text-white px-4 py-2 rounded-lg text-sm"
+            >
+              + Add About Section
+            </button>
+          </div>
+
+          {(formData.aboutSections || []).map((section, sectionIndex) => (
+            <div
+              key={sectionIndex}
+              className="border rounded-xl p-5 mb-6 bg-gray-50 relative"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setFormData((prev) => ({
+                    ...prev,
+                    aboutSections: prev.aboutSections.filter(
+                      (_, i) => i !== sectionIndex
+                    ),
+                  }));
+                }}
+                className="absolute top-4 right-4 text-red-500"
+              >
+                Remove
+              </button>
+
+              <p className="text-xs text-gray-400 mb-4">
+                Section {sectionIndex + 1} →{" "}
+                {sectionIndex % 2 === 0
+                  ? "Content Left + Image Right"
+                  : "Image Left + Content Right"}
+              </p>
+
+              <div className="mb-4">
+                <label className="block mb-1 text-sm">Title</label>
+                <input
+                  type="text"
+                  value={section.title}
+                  onChange={(e) => {
+                    const updated = [...formData.aboutSections];
+                    updated[sectionIndex].title = e.target.value;
+                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                  }}
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="What is Search Engine Optimization (SEO)?"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block mb-1 text-sm">Description</label>
+                <textarea
+                  value={section.description}
+                  onChange={(e) => {
+                    const updated = [...formData.aboutSections];
+                    updated[sectionIndex].description = e.target.value;
+                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                  }}
+                  rows={4}
+                  className="w-full border rounded-lg px-3 py-2"
+                />
+              </div>
+
+              {/* Bullets */}
+              <div className="mb-4">
+                <label className="block mb-2 text-sm">Bullet Points</label>
+                {(section.bullets || []).map((bullet, bIndex) => (
+                  <div key={bIndex} className="flex gap-2 mb-2">
+                    <input
+                      type="text"
+                      value={bullet}
+                      onChange={(e) => {
+                        const updated = [...formData.aboutSections];
+                        updated[sectionIndex].bullets[bIndex] = e.target.value;
+                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                      }}
+                      className="flex-1 border rounded-lg px-3 py-2"
+                      placeholder="Higher Google rankings & visibility"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const updated = [...formData.aboutSections];
+                        updated[sectionIndex].bullets = updated[
+                          sectionIndex
+                        ].bullets.filter((_, i) => i !== bIndex);
+                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                      }}
+                      className="text-red-500 px-2"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const updated = [...formData.aboutSections];
+                    updated[sectionIndex].bullets.push("");
+                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                  }}
+                  className="text-sm text-blue-600"
+                >
+                  + Add Bullet
+                </button>
+              </div>
+
+              {/* Image */}
+              <div>
+                <label className="block mb-2 text-sm">Image</label>
+                <MediaUpload
+                  label="About Section Image"
+                  value={section.image}
+                  onChange={(media) => {
+                    const updated = [...formData.aboutSections];
+                    updated[sectionIndex].image = media;
+                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </section>
+
+        {/* ====================== FAQs ====================== */}
+        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-semibold">FAQs</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Add frequently asked questions
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setFormData((prev) => ({
+                  ...prev,
+                  faqs: [...(prev.faqs || []), { question: "", answer: "" }],
+                }));
+              }}
+              className="bg-black text-white px-4 py-2 rounded-lg text-sm"
+            >
+              + Add FAQ
+            </button>
+          </div>
+
+          {(formData.faqs || []).map((faq, index) => (
+            <div key={index} className="border rounded-lg p-4 mb-4 relative">
+              <button
+                type="button"
+                onClick={() => {
+                  setFormData((prev) => ({
+                    ...prev,
+                    faqs: prev.faqs.filter((_, i) => i !== index),
+                  }));
+                }}
+                className="absolute top-3 right-3 text-red-500"
+              >
+                ×
+              </button>
+
+              <div className="mb-3">
+                <label className="block mb-1 text-sm">Question</label>
+                <input
+                  type="text"
+                  value={faq.question}
+                  onChange={(e) => {
+                    const updated = [...formData.faqs];
+                    updated[index].question = e.target.value;
+                    setFormData((prev) => ({ ...prev, faqs: updated }));
+                  }}
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="What is included in this service?"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1 text-sm">Answer</label>
+                <textarea
+                  value={faq.answer}
+                  onChange={(e) => {
+                    const updated = [...formData.faqs];
+                    updated[index].answer = e.target.value;
+                    setFormData((prev) => ({ ...prev, faqs: updated }));
+                  }}
+                  rows={3}
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="Detailed answer..."
+                />
+              </div>
+            </div>
+          ))}
         </section>
 
         {/* SETTINGS */}

@@ -38,11 +38,23 @@ const leadSchema = new mongoose.Schema(
       trim: true,
     },
 
+    source: {
+      type: String,
+      enum: ["Contact Form", "Service Page"],
+      default: "Contact Form",
+    },
+
+    budget: {                    // ← NEW
+      type: String,
+      default: "",
+      trim: true,
+    },
+
     message: {
       type: String,
       required: true,
       trim: true,
-      minlength: 20,
+      minlength: 10,
       maxlength: 2000,
     },
 

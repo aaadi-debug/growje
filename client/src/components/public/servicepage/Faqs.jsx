@@ -64,7 +64,7 @@ export default function Faqs({ faqData }) {
                     <div className="mt-10 flex items-center justify-center max-sm:flex-col gap-4 border border-primary rounded-full max-sm:rounded-2xl p-6 bg-primary/10 max-w-3xl mx-auto">
                         <p className="text-2xl">Have a project in mind?</p>
                         <Link
-                            href="/contact-us"
+                            href="#service_form"
                             className="group flex items-center gap-3 text-sm font-medium border-b border-black pb-2 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:text-primary hover:border-primary"
                         >
                             Start A Conversation

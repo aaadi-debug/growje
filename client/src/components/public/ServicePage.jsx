@@ -17,6 +17,8 @@ export default function ServicePage({ service, projects = [] }) {
   const aboutSections = service.aboutSections || [];
   const faqs = service.faqs || [];
 
+  console.log("2nd page service: ", service)
+  
   return (
     <main className="bg-white text-black">
       {/* ================= HERO ====================== */}

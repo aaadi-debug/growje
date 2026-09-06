@@ -81,7 +81,7 @@ export default function LeadsPage() {
     return leads.filter((lead) => {
       const matchesFilter =
         filter === "all" ||
-        lead.status === filter;
+        lead.status === filter || lead.source === filter;;
 
       const matchesSearch =
         !query ||
@@ -378,6 +378,9 @@ export default function LeadsPage() {
           <option value="closed">
             Closed
           </option>
+
+          <option value="Service Page">Service Page</option>
+          <option value="Contact Form">Contact Form</option>
         </select>
       </div>
 
@@ -428,6 +431,9 @@ export default function LeadsPage() {
                   </th>
                   <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
                     Date
+                  </th>
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    Source
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-gray-400">
                     Actions
@@ -541,8 +547,8 @@ function LeadRow({
   return (
     <tr
       className={`border-b last:border-0 transition hover:bg-gray-50 ${!lead.isRead
-          ? "bg-blue-50/30"
-          : ""
+        ? "bg-blue-50/30"
+        : ""
         }`}
     >
       {/* CONTACT */}
@@ -554,8 +560,8 @@ function LeadRow({
           <div>
             <p
               className={`font-medium ${!lead.isRead
-                  ? "font-semibold"
-                  : ""
+                ? "font-semibold"
+                : ""
                 }`}
             >
               {lead.name}
@@ -632,6 +638,31 @@ function LeadRow({
         {formatDate(
           lead.createdAt
         )}
+      </td>
+
+      {/* SERVICE */}
+      <td className="px-6 py-5">
+        <div className="flex flex-col gap-1.5">
+          <span className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium w-fit">
+            {lead.service}
+          </span>
+
+          {/* Source Badge */}
+          <span
+            className={`rounded-full px-2.5 py-1 text-[11px] font-medium w-fit ${lead.source === "Service Page"
+              ? "bg-purple-100 text-purple-700"
+              : "bg-sky-100 text-sky-700"
+              }`}
+          >
+            {lead.source || "Contact Form"}
+          </span>
+
+          {lead.budget && (
+            <span className="text-xs text-gray-500">
+              Budget: ₹{lead.budget}
+            </span>
+          )}
+        </div>
       </td>
 
       {/* ACTIONS */}
@@ -785,10 +816,18 @@ function LeadModal({
               }
             />
 
+            <DetailItem icon={BriefcaseBusiness} label="Service" value={lead.service} />
+
+            {/* New fields */}
             <DetailItem
               icon={BriefcaseBusiness}
-              label="Service"
-              value={lead.service}
+              label="Source"
+              value={lead.source || "Contact Form"}
+            />
+            <DetailItem
+              icon={BriefcaseBusiness}
+              label="Budget"
+              value={lead.budget ? `₹ ${lead.budget}` : "Not specified"}
             />
 
           </div>

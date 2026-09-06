@@ -19,7 +19,9 @@ const createLead = async (req, res) => {
       phone,
       company,
       service,
+      budget,
       message,
+      source = "Contact Form",
     } = req.body;
 
     if (!name?.trim()) {
@@ -91,7 +93,9 @@ const createLead = async (req, res) => {
       phone: phone.trim(),
       company: company?.trim() || "",
       service: service.trim(),
+      budget: budget?.trim() || "",
       message: message.trim(),
+      source,
     });
 
     return res.status(201).json({
