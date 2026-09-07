@@ -241,88 +241,116 @@ export default function Header() {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="lg:hidden"
+                        className="lg:hidden z-50 relative"
                     >
-                        {mobileMenuOpen ? (
-                            <X size={24} />
-                        ) : (
-                            <Menu size={24} />
-                        )}
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
 
             {/* MOBILE MENU */}
-            {mobileMenuOpen && (
+            {/* {mobileMenuOpen && ( */}
                 <div
                     className={`
-                        lg:hidden
-                        border-t
-                        ${scrolled
-                            ? "bg-white text-black border-gray-200"
-                            : "bg-black text-white border-white/20"
-                        }
+                        fixed inset-0 z-40 lg:hidden
+                        transition-all duration-500 ease-in-out
+                        ${mobileMenuOpen ? "visible" : "invisible"}
                     `}
                 >
-                    <nav className="px-6 py-6 flex flex-col gap-5">
+                    {/* Backdrop */}
+                    <div
+                        className={`
+                            absolute inset-0 bg-black/50 transition-opacity duration-500
+                            ${mobileMenuOpen ? "opacity-100" : "opacity-0"}
+                        `}
+                        onClick={() => setMobileMenuOpen(false)}
+                    />
 
-                        <Link
-                            href="/"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Home
-                        </Link>
-
-                        <div>
-                            <button
-                                type="button"
-                                onClick={() => setServicesOpen(!servicesOpen)}
-                                className="flex items-center gap-2"
-                            >
-                                Services
-                                <ChevronDown size={16} />
+                    {/* Sliding Panel */}
+                    <div
+                        className={`
+                            absolute top-0 right-0 h-full w-full max-w-md
+                            bg-white text-black
+                            transition-transform duration-500 ease-in-out
+                            ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
+                            flex flex-col
+                        `}
+                    >
+                        {/* Header */}
+                        <div className="flex items-center justify-between px-6 h-20 border-b">
+                            <Image
+                                src={Logo}
+                                width={100}
+                                height={100}
+                                className="w-36"
+                                alt="Growje"
+                            />
+                            <button onClick={() => setMobileMenuOpen(false)}>
+                                <X size={24} />
                             </button>
-
-                            {servicesOpen && (
-                                <div className="mt-4 ml-4 flex flex-col gap-4">
-                                    {services.map((service) => (
-                                        <Link
-                                            key={service._id}
-                                            href={`/${service.slug}`}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="text-sm opacity-80"
-                                        >
-                                            {service.title}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
                         </div>
 
-                        <Link
-                            href="/portfolio"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Portfolio
-                        </Link>
+                        {/* Nav Links */}
+                        <nav className="flex-1 px-6 py-8 flex flex-col gap-6 text-lg font-medium">
+                            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                                Home
+                            </Link>
 
-                        <Link
-                            href="/about-us"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            About
-                        </Link>
+                            <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>
+                                About Us
+                            </Link>
 
-                        <Link
-                            href="/contact-us"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Contact
-                        </Link>
+                            <div>
+                                <button
+                                    type="button"
+                                    onClick={() => setServicesOpen(!servicesOpen)}
+                                    className="flex items-center gap-2 w-full"
+                                >
+                                    Services
+                                    <ChevronDown
+                                        size={18}
+                                        className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                                    />
+                                </button>
 
-                    </nav>
+                                {servicesOpen && (
+                                    <div className="mt-4 ml-3 flex flex-col gap-3 text-base text-black/70">
+                                        {services.map((service) => (
+                                            <Link
+                                                key={service._id}
+                                                href={`/${service.slug}`}
+                                                onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                                {service.title}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                            <Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>
+                                Blogs
+                            </Link>
+
+                            <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
+                                Contact
+                            </Link>
+                        </nav>
+
+                        {/* Bottom CTA */}
+                        <div className="px-6 pb-10">
+                            <Link
+                                href="tel:+919625870021"
+                                className="flex items-center justify-center gap-2 w-full bg-black text-white py-4 rounded-full text-sm font-medium"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <Phone size={16} />
+                                Call Now
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-            )}
+            {/* )} */}
         </header>
     );
 }
