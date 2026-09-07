@@ -78,6 +78,100 @@ function FadeUp({ children, delay = 0, className = "" }) {
   );
 }
 
+function RotatingBadge() {
+  return (
+    <div className="relative w-36 h-36 lg:w-44 lg:h-44">
+      {/* Rotating text */}
+      <div className="absolute inset-0 animate-[spin_12s_linear_infinite]">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <defs>
+            <path
+              id="circlePath"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+            />
+          </defs>
+          <text className="text-2xl tracking-[0.25em] fill-white/90">
+            <textPath href="#circlePath" startOffset="0%">
+              Let’s Build Something Great • Let’s Build Something Great •
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      {/* Center arrow */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Link href="/contact-us">
+          <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M7 17L17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Counter({ value, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const hasAnimated = useRef(false);
+
+  // Extract number from strings like "7k+", "98%", "50+"
+  const numericValue = parseFloat(value.replace(/[^\d.]/g, "")) || 0;
+  const suffixText = value.replace(/[\d.]/g, "");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+
+          const duration = 1800;
+          const startTime = performance.now();
+
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+
+            setCount(Math.floor(ease * numericValue));
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(numericValue);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [numericValue]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {count}
+      {suffixText}
+    </span>
+  );
+}
+
 export default function AboutUsPage() {
   return (
     <main className="bg-white text-black">
@@ -98,6 +192,9 @@ export default function AboutUsPage() {
 
         {/* left */}
         <div className="relative flex flex-col justify-end lg:px-12 px-6">
+          <FadeUp className="mb-4">
+            <RotatingBadge />
+          </FadeUp>
           <FadeUp>
             <p className="mb-5 text-xs uppercase tracking-[0.25em] text-white/75">
               About GROWJE
@@ -149,7 +246,7 @@ export default function AboutUsPage() {
         </div>
 
         {/* right */}
-        <div className="relative flex flex-col justify-end lg:px-16 px-6">
+        <div className="relative flex flex-col justify-end lg:px-16 px-6 max-sm:hidden">
           <FadeUp delay={200}>
             <p className="mt-10 max-sm:mt-6 max-w-xl lg:text-xl text-lg max-sm:text-base lg:font-semibold leading-relaxed text-white">
               A creative digital agency focused on strategy, design and
@@ -158,11 +255,15 @@ export default function AboutUsPage() {
           </FadeUp>
           <FadeUp className="flex max-sm:flex-col justify-between mt-10">
             <div delay={300} className="text-white">
-              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">1000+</span>
+              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">
+                <Counter value="1000+" />
+              </span>
               <p>Global Projects Complete</p>
             </div>
             <div delay={300} className="text-white max-sm:mt-4">
-              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">800+</span>
+              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">
+                <Counter value="800+" />
+              </span>
               <p>Clients Satisfaction</p>
             </div>
           </FadeUp>
@@ -206,7 +307,7 @@ export default function AboutUsPage() {
                   {stats.map((stat) => (
                     <div key={stat.label}>
                       <p className="text-3xl font-medium tracking-tight md:text-4xl">
-                        {stat.value}
+                        <Counter value={stat.value} />
                       </p>
                       <p className="mt-2 text-sm text-white/50">{stat.label}</p>
                     </div>
@@ -291,11 +392,11 @@ export default function AboutUsPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((item, index) => (
               <FadeUp key={item.number} delay={index * 80}>
-                <div className="group h-full rounded-2xl border border-black/10 bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white">
+                <div className="group h-full rounded-2xl border border-primary bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white group">
                   <span className="text-sm text-black/30 group-hover:text-white/40">
                     {item.number}
                   </span>
-                  <h3 className="mt-10 text-xl font-medium">{item.title}</h3>
+                  <h3 className="mt-6 text-xl font-semibold text-primary group-hover:text-white">{item.title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-black/55 group-hover:text-white/60">
                     {item.description}
                   </p>
