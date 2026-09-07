@@ -11,8 +11,8 @@ export default function ProjectForm({
   saving,
   submitText = "Save Project",
 }) {
-    const router = useRouter();
-  
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     title: initialData?.title || "",
     slug: initialData?.slug || "",
@@ -36,6 +36,13 @@ export default function ProjectForm({
         publicId: initialData?.hero?.media?.publicId || "",
       },
     },
+    cardImage: {
+      type: initialData?.cardImage?.type || "image",
+      url: initialData?.cardImage?.url || "",
+      alt: initialData?.cardImage?.alt || "",
+      publicId: initialData?.cardImage?.publicId || "",
+    },
+    cardColor: initialData?.cardColor || "#2d2d2d",
 
     about: {
       title: initialData?.about?.title || "About the project",
@@ -434,6 +441,106 @@ export default function ProjectForm({
             ))}
           </div>
         )}
+      </section>
+
+      {/* =================================
+          CARD IMAGE
+      ================================= */}
+      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+        <h2 className="text-xl font-semibold mb-2">Card Image</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          This image will be used on portfolio listing cards.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-5 mb-5">
+          <select
+            value={formData.cardImage.type}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                cardImage: {
+                  ...prev.cardImage,
+                  type: e.target.value,
+                },
+              }))
+            }
+            className="border rounded-lg px-4 py-3 w-full"
+          >
+            <option value="image">Image</option>
+            <option value="gif">GIF</option>
+          </select>
+
+          <input
+            value={formData.cardImage.alt}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                cardImage: {
+                  ...prev.cardImage,
+                  alt: e.target.value,
+                },
+              }))
+            }
+            placeholder="Alt text"
+            className="w-full border rounded-lg px-4 py-3"
+          />
+        </div>
+
+        <MediaUpload
+          label="Card Image"
+          value={formData.cardImage}
+          onChange={(media) =>
+            setFormData((prev) => ({
+              ...prev,
+              cardImage: {
+                ...prev.cardImage,
+                ...media,
+              },
+            }))
+          }
+        />
+      </section>
+
+      {/* =================================
+          CARD / HERO BACKGROUND COLOR
+      ================================= */}
+      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+        <h2 className="text-xl font-semibold mb-2">Content Background Color</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          This color will be used behind the project title and details on the project page.
+        </p>
+
+        <div className="flex items-center gap-4">
+          <input
+            type="color"
+            value={formData.cardColor}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                cardColor: e.target.value,
+              }))
+            }
+            className="h-12 w-20 cursor-pointer rounded border border-gray-300"
+          />
+
+          <input
+            type="text"
+            value={formData.cardColor}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                cardColor: e.target.value,
+              }))
+            }
+            placeholder="#2d2d2d"
+            className="border rounded-lg px-4 py-3 w-40 font-mono text-sm"
+          />
+
+          <div
+            className="h-12 flex-1 rounded-lg border"
+            style={{ backgroundColor: formData.cardColor }}
+          />
+        </div>
       </section>
 
       {/* =================================

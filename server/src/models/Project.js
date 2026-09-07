@@ -153,6 +153,34 @@ const projectSchema = new mongoose.Schema(
     },
 
     // =========================
+    // CARD IMAGE (for listings)
+    // =========================
+    cardImage: {
+      type: {
+        type: String,
+        enum: ["image", "gif"],
+        default: "image",
+      },
+      url: {
+        type: String,
+        default: "",
+      },
+      alt: {
+        type: String,
+        default: "",
+      },
+      publicId: {
+        type: String,
+        default: "",
+      },
+    },
+
+    cardColor: {
+      type: String,
+      default: "#2d2d2d", // default dark gray like your screenshot
+    },
+
+    // =========================
     // ABOUT PROJECT SECTION
     // =========================
 

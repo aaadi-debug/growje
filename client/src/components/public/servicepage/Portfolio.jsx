@@ -18,8 +18,8 @@ export default function Portfolio({ service, projects }) {
                       {/* Optional light grid */}
                       <div
                         className="pointer-events-none absolute inset-0 opacity-[0.65]
-                  [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
-                  [background-size:48px_48px]"
+                        [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+                        [background-size:48px_48px]"
                         aria-hidden="true"
                       />
             

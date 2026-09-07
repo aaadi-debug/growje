@@ -18,6 +18,7 @@ export default function ServicePage({ service, projects = [] }) {
   const faqs = service.faqs || [];
 
   console.log("2nd page service: ", service)
+  console.log("2nd page project: ", projects)
   
   return (
     <main className="bg-white text-black">

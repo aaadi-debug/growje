@@ -6,6 +6,11 @@ import MediaRenderer from "./MediaRenderer";
 export default function ProjectCard({ project }) {
   if (!project) return null;
 
+  // Prefer cardImage, fallback to hero media
+  const cardMedia = project.cardImage?.url
+    ? project.cardImage
+    : project.hero?.media;
+
   return (
     <Link
       href={`/portfolio/${project.slug}`}
@@ -13,10 +18,14 @@ export default function ProjectCard({ project }) {
     >
       <div className="overflow-hidden bg-zinc-100 rounded-[40px]">
         <div className="aspect-[3/4] overflow-hidden">
-          <MediaRenderer
-            media={project.hero?.media}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          {cardMedia?.url ? (
+            <MediaRenderer
+              media={cardMedia}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="h-full w-full bg-zinc-200" />
+          )}
         </div>
       </div>
 

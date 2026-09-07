@@ -21,38 +21,52 @@ export default function ProjectPage({ project }) {
       {/* ==============================
           HERO
       ============================== */}
+      <section className="relative h-screen overflow-hidden text-white" style={{ backgroundColor: project.cardColor || "#2d2d2d" }}>
+        <div className="grid h-full lg:grid-cols-2">
 
-      <section className="relative min-h-[75vh] overflow-hidden bg-black text-white">
-
-        {project.hero?.media?.url && (
-          <MediaRenderer
-            media={project.hero.media}
-            priority
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        )}
-
-        <div className="absolute inset-0 bg-black/35" />
-
-        <div className="relative z-10 flex min-h-[75vh] items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
-          <div className="max-w-6xl">
-
-            {project.category && (
-              <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/70">
-                {project.category}
-              </p>
+          {/* Left side - Media */}
+          <div className="relative h-full min-h-[50vh] lg:min-h-full">
+            {project.hero?.media?.url && (
+              <MediaRenderer
+                media={project.hero.media}
+                priority
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             )}
+          </div>
 
-            <h1 className="max-w-5xl text-4xl font-medium leading-[0.95] md:text-6xl lg:text-8xl">
-              {project.title}
-            </h1>
+          {/* Right side - Content */}
+          <div className="relative z-10 flex h-full items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
+            <div className="max-w-6xl">
+              <h1 className="max-w-5xl text-3xl font-medium leading-[0.95]">
+                {project.title}
+              </h1>
 
-            {project.shortDescription && (
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/80 md:text-lg">
-                {project.shortDescription}
-              </p>
-            )}
+              {project.shortDescription && (
+                <p className="my-6 max-w-2xl text-5xl text-white/80">
+                  {project.shortDescription}
+                </p>
+              )}
 
+              {project.category && (
+                <div className="mb-5">
+                  <p className="mb-3 text-xs uppercase tracking-[0.2em] text-white/70">
+                    Category:
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.category.split(",").map((item, index) => (
+                      <span
+                        key={index}
+                        className="rounded-full border border-white/40 px-3 py-1 text-xs uppercase tracking-wider text-white/90"
+                      >
+                        {item.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
