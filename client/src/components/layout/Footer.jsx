@@ -108,7 +108,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="text-sm text-white/60 hover:text-white transition"
               >
                 Contact

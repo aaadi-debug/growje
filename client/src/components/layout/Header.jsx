@@ -307,14 +307,14 @@ export default function Header() {
                         </Link>
 
                         <Link
-                            href="/about"
+                            href="/about-us"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             About
                         </Link>
 
                         <Link
-                            href="/contact"
+                            href="/contact-us"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Contact

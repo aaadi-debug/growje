@@ -118,7 +118,7 @@ export default function HeroSection() {
                 </div>
             </section> */}
 
-            <section className="relative min-h-screen overflow-hidden bg-black text-white">
+            <section className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-screen overflow-hidden bg-black text-white">
                 <video
                     src="/videos/home-hero2.mp4"
                     className="absolute inset-0 h-full w-full object-cover"
@@ -131,7 +131,7 @@ export default function HeroSection() {
 
                 {/* <div className="absolute inset-0 bg-black/60" /> */}
 
-                <div className="relative z-10 flex min-h-screen items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
+                <div className="relative z-10 flex min-h-[60vh] md:min-h-[75vh] lg:min-h-screen items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
                     <div className="max-w-7xl">
                         <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/60">
                             GROWJE
