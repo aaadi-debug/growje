@@ -23,7 +23,7 @@ export default function ShowcaseSection({
         : section.columns || 1;
 
   return (
-    <section className="px-5 py-16 md:px-10 lg:px-16">
+    <section className="px-5 py-16 md:px-10 lg:px-16 max-w-6xl mx-auto">
       {section.title && (
         <div className="mb-10">
           <h2 className="text-2xl font-medium md:text-4xl">
@@ -44,10 +44,15 @@ export default function ShowcaseSection({
             key={item._id || `${item.title}-${item.order}`}
             className="min-w-0"
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden group rounded-3xl">
               <MediaRenderer
                 media={item.media}
-                className="block h-auto w-full object-cover"
+                className="
+                  block h-auto w-full object-cover rounded-3xl
+                  transition-transform duration-700 ease-out
+                  group-hover:scale-110
+                  active:scale-110
+                "
               />
             </div>
 

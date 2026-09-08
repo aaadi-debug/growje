@@ -67,5 +67,7 @@ export default async function PortfolioProjectPage({
     notFound();
   }
 
+  // console.log("Project: ", project)
+
   return <ProjectPage project={project} />;
 }
