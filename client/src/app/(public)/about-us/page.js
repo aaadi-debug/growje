@@ -437,6 +437,8 @@ export default function AboutUsPage() {
         <div className="lg:hidden md:hidden block">
           <img src="/assets/images/home/approach_mobile_1.png" />
           <img src="/assets/images/home/approach_mobile_2.png" />
+          <img src="/assets/images/home/approach_mobile_3.png" />
+          <img src="/assets/images/home/approach_mobile_4.png" />
         </div>
       </section>
 

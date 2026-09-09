@@ -1,3 +1,4 @@
+//server/src/middleware/upload.js
 const multer = require("multer");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 

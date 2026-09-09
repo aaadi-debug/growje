@@ -1,3 +1,5 @@
+// server/src/controllers/upload.controller.js
+
 const uploadMedia = async (req, res) => {
   try {
     if (!req.file) {

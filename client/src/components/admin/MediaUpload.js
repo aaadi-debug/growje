@@ -1,3 +1,4 @@
+// client/src/components/admin/MediaUpload.js
 "use client";
 
 import { useRef, useState } from "react";

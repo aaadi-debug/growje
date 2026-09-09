@@ -35,6 +35,7 @@ const authRoutes = require("./routes/auth.routes");
 const serviceRoutes = require("./routes/service.routes");
 const uploadRoutes = require("./routes/upload.routes");
 const leadRoutes = require("./routes/lead.routes");
+const blogRoutes = require("./routes/blog.routes");
 // app.use(
 //   cors({
 //     origin: process.env.CLIENT_URL,
@@ -59,7 +60,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/leads", leadRoutes);
-
+app.use("/api/blogs", blogRoutes);
 
 const multer = require("multer");
 

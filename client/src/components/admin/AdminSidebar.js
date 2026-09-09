@@ -26,10 +26,10 @@ const menuItems = [
     name: "Testimonials",
     href: "/admin/testimonials",
   },
-  {
-    name: "Clients",
-    href: "/admin/clients",
-  },
+  // {
+  //   name: "Clients",
+  //   href: "/admin/clients",
+  // },
   {
     name: "Leads",
     href: "/admin/leads",

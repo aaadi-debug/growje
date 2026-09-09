@@ -507,27 +507,19 @@ function StatCard({
 }) {
   return (
     <div className="rounded-xl border bg-white p-5 shadow-sm">
-
       <div className="flex items-center justify-between">
-
         <div>
-
           <p className="text-sm text-gray-500">
             {title}
           </p>
-
           <p className="mt-2 text-3xl font-bold">
             {loading ? "—" : value}
           </p>
-
         </div>
-
         <div className="rounded-lg bg-gray-100 p-3">
           <Icon size={20} />
         </div>
-
       </div>
-
     </div>
   );
 }

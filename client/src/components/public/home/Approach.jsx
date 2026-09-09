@@ -16,8 +16,8 @@ const images = [
 const mobileImages = [
   "/assets/images/home/approach_mobile_1.png",
   "/assets/images/home/approach_mobile_2.png",
-  "/assets/images/home/approach_mobile_1.png",
-  "/assets/images/home/approach_mobile_1.png",
+  "/assets/images/home/approach_mobile_3.png",
+  "/assets/images/home/approach_mobile_4.png",
 ];
 
 export default function Approach() {

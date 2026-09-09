@@ -173,7 +173,7 @@ export default function Header() {
                         </div>
 
                         <Link
-                            href="/blogs"
+                            href="/articles"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
                             Blogs
@@ -328,7 +328,7 @@ export default function Header() {
                                 )}
                             </div>
 
-                            <Link href="/blogs" onClick={() => setMobileMenuOpen(false)}>
+                            <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>
                                 Blogs
                             </Link>
 
