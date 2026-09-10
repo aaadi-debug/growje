@@ -9,12 +9,12 @@ import { getServerCurrentUser } from "@/services/server-auth.service";
 export default function AdminDashboardLayout({ children }) {
   return (
     <AdminAuthGuard>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-[#F3F3F9]">
         <AdminSidebar />
 
-        <div className="ml-64">
+        <div className="ml-64 relative">
           <AdminHeader />
-          <main>{children}</main>
+          <main className="pt-16">{children}</main>
         </div>
       </div>
     </AdminAuthGuard>

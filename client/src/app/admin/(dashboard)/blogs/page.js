@@ -70,7 +70,7 @@ export default function BlogsAdminPage() {
   return (
     <div className="p-8">
       {/* HEADER */}
-      <div className="flex items-start justify-between mb-8">
+      <div className="flex items-end justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold">Blogs</h1>
           <p className="text-gray-500 text-sm">Manage articles, stories and editorial content.</p>
@@ -78,9 +78,10 @@ export default function BlogsAdminPage() {
 
         <Link
           href="/admin/blogs/new"
-          className="bg-black text-white px-5 py-3 rounded-lg hover:bg-zinc-700 transition duration-300"
+          className="flex gap-1 items-center bg-black text-white px-3 py-2 text-xs rounded-lg hover:bg-zinc-700 transition duration-300"
         >
-          + New Blog
+          <Plus size={14} />
+          New Blog
         </Link>
       </div>
 

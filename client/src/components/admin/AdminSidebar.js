@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "../../../public/assets/images/logo-growje.png";
+import { LogOut } from "lucide-react"
+import AdminLogout from "./AdminLogout";
 
 const menuItems = [
   {
@@ -40,9 +42,9 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r bg-primary">
+    <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col bg-primary">
       {/* Logo */}
-      <div className="flex py-3 items-center border-b border-white px-6 bg-[#0364A1]">
+      <div className="flex py-2 items-center justify-between bg-[#0364A1] px-4">
         <Link
           href="/admin"
           className="bg-white rounded"
@@ -54,6 +56,7 @@ export default function AdminSidebar() {
             className="border p-1 w-30 rounded"
           />
         </Link>
+        <AdminLogout />
       </div>
 
       {/* Navigation */}

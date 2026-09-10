@@ -14,6 +14,7 @@ import {
   Clock3,
   ExternalLink,
   Circle,
+  RefreshCw
 } from "lucide-react";
 
 import { apiFetch } from "../../../services/api";
@@ -140,19 +141,13 @@ export default function AdminDashboard() {
       {/* =========================================
           HEADER
       ========================================= */}
-
       <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
         <div>
-          {/* <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
-            GROWJE CMS
-          </p> */}
-
-          <h1 className="text-2xl font-bold">
-            Dashboard
+          <h1 className="text-lg font-medium">
+            Hi, Anshul!
           </h1>
-
           <p className="text-gray-500 text-sm">
-            Manage your website content, portfolio and enquiries.
+            Here's what's happening in your panel today.
           </p>
         </div>
 
@@ -160,8 +155,9 @@ export default function AdminDashboard() {
           type="button"
           onClick={loadDashboard}
           disabled={loading}
-          className="w-fit rounded-lg border bg-white px-4 py-2.5 text-sm font-medium transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+          className="w-fit flex gap-1 items-center rounded-lg border bg-white px-3 py-2 text-xs font-medium transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
         >
+          <RefreshCw size={14} />
           {loading ? "Refreshing..." : "Refresh"}
         </button>
       </div>
@@ -169,7 +165,6 @@ export default function AdminDashboard() {
       {/* =========================================
           ERROR
       ========================================= */}
-
       {error && (
         <div className="mb-6 flex items-center justify-between gap-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-600">
           <span>{error}</span>
@@ -187,7 +182,6 @@ export default function AdminDashboard() {
       {/* =========================================
           STATS
       ========================================= */}
-
       <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat) => {
           const Icon = stat.icon;
@@ -233,14 +227,13 @@ export default function AdminDashboard() {
       {/* =========================================
           QUICK ACTIONS
       ========================================= */}
-
       <div className="mt-8 rounded-2xl border bg-white p-6 shadow-sm">
         <div>
           <h2 className="text-lg font-semibold">
             Quick Actions
           </h2>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="text-gray-500 text-sm">
             Quickly manage your website content.
           </p>
         </div>
@@ -287,7 +280,6 @@ export default function AdminDashboard() {
         {/* =========================================
             RECENT PROJECTS
         ========================================= */}
-
         <DashboardSection
           title="Recent Projects"
           description="Latest projects added to your portfolio."
@@ -362,7 +354,6 @@ export default function AdminDashboard() {
         {/* =========================================
             RECENT LEADS
         ========================================= */}
-
         <DashboardSection
           title="Recent Enquiries"
           description="Latest contact form submissions."
@@ -456,7 +447,6 @@ export default function AdminDashboard() {
         {/* =========================================
             SERVICES
         ========================================= */}
-
         <DashboardSection
           title="Services"
           description="Services currently managed in your CMS."
@@ -518,7 +508,6 @@ export default function AdminDashboard() {
         {/* =========================================
             LEAD OVERVIEW
         ========================================= */}
-
         <DashboardSection
           title="Lead Overview"
           description="Current enquiry pipeline."
@@ -597,7 +586,7 @@ function DashboardSection({
             {title}
           </h2>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="text-gray-500 text-sm">
             {description}
           </p>
         </div>
@@ -634,9 +623,9 @@ function QuickAction({
     <Link
       href={href}
       target={external ? "_blank" : undefined}
-      className="inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition hover:bg-black hover:text-white"
+      className="inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-xs font-medium transition hover:bg-black hover:text-white"
     >
-      <Icon size={16} />
+      <Icon size={14} />
 
       {label}
 

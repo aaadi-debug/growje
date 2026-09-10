@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { logoutAdmin } from "@/services/auth.service";
+import { LogOut } from "lucide-react"
 
 export default function AdminLogout() {
   const router = useRouter();
@@ -29,9 +29,11 @@ export default function AdminLogout() {
     <button
       onClick={handleLogout}
       disabled={loading}
-      className="rounded-lg border px-4 py-2 text-sm font-medium transition hover:bg-black hover:text-white disabled:opacity-50 cursor-pointer"
+      className="rounded-lg text-sm font-medium transition text-white disabled:opacity-50 cursor-pointer"
+      title="Logout"
     >
-      {loading ? "Logging out..." : "Logout"}
+      {/* {loading ? "Logging out..." : "Logout"} */}
+        <LogOut size={20} />
     </button>
   );
 }

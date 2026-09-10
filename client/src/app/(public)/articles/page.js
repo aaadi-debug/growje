@@ -161,6 +161,18 @@ export default function ArticlesPage() {
             <div className="p-10">
               Loading articles...
             </div>
+          ) : blogs.length === 0 ? (
+            <div className="flex min-h-[40vh] flex-col items-center justify-center text-center px-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
+                Journal
+              </p>
+              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">
+                No articles yet
+              </h2>
+              <p className="max-w-md text-black/50 leading-relaxed">
+                We’re working on new insights and stories. Check back soon.
+              </p>
+            </div>
           ) : (
             blogs.map((blog, index) => (
               <Link

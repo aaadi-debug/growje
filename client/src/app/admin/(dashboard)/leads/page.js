@@ -18,6 +18,7 @@ import {
   CheckCheck,
   X,
   Circle,
+  RefreshCw
 } from "lucide-react";
 
 import {
@@ -285,8 +286,9 @@ export default function LeadsPage() {
         <button
           type="button"
           onClick={fetchLeads}
-          className="rounded-lg border px-4 py-2 text-sm font-medium transition hover:bg-black hover:text-white disabled:opacity-50 cursor-pointer"
+          className="w-fit flex gap-1 items-center rounded-lg border bg-white px-3 py-2 text-xs font-medium transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
         >
+          <RefreshCw size={14} />
           Refresh
         </button>
       </div>
@@ -294,7 +296,7 @@ export default function LeadsPage() {
       {/* =====================================
           STATS
       ===================================== */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 ">
         <StatCard
           icon={Users}
           title="Total Leads"
@@ -339,7 +341,7 @@ export default function LeadsPage() {
       {/* =====================================
           FILTERS
       ===================================== */}
-      <div className="mb-6 flex flex-col gap-4 rounded-xl border bg-white p-4 shadow-sm md:flex-row">
+      <div className="flex flex-col gap-4 rounded-t-xl border-t border-x bg-gray-200 p-4 border-b md:flex-row">
         <div className="relative flex-1">
           <Search
             size={18}
@@ -388,8 +390,8 @@ export default function LeadsPage() {
       {/* =====================================
           TABLE
       ===================================== */}
-      <div className="overflow-hidden rounded-xl border bg-white shadow-sm">
-        <div className="border-b px-6 py-5">
+      <div className="overflow-hidden rounded-b-xl border-b border-x bg-white shadow-sm">
+        <div className="border-b px-6 py-5 bg-gray-200">
           <h2 className="font-semibold">
             Enquiries
           </h2>
@@ -506,7 +508,7 @@ function StatCard({
   loading,
 }) {
   return (
-    <div className="rounded-xl border bg-white p-5 shadow-sm">
+    <div className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-gray-500">
@@ -516,7 +518,7 @@ function StatCard({
             {loading ? "—" : value}
           </p>
         </div>
-        <div className="rounded-lg bg-gray-100 p-3">
+        <div className="rounded-xl bg-gray-100 p-3 transition group-hover:bg-black group-hover:text-white">
           <Icon size={20} />
         </div>
       </div>
@@ -544,14 +546,14 @@ function LeadRow({
         }`}
     >
       {/* CONTACT */}
-      <td className="px-6 py-5">
+      <td className="p-4">
         <div className="flex items-start gap-3">
           {!lead.isRead && (
             <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-blue-500" />
           )}
           <div>
             <p
-              className={`font-medium ${!lead.isRead
+              className={`font-medium text-sm ${!lead.isRead
                 ? "font-semibold"
                 : ""
                 }`}
@@ -560,13 +562,13 @@ function LeadRow({
             </p>
             <a
               href={`mailto:${lead.email}`}
-              className="mt-1 block text-sm text-gray-500 hover:text-black"
+              className="mt-1 block text-xs text-gray-500 hover:text-black"
             >
               {lead.email}
             </a>
             <a
               href={`tel:${lead.phone}`}
-              className="mt-1 block text-sm text-gray-400 hover:text-black"
+              className="block text-xs text-gray-500 hover:text-black"
             >
               {lead.phone}
             </a>
@@ -575,26 +577,26 @@ function LeadRow({
       </td>
 
       {/* SERVICE */}
-      <td className="px-6 py-5">
-        <span className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium">
+      <td className="p-4 flex flex-col flex-wrap">
+        <span className="rounded-full bg-gray-200 px-3 py-1.5 text-xs font-medium mr-auto">
           {lead.service}
         </span>
         {lead.company && (
-          <p className="mt-2 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-500">
             {lead.company}
           </p>
         )}
       </td>
 
       {/* STATUS */}
-      <td className="px-6 py-5">
+      <td className="p-4">
         <StatusBadge
           status={lead.status}
         />
       </td>
 
       {/* READ */}
-      <td className="px-6 py-5">
+      <td className="p-4">
         {lead.isRead ? (
           <button
             onClick={() =>
@@ -624,16 +626,15 @@ function LeadRow({
         )}
       </td>
 
-
       {/* DATE */}
-      <td className="whitespace-nowrap px-6 py-5 text-sm text-gray-400">
+      <td className="whitespace-nowrap p-4 text-xs text-gray-400">
         {formatDate(
           lead.createdAt
         )}
       </td>
 
       {/* SERVICE */}
-      <td className="px-6 py-5">
+      <td className="p-4">
         <div className="flex flex-col gap-1.5">
           <span className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium w-fit">
             {lead.service}
@@ -658,7 +659,7 @@ function LeadRow({
       </td>
 
       {/* ACTIONS */}
-      <td className="px-6 py-5">
+      <td className="p-4">
         <div className="flex justify-end gap-2">
           <button
             onClick={() =>
@@ -667,7 +668,7 @@ function LeadRow({
             title="View enquiry"
             className="rounded-full border p-2 transition hover:bg-black hover:text-white cursor-pointer"
           >
-            <Eye size={16} />
+            <Eye size={12} />
           </button>
 
           {lead.status === "new" && (
@@ -681,7 +682,7 @@ function LeadRow({
               title="Mark contacted"
               className="rounded-full border p-2 transition hover:bg-yellow-50 cursor-pointer"
             >
-              <Phone size={16} />
+              <Phone size={12} />
             </button>
           )}
 
@@ -696,7 +697,7 @@ function LeadRow({
               title="Mark closed"
               className="rounded-full border p-2 transition hover:bg-green-500 hover:text-white cursor-pointer"
             >
-              <Check size={16} />
+              <Check size={12} />
             </button>
           )}
 
@@ -707,7 +708,7 @@ function LeadRow({
             title="Delete enquiry"
             className="rounded-full border p-2 text-red-500 transition hover:bg-red-50 cursor-pointer"
           >
-            <Trash2 size={16} />
+            <Trash2 size={12} />
           </button>
         </div>
 
@@ -1019,7 +1020,7 @@ function StatusBadge({
 
   return (
     <span
-      className={`inline-flex rounded-full px-3 py-1.5 text-xs font-medium ${styles[status] ||
+      className={`border rounded-full px-3 py-1 text-[10px] font-medium capitalize ${styles[status] ||
         "bg-gray-100 text-gray-600"
         }`}
     >

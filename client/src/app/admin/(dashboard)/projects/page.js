@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Pencil, Trash2 } from "lucide-react"
+import { Pencil, Trash2, Plus } from "lucide-react"
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL;
@@ -130,7 +130,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="p-8">
-      <div className="flex items-start justify-between mb-8">
+      <div className="flex items-end justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold">Projects</h1>
           <p className="text-gray-500 text-sm">Manage portfolio projects.</p>
@@ -138,9 +138,10 @@ export default function ProjectsPage() {
 
         <Link
           href="/admin/projects/new"
-          className="bg-black text-white px-5 py-3 rounded-lg hover:bg-zinc-700 transition duration-300"
+          className="flex gap-1 items-center bg-black text-white px-3 py-2 text-xs rounded-lg hover:bg-zinc-700 transition duration-300"
         >
-          + Add Project
+          <Plus size={14} />
+          Add Project
         </Link>
       </div>
 

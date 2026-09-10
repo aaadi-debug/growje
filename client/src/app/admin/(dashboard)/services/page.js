@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Pencil, Trash2 } from "lucide-react"
+import { Pencil, Trash2, Plus } from "lucide-react"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -82,7 +82,7 @@ export default function ServicesPage() {
 
   return (
     <div className="p-8">
-      <div className="flex items-start justify-between mb-8">
+      <div className="flex items-end justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold">Services</h1>
           <p className="text-gray-500 text-sm">Manage your services and service pages.</p>
@@ -90,9 +90,10 @@ export default function ServicesPage() {
 
         <Link
           href="/admin/services/new"
-          className="bg-black text-white px-5 py-3 rounded-lg hover:bg-zinc-700 transition duration-300"
+          className="flex gap-1 items-center bg-black text-white px-3 py-2 text-xs rounded-lg hover:bg-zinc-700 transition duration-300"
         >
-          + Add Service
+          <Plus size={14} />
+          Add Service
         </Link>
       </div>
 
