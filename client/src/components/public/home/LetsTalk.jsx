@@ -28,7 +28,7 @@ export default function LetsTalk() {
                             Have a project in mind?
                         </p>
 
-                        <h2 className="text-5xl md:text-7xl lg:text-[9rem] text-primary leading-[0.82] tracking-[-0.07em]">
+                        <h2 className="text-5xl md:text-5xl lg:text-[5rem] text-primary leading-[0.82] tracking-[-0.07em]">
                             Let's make
                             <br />
                             something

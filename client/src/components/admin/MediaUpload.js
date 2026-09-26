@@ -162,23 +162,23 @@ export default function MediaUpload({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="">
       {label && (
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block leading-5 text-xs">
           {label}
         </label>
       )}
 
       {value?.url ? (
         <div className="border rounded-xl overflow-hidden">
-          <div className="bg-gray-100 p-4">{renderPreview(value)}</div>
+          <div className="bg-gray-100 ">{renderPreview(value)}</div>
 
           <div className="p-3 flex gap-3">
             <button
               type="button"
               onClick={() => inputRef.current?.click()}
               disabled={uploading}
-              className="border px-4 py-2 rounded-lg text-sm disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+              className="border px-3 py-1 rounded-lg text-xs disabled:opacity-50 flex items-center gap-2 cursor-pointer hover:bg-black hover:text-white transition"
             >
               {uploading && <Spinner />}
               {uploading ? "Uploading..." : "Replace"}
@@ -188,7 +188,7 @@ export default function MediaUpload({
               type="button"
               onClick={removeMedia}
               disabled={uploading}
-              className="border border-red-500 text-red-500 px-4 py-2 rounded-lg text-sm disabled:opacity-50 cursor-pointer"
+              className="border border-red-500 text-red-500 px-3 py-1 rounded-lg text-xs disabled:opacity-50 cursor-pointer hover:bg-red-50 transition"
             >
               Remove
             </button>

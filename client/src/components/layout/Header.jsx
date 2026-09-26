@@ -100,12 +100,12 @@ export default function Header() {
                     {/* DESKTOP NAV */}
                     <nav className="hidden lg:flex items-center gap-8">
 
-                        <Link
+                        {/* <Link
                             href="/"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
                             Home
-                        </Link>
+                        </Link> */}
 
                         <Link
                             href="/about-us"
@@ -114,7 +114,7 @@ export default function Header() {
                             About Us
                         </Link>
 
-                        {/* SERVICES */}
+                        {/* Online Marekting */}
                         <div
                             className="relative"
                             onMouseEnter={() => setServicesOpen(true)}
@@ -124,7 +124,7 @@ export default function Header() {
                                 type="button"
                                 className="flex items-center gap-1 text-sm font-medium hover:opacity-60 transition cursor-pointer"
                             >
-                                Services
+                                Online Marketing
                                 <ChevronDown size={15} />
                             </button>
 
@@ -172,6 +172,23 @@ export default function Header() {
                             )}
                         </div>
 
+                         {/* Offline Marekting */}
+                        <div
+                            className="relative"
+                            // onMouseEnter={() => setServicesOpen(true)}
+                            // onMouseLeave={() => setServicesOpen(false)}
+                        >
+                            <button
+                                type="button"
+                                className="flex items-center gap-1 text-sm font-medium hover:opacity-60 transition cursor-pointer"
+                            >
+                                Offline Marketing
+                                <ChevronDown size={15} />
+                            </button>
+
+                            
+                        </div>
+
                         <Link
                             href="/articles"
                             className="text-sm font-medium hover:opacity-60 transition"
@@ -179,12 +196,12 @@ export default function Header() {
                             Blogs
                         </Link>
 
-                        {/* <Link
+                        <Link
                             href="/careers"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
                             Careers
-                        </Link> */}
+                        </Link>
 
                         <Link
                             href="/contact-us"
@@ -292,9 +309,9 @@ export default function Header() {
 
                         {/* Nav Links */}
                         <nav className="flex-1 px-6 py-8 flex flex-col gap-6 text-lg font-medium">
-                            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                            {/* <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                                 Home
-                            </Link>
+                            </Link> */}
 
                             <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>
                                 About Us
@@ -306,7 +323,7 @@ export default function Header() {
                                     onClick={() => setServicesOpen(!servicesOpen)}
                                     className="flex items-center gap-2 w-full"
                                 >
-                                    Services
+                                    Online Marketing
                                     <ChevronDown
                                         size={18}
                                         className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
@@ -328,8 +345,26 @@ export default function Header() {
                                 )}
                             </div>
 
+                            <div>
+                                <button
+                                    type="button"
+                                    // onClick={() => setServicesOpen(!servicesOpen)}
+                                    className="flex items-center gap-2 w-full"
+                                >
+                                    Offline Marketing
+                                    <ChevronDown
+                                        size={18}
+                                        className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                                    />
+                                </button>
+                            </div>
+
                             <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>
                                 Blogs
+                            </Link>
+
+                            <Link href="/careers" onClick={() => setMobileMenuOpen(false)}>
+                                Careers
                             </Link>
 
                             <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>

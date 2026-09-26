@@ -361,19 +361,19 @@ export default function ProjectForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-8 pb-10">
       {/* =================================
           BASIC INFORMATION
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-6">Basic Information</h2>
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Basic Information</h2>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5 px-4">
           <input
             value={formData.title}
             onChange={handleTitleChange}
             placeholder="Project title"
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
             required
           />
 
@@ -382,7 +382,7 @@ export default function ProjectForm({
             value={formData.slug}
             onChange={handleChange}
             placeholder="project-slug"
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
             required
           />
 
@@ -391,7 +391,7 @@ export default function ProjectForm({
             value={formData.clientName}
             onChange={handleChange}
             placeholder="Client name"
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
           />
 
           <input
@@ -399,37 +399,39 @@ export default function ProjectForm({
             value={formData.category}
             onChange={handleChange}
             placeholder="Category"
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
           />
         </div>
 
-        <textarea
-          name="shortDescription"
-          value={formData.shortDescription}
-          onChange={handleChange}
-          placeholder="Short project description"
-          rows={4}
-          className="w-full border rounded-lg px-4 py-3 mt-5"
-        />
+        <div className="px-4">
+          <textarea
+            name="shortDescription"
+            value={formData.shortDescription}
+            onChange={handleChange}
+            placeholder="Short project description"
+            rows={4}
+            className="w-full border rounded-lg px-4 py-3 mt-5"
+          />
+        </div>
       </section>
 
       {/* =================================
           SERVICES
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold">Services</h2>
-        <p className="text-gray-500 text-sm mb-5">
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Services</h2>
+        <p className="text-xs text-gray-500 mb-2 px-4 text-red-500">
           Select the services associated with this project.
         </p>
 
         {services.length === 0 ? (
           <p className="text-red-500">No services available.</p>
         ) : (
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4 px-4">
             {services.map((service) => (
               <label
                 key={service._id}
-                className="flex items-center gap-3 border rounded-lg p-4 cursor-pointer"
+                className="flex items-center gap-3 border rounded-lg py-2 px-3 cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -446,82 +448,91 @@ export default function ProjectForm({
       {/* =================================
           CARD IMAGE
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-2">Card Image</h2>
-        <p className="text-sm text-gray-500 mb-6">
-          This image will be used on portfolio listing cards.
+      <section className="rounded-xl bg-white border border-gray-200">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white mb-2">Card Image <span className="text-xs text-white/70">(To be applied on project card on services page)</span></h2>
+        <p className="text-xs mb-2 px-4 text-red-500">
+          * This image will be used on portfolio listing cards.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
-          <select
-            value={formData.cardImage.type}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                cardImage: {
-                  ...prev.cardImage,
-                  type: e.target.value,
-                },
-              }))
-            }
-            className="border rounded-lg px-4 py-3 w-full"
-          >
-            <option value="image">Image</option>
-            <option value="gif">GIF</option>
-          </select>
+        <div className="grid md:grid-cols-2 gap-5 mb-5 px-4">
+          {/* left side */}
+          <div>
+            <select
+              value={formData.cardImage.type}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  cardImage: {
+                    ...prev.cardImage,
+                    type: e.target.value,
+                  },
+                }))
+              }
+              className="border rounded-lg px-4 py-3 w-full mt-4"
+            >
+              <option value="image">Image</option>
+              <option value="gif">GIF</option>
+            </select>
 
-          <input
-            value={formData.cardImage.alt}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                cardImage: {
-                  ...prev.cardImage,
-                  alt: e.target.value,
-                },
-              }))
-            }
-            placeholder="Alt text"
-            className="w-full border rounded-lg px-4 py-3"
-          />
+            <input
+              value={formData.cardImage.alt}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  cardImage: {
+                    ...prev.cardImage,
+                    alt: e.target.value,
+                  },
+                }))
+              }
+              placeholder="Alt text"
+              className="w-full border rounded-lg px-3 py-2 text-sm mt-4"
+            />
+          </div>
+
+          {/* right side */}
+          <div className="max-w-[40%]">
+            <MediaUpload
+              label="Card Image"
+              value={formData.cardImage}
+              onChange={(media) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  cardImage: {
+                    ...prev.cardImage,
+                    ...media,
+                  },
+                }))
+              }
+            />
+          </div>
         </div>
-
-        <MediaUpload
-          label="Card Image"
-          value={formData.cardImage}
-          onChange={(media) =>
-            setFormData((prev) => ({
-              ...prev,
-              cardImage: {
-                ...prev.cardImage,
-                ...media,
-              },
-            }))
-          }
-        />
       </section>
 
       {/* =================================
           CARD / HERO BACKGROUND COLOR
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-2">Content Background Color</h2>
-        <p className="text-sm text-gray-500 mb-6">
-          This color will be used behind the project title and details on the project page.
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white mb-2">Content Background Color</h2>
+        <p className="text-xs text-gray-500 mb-2 px-4 text-red-500">
+          * This color will be used behind the project title and details on the project page.
         </p>
 
-        <div className="flex items-center gap-4">
-          <input
-            type="color"
-            value={formData.cardColor}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                cardColor: e.target.value,
-              }))
-            }
-            className="h-12 w-20 cursor-pointer rounded border border-gray-300"
-          />
+        <div className="flex items-center gap-4 px-4">
+          <div className="flex flex-col">
+            <label className="text-sm text-black/80 mb-1">Pick your color</label>
+            <input
+              type="color"
+              value={formData.cardColor}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  cardColor: e.target.value,
+                }))
+              }
+              className="h-12 w-20 cursor-pointer rounded border border-gray-300"
+            />
+          </div>
 
           <input
             type="text"
@@ -533,11 +544,11 @@ export default function ProjectForm({
               }))
             }
             placeholder="#2d2d2d"
-            className="border rounded-lg px-4 py-3 w-40 font-mono text-sm"
+            className="border rounded-lg px-4 py-3 w-40 font-mono text-sm mt-6"
           />
 
           <div
-            className="h-12 flex-1 rounded-lg border"
+            className="h-12 flex-1 rounded-lg border mt-6"
             style={{ backgroundColor: formData.cardColor }}
           />
         </div>
@@ -546,10 +557,10 @@ export default function ProjectForm({
       {/* =================================
           WORKED ON
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-5">Worked On</h2>
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white mb-5">Worked On</h2>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 px-4">
           <input
             value={workedOnInput}
             onChange={(e) => setWorkedOnInput(e.target.value)}
@@ -560,29 +571,29 @@ export default function ProjectForm({
               }
             }}
             placeholder="Example: UI/UX Design"
-            className="flex-1 border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
           />
 
           <button
             type="button"
             onClick={addWorkedOn}
-            className="bg-black text-white px-5 py-3 rounded-lg hover:bg-zinc-700 transition duration-300 cursor-pointer disabled:opacity-50"
+            className="bg-black text-sm text-white px-4 py-2 rounded-lg hover:bg-zinc-700 transition duration-300 cursor-pointer"
           >
             Add
           </button>
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-5">
+        <div className="flex flex-wrap gap-3 mt-3 px-4">
           {formData.workedOn.map((item, index) => (
             <div
               key={`${item}-${index}`}
-              className="bg-gray-100 px-4 py-2 rounded-full"
+              className="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded-full text-sm"
             >
               {item}
               <button
                 type="button"
                 onClick={() => removeWorkedOn(index)}
-                className="ml-3 text-red-500"
+                className="text-red-500 cursor-pointer"
               >
                 ×
               </button>
@@ -594,10 +605,10 @@ export default function ProjectForm({
       {/* =================================
           HERO
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-6">Hero Media</h2>
+      <section className="rounded-xl bg-white border border-gray-200">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Hero Media</h2>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
+        <div className="grid md:grid-cols-2 gap-5 mb-5 px-4">
           <div>
             <select
               value={formData.hero.media.type}
@@ -608,112 +619,108 @@ export default function ProjectForm({
               <option value="gif">GIF</option>
               <option value="video">Video</option>
             </select>
+
+            <input
+              value={formData.hero.media.alt}
+              onChange={(e) => updateHeroMedia("alt", e.target.value)}
+              placeholder="Alt text"
+              className="w-full border rounded-lg px-4 py-3 mt-4"
+            />
           </div>
-          <input
-            value={formData.hero.media.alt}
-            onChange={(e) => updateHeroMedia("alt", e.target.value)}
-            placeholder="Alt text"
-            className="w-full border rounded-lg px-4 py-3"
-          />
+
+          <div className="w-[40%]">
+            <MediaUpload
+              label="Hero Media File"
+              value={formData.hero.media}
+              onChange={(media) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  hero: {
+                    ...prev.hero,
+                    media: {
+                      ...prev.hero.media,
+                      ...media,
+                    },
+                  },
+                }))
+              }
+            />
+          </div>
         </div>
-
-        <MediaUpload
-          label="Hero Media File"
-          value={formData.hero.media}
-          onChange={(media) =>
-            setFormData((prev) => ({
-              ...prev,
-              hero: {
-                ...prev.hero,
-                media: {
-                  ...prev.hero.media,
-                  ...media,
-                },
-              },
-            }))
-          }
-        />
-
-
       </section>
 
       {/* =================================
           ABOUT
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-6">About Project</h2>
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">About Project</h2>
 
-        <input
-          value={formData.about.title}
-          onChange={(e) => updateAbout("title", e.target.value)}
-          placeholder="Section title"
-          className="w-full border rounded-lg px-4 py-3"
-        />
-
-        <textarea
-          value={formData.about.description}
-          onChange={(e) => updateAbout("description", e.target.value)}
-          placeholder="Long project description"
-          rows={8}
-          className="w-full border rounded-lg px-4 py-3 mt-5"
-        />
-
-        <div className="grid md:grid-cols-2 gap-5 mt-5 mb-5">
-          <select
-            value={formData.about.backgroundMedia.type}
-            onChange={(e) => updateAboutMedia("type", e.target.value)}
-            className="border rounded-lg px-4 py-3 w-full"
-          >
-            <option value="image">Image</option>
-            <option value="gif">GIF</option>
-            <option value="video">Video</option>
-          </select>
+        <div className="px-4">
           <input
-            value={formData.about.backgroundMedia.alt}
-            onChange={(e) => updateAboutMedia("alt", e.target.value)}
-            placeholder="Background alt text"
-            className="w-full border rounded-lg px-4 py-3"
+            value={formData.about.title}
+            onChange={(e) => updateAbout("title", e.target.value)}
+            placeholder="Section title"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
+          />
+
+          <textarea
+            value={formData.about.description}
+            onChange={(e) => updateAbout("description", e.target.value)}
+            placeholder="Long project description"
+            rows={8}
+            className="w-full border rounded-lg px-3 py-2 text-sm mt-4"
           />
         </div>
 
-        <MediaUpload
-          label="Background Media"
-          value={formData.about.backgroundMedia}
-          onChange={(media) =>
-            setFormData((prev) => ({
-              ...prev,
-              about: {
-                ...prev.about,
-                backgroundMedia: {
-                  ...prev.about.backgroundMedia,
-                  ...media,
-                },
-              },
-            }))
-          }
-        />
+        <div className="grid md:grid-cols-2 gap-5 mt-5 mb-5 px-4">
+          <div>
+            <select
+              value={formData.about.backgroundMedia.type}
+              onChange={(e) => updateAboutMedia("type", e.target.value)}
+              className="border rounded-lg px-4 py-3 w-full"
+            >
+              <option value="image">Image</option>
+              <option value="gif">GIF</option>
+              <option value="video">Video</option>
+            </select>
+            <input
+              value={formData.about.backgroundMedia.alt}
+              onChange={(e) => updateAboutMedia("alt", e.target.value)}
+              placeholder="Background alt text"
+              className="w-full border rounded-lg px-3 py-2 text-sm mt-4"
+            />
+          </div>
+          <div className="w-[60%]">
+            <MediaUpload
+              label="Background Media"
+              value={formData.about.backgroundMedia}
+              onChange={(media) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  about: {
+                    ...prev.about,
+                    backgroundMedia: {
+                      ...prev.about.backgroundMedia,
+                      ...media,
+                    },
+                  },
+                }))
+              }
+            />
+          </div>
+        </div>
+
+
       </section>
 
       {/* =================================
           SHOWCASE BUILDER
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h2 className="text-xl font-semibold">Showcase Builder</h2>
-            <p className="text-sm text-gray-500">Add unlimited media sections.</p>
-          </div>
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Showcase Builder</h2>
 
-          <button
-            type="button"
-            onClick={addShowcaseSection}
-            className="bg-black text-white px-5 py-3 rounded-lg hover:bg-zinc-700 transition duration-300 cursor-pointer disabled:opacity-50"
-          >
-            + Add Section
-          </button>
-        </div>
-
-        <div className="space-y-6">
+        <div className="px-4">
+          <p className="text-sm text-gray-500 mb-2">Add unlimited media sections.</p>
           {formData.showcaseSections.map((section, sectionIndex) => (
             <div
               key={section._id || sectionIndex}
@@ -740,7 +747,7 @@ export default function ProjectForm({
                     updateSection(sectionIndex, "title", e.target.value)
                   }
                   placeholder="Section title"
-                  className="border rounded-lg px-4 py-3"
+                  className="w-full border rounded-lg px-3 py-2 text-sm"
                 />
 
                 <select
@@ -748,7 +755,7 @@ export default function ProjectForm({
                   onChange={(e) =>
                     updateSection(sectionIndex, "layout", e.target.value)
                   }
-                  className="border rounded-lg px-4 py-3"
+                  className="w-full border rounded-lg px-3 py-2 text-sm"
                 >
                   <option value="full">Full Width</option>
                   <option value="two-column">Two Columns</option>
@@ -769,7 +776,7 @@ export default function ProjectForm({
                     )
                   }
                   placeholder="Columns"
-                  className="border rounded-lg px-4 py-3"
+                  className="w-full border rounded-lg px-3 py-2 text-sm"
                 />
               </div>
 
@@ -825,7 +832,7 @@ export default function ProjectForm({
                             )
                           }
                           placeholder="Alt text"
-                          className="w-full border rounded-lg px-4 py-3"
+                          className="w-full border rounded-lg px-3 py-2 text-sm"
                         />
                       </div>
 
@@ -865,7 +872,7 @@ export default function ProjectForm({
                           )
                         }
                         placeholder="Optional title"
-                        className="w-full border rounded-lg px-4 py-3"
+                        className="w-full border rounded-lg px-3 py-2 text-sm"
                       />
 
                       <textarea
@@ -880,7 +887,7 @@ export default function ProjectForm({
                         }
                         placeholder="Optional description"
                         rows={3}
-                        className="w-full border rounded-lg px-4 py-3"
+                        className="w-full border rounded-lg px-3 py-2 text-sm"
                       />
                     </div>
                   </div>
@@ -897,18 +904,26 @@ export default function ProjectForm({
             </div>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={addShowcaseSection}
+          className="ml-4 mt-4 text-sm bg-black text-white px-3 py-2 rounded-lg hover:bg-zinc-700 transition duration-300 cursor-pointer disabled:opacity-50"
+        >
+          + Add Section
+        </button>
       </section>
 
       {/* =================================
           STATUS
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
+      <section className="rounded-xl bg-white border border-gray-200 p-4">
         <div className="grid md:grid-cols-2 gap-5">
           <select
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
           >
             <option value="draft">Draft</option>
             <option value="published">Published</option>
@@ -920,7 +935,7 @@ export default function ProjectForm({
             value={formData.order}
             onChange={handleChange}
             placeholder="Display order"
-            className="border rounded-lg px-4 py-3"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
           />
         </div>
       </section>
@@ -928,23 +943,25 @@ export default function ProjectForm({
       {/* =================================
           SEO
       ================================= */}
-      <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-        <h2 className="text-xl font-semibold mb-5">SEO</h2>
+      <section className="rounded-xl bg-white border border-gray-200 pb-4">
+        <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white mb-5">SEO</h2>
 
-        <input
-          value={formData.seo.metaTitle}
-          onChange={(e) => updateSeo("metaTitle", e.target.value)}
-          placeholder="Meta title"
-          className="w-full border rounded-lg px-4 py-3"
-        />
+        <div className="px-4">
+          <input
+            value={formData.seo.metaTitle}
+            onChange={(e) => updateSeo("metaTitle", e.target.value)}
+            placeholder="Meta title"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
+          />
 
-        <textarea
-          value={formData.seo.metaDescription}
-          onChange={(e) => updateSeo("metaDescription", e.target.value)}
-          placeholder="Meta description"
-          rows={4}
-          className="w-full border rounded-lg px-4 py-3 mt-5"
-        />
+          <textarea
+            value={formData.seo.metaDescription}
+            onChange={(e) => updateSeo("metaDescription", e.target.value)}
+            placeholder="Meta description"
+            rows={4}
+            className="w-full border rounded-lg px-4 py-3 mt-5"
+          />
+        </div>
       </section>
 
       {/* =================================

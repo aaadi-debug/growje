@@ -41,11 +41,11 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
             {/* Header */}
             <div className="flex items-end justify-between mb-10 md:mb-16">
                 <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
+                    {/* <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
                         03 — Selected work
-                    </p>
+                    </p> */}
                     <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-                        Work
+                        Our Work
                     </h2>
                 </div>
 

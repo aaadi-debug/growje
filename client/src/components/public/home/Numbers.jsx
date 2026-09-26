@@ -94,17 +94,17 @@ export default function NumbersSection() {
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10">
                     <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+                        {/* <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
                             06 — Impact
-                        </p>
+                        </p> */}
                         <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
                             Numbers that speak louder
                         </h2>
                     </div>
 
-                    <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
+                    {/* <p className="max-w-sm text-white/50 leading-relaxed lg:pt-4">
                         We measure success not just by projects delivered, but by the lasting impact we create for our partners.
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* Stats Grid */}

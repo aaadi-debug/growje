@@ -61,7 +61,7 @@ export default async function HomePage() {
   return (
     <main className="bg-white text-black">
       <HeroSection />
-      <ClientMarquee />
+      {/* <ClientMarquee /> */}
       <WhoAreWe />
       <Services services={services} />
       <OurWork featuredProjects={featuredProjects} services={services} />

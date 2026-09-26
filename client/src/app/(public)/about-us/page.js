@@ -176,7 +176,7 @@ export default function AboutUsPage() {
   return (
     <main className="bg-white text-black">
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden min-h-screen flex lg:flex-row flex-col lg:justify-between justify-end lg:pb-20 pb-10">
+      <section className="relative overflow-hidden min-h-screen flex lg:flex-row flex-col lg:justify-between justify-end 2xl:pb-16 xl:pb-10 pb-8">
         {/* Soft background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -202,7 +202,7 @@ export default function AboutUsPage() {
           </FadeUp>
 
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(2.5rem,6vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.06em] text-white">
+            <h1 className="2xl:text-[clamp(2.5rem,6vw,6.8rem)] xl:text-[clamp(1.5rem,6vw,4rem)] lg:text-[clamp(1.5rem,4vw,4rem)] text-[clamp(1.5rem,6vw,4rem)] font-medium leading-[0.92] tracking-[-0.06em] text-white">
               We build brands
               <br />
               <span className="text-white/75">people remember.</span>
@@ -248,20 +248,20 @@ export default function AboutUsPage() {
         {/* right */}
         <div className="relative flex flex-col justify-end lg:px-16 px-6 max-sm:hidden">
           <FadeUp delay={200}>
-            <p className="mt-10 max-sm:mt-6 max-w-xl lg:text-xl text-lg max-sm:text-base lg:font-semibold leading-relaxed text-white">
+            <p className="mt-10 max-sm:mt-6 max-w-xl 2xl:text-xl xl:text-xl text-lg max-sm:text-base lg:font-semibold leading-relaxed text-white">
               A creative digital agency focused on strategy, design and
               technology that helps ambitious brands grow and stand out.
             </p>
           </FadeUp>
-          <FadeUp className="flex max-sm:flex-col justify-between mt-10">
+          <FadeUp className="flex max-sm:flex-col justify-between 2xl:mt-10 xl:mt-8 lg:mt-6 mt-4">
             <div delay={300} className="text-white">
-              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">
+              <span className="2xl:text-7xl xl:text-6xl lg:text-5xl md:text-4xl text-3xl font-semibold">
                 <Counter value="1000+" />
               </span>
               <p>Global Projects Complete</p>
             </div>
             <div delay={300} className="text-white max-sm:mt-4">
-              <span className="lg:text-7xl md:text-5xl text-4xl font-semibold">
+              <span className="2xl:text-7xl xl:text-6xl lg:text-5xl md:text-4xl text-3xl font-semibold">
                 <Counter value="800+" />
               </span>
               <p>Clients Satisfaction</p>

@@ -250,7 +250,7 @@ export default function ContactPage() {
   return (
     <main className="bg-white text-black">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-screen flex lg:flex-row flex-col lg:justify-between justify-end lg:pb-20 pb-10">
+      <section className="relative overflow-hidden min-h-screen flex lg:flex-row flex-col lg:justify-between justify-end 2xl:pb-16 xl:pb-10 pb-8">
         {/* Soft background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
 

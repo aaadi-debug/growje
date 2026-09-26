@@ -203,14 +203,15 @@ export default function CreateServicePage() {
         className="space-y-8"
       >
         {/* BASIC INFORMATION */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-6">
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">
             Basic Information
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          {/* row 1 */}
+          <div className="grid md:grid-cols-2 gap-5 px-4">
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Service Title
               </label>
 
@@ -219,12 +220,12 @@ export default function CreateServicePage() {
                 value={formData.title}
                 onChange={handleTitleChange}
                 placeholder="Website UI/UX"
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
 
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Slug
               </label>
 
@@ -234,13 +235,14 @@ export default function CreateServicePage() {
                 value={formData.slug}
                 onChange={handleChange}
                 placeholder="website-ui-ux"
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
           </div>
 
-          <div className="mt-5">
-            <label className="block mb-2">
+          {/* row 2 */}
+          <div className="mt-5 px-4">
+            <label className="block leading-5 text-xs">
               Short Description
             </label>
 
@@ -249,71 +251,79 @@ export default function CreateServicePage() {
               value={formData.shortDescription}
               onChange={handleChange}
               rows={4}
-              className="w-full border rounded-lg px-4 py-3"
+              className="w-full border rounded-lg px-3 py-2 text-sm"
             />
           </div>
         </section>
 
         {/* HERO */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-6">Hero Section</h2>
+        <section className="rounded-xl bg-white border border-gray-200">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Hero Section</h2>
 
-          <div className="mb-5">
-            <label className="block mb-2">Hero Title</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.hero.title}
-              onChange={handleHeroChange}
-              className="w-full border rounded-lg px-4 py-3"
-            />
+          <div className="grid grid-cols-2 gap-6 px-4">
+            {/* left side */}
+            <div>
+              <div className="mb-5">
+                <label className="block leading-5 text-xs">Hero Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.hero.title}
+                  onChange={handleHeroChange}
+                  className="w-full border rounded-lg px-3 py-2 text-sm"
+                />
+              </div>
+
+              <div className="mb-5">
+                <label className="block leading-5 text-xs">Media Type</label>
+                <select
+                  name="mediaType"
+                  value={formData.hero.mediaType}
+                  onChange={handleHeroChange}
+                  className="w-full border rounded-lg px-3 py-2 text-sm"
+                >
+                  <option value="image">Image</option>
+                  <option value="gif">GIF</option>
+                  <option value="video">Video</option>
+                </select>
+              </div>
+            </div>
+
+            {/* right side */}
+            <div className="max-w-76">
+              <MediaUpload
+                label="Hero Media"
+                value={formData.hero.media}
+                onChange={(media) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    hero: {
+                      ...prev.hero,
+                      mediaType: media.type || prev.hero.mediaType,
+                      media: {
+                        ...prev.hero.media,
+                        ...media,
+                      },
+                    },
+                  }))
+                }
+              />
+            </div>
           </div>
-
-          <div className="mb-5">
-            <label className="block mb-2">Media Type</label>
-            <select
-              name="mediaType"
-              value={formData.hero.mediaType}
-              onChange={handleHeroChange}
-              className="w-full md:w-1/2 border rounded-lg px-4 py-3"
-            >
-              <option value="image">Image</option>
-              <option value="gif">GIF</option>
-              <option value="video">Video</option>
-            </select>
-          </div>
-
-          <MediaUpload
-            label="Hero Media"
-            value={formData.hero.media}
-            onChange={(media) =>
-              setFormData((prev) => ({
-                ...prev,
-                hero: {
-                  ...prev.hero,
-                  mediaType: media.type || prev.hero.mediaType,
-                  media: {
-                    ...prev.hero.media,
-                    ...media,
-                  },
-                },
-              }))
-            }
-          />
         </section>
 
         {/* CLIENTS */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-2">
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">
             Client Marquee
           </h2>
 
-          <p className="text-gray-500 mb-5">
+          <p className="text-gray-500 mb-3 px-4 text-sm">
             Add client names that will scroll
             horizontally on the service page.
           </p>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 px-4">
             <input
               type="text"
               value={clientName}
@@ -327,13 +337,13 @@ export default function CreateServicePage() {
                 }
               }}
               placeholder="Enter client name"
-              className="flex-1 border rounded-lg px-4 py-3"
+              className="flex-1 border rounded-lg px-3 py-2 text-sm"
             />
 
             <button
               type="button"
               onClick={addClient}
-              className="bg-black text-white px-5 rounded-lg"
+              className="bg-black text-sm text-white px-4 py-2 rounded-lg hover:bg-zinc-700 transition duration-300 cursor-pointer"
             >
               Add
             </button>
@@ -366,14 +376,14 @@ export default function CreateServicePage() {
         </section>
 
         {/* PORTFOLIO */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-6">
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">
             Portfolio Section
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-5 px-4">
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Portfolio Title
               </label>
 
@@ -382,12 +392,12 @@ export default function CreateServicePage() {
                 name="portfolioTitle"
                 value={formData.portfolioTitle}
                 onChange={handleChange}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
 
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Portfolio Subtitle
               </label>
 
@@ -396,20 +406,20 @@ export default function CreateServicePage() {
                 name="portfolioSubtitle"
                 value={formData.portfolioSubtitle}
                 onChange={handleChange}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
           </div>
         </section>
 
         {/* ====================== SERVICES SECTION ====================== */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-2">Services Section</h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Only one section allowed. Add as many service cards as you want.
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Services Section</h2>
+          <p className="text-xs text-gray-500 mb-2 px-4 text-red-500">
+            * Only one section allowed. Add as many service cards as you want.
           </p>
 
-          <div className="mb-5">
+          <div className="mb-5 px-4">
             <label className="block mb-2 text-sm font-medium">Section Title</label>
             <input
               type="text"
@@ -425,11 +435,11 @@ export default function CreateServicePage() {
                 }))
               }
               placeholder="Our Digital Marketing Services in India"
-              className="w-full border rounded-lg px-4 py-3"
+              className="w-full border rounded-lg px-3 py-2 text-sm"
             />
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 px-4">
             {(formData.servicesSection?.items || []).map((item, index) => (
               <div key={index} className="border rounded-lg p-4 relative bg-gray-50">
                 <button
@@ -442,7 +452,7 @@ export default function CreateServicePage() {
                       servicesSection: { ...prev.servicesSection, items },
                     }));
                   }}
-                  className="absolute top-3 right-3 text-red-500"
+                  className="absolute -top-1 right-1 text-red-500 cursor-pointer"
                 >
                   ×
                 </button>
@@ -494,20 +504,20 @@ export default function CreateServicePage() {
                 },
               }));
             }}
-            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg"
+            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg ml-4 hover:bg-black/80 cursor-pointer"
           >
             + Add Service Card
           </button>
         </section>
 
         {/* ====================== PROCESS SECTION ====================== */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-2">Process Section</h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Show the step-by-step process of this service.
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">Process Section</h2>
+          <p className="text-xs text-gray-500 mb-2 px-4 text-red-500">
+            * Show the step-by-step process of this service.
           </p>
 
-          <div className="mb-5">
+          <div className="mb-5 px-4">
             <label className="block mb-2 text-sm font-medium">Process Title</label>
             <input
               type="text"
@@ -523,11 +533,11 @@ export default function CreateServicePage() {
                 }))
               }
               placeholder="Our SEO Process"
-              className="w-full border rounded-lg px-4 py-3"
+              className="w-full border rounded-lg px-3 py-2 text-sm"
             />
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 px-4">
             {(formData.processSection?.steps || []).map((step, index) => (
               <div key={index} className="border rounded-lg p-4 relative bg-gray-50">
                 <button
@@ -540,7 +550,7 @@ export default function CreateServicePage() {
                       processSection: { ...prev.processSection, steps },
                     }));
                   }}
-                  className="absolute top-3 right-3 text-red-500"
+                  className="absolute -top-1 right-1 text-red-500"
                 >
                   ×
                 </button>
@@ -592,21 +602,137 @@ export default function CreateServicePage() {
                 },
               }));
             }}
-            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg"
+            className="mt-4 text-sm bg-black text-white px-4 py-2 rounded-lg ml-4 cursor-pointer hover:bg-black/80"
           >
             + Add Step
           </button>
         </section>
 
         {/* ====================== ABOUT SECTIONS ====================== */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-xl font-semibold">About Sections</h2>
-              <p className="text-sm text-gray-500 mt-1">
-                Layout alternates automatically (Content-Image / Image-Content)
-              </p>
-            </div>
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">About Sections</h2>
+          <p className="text-xs text-gray-500 mb-2 px-4 text-red-500">
+            * Layout alternates automatically (Content-Image / Image-Content)
+          </p>
+
+          <div className="px-4">
+            {(formData.aboutSections || []).map((section, sectionIndex) => (
+              <div
+                key={sectionIndex}
+                className="border rounded-xl p-5 mb-6 bg-gray-50 relative"
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      aboutSections: prev.aboutSections.filter(
+                        (_, i) => i !== sectionIndex
+                      ),
+                    }));
+                  }}
+                  className="absolute top-4 right-4 text-red-500"
+                >
+                  Remove
+                </button>
+
+                <p className="text-xs text-gray-400 mb-4">
+                  Section {sectionIndex + 1} →{" "}
+                  {sectionIndex % 2 === 0
+                    ? "Content Left + Image Right"
+                    : "Image Left + Content Right"}
+                </p>
+
+                <div className="mb-4">
+                  <label className="block mb-1 text-sm">Title</label>
+                  <input
+                    type="text"
+                    value={section.title}
+                    onChange={(e) => {
+                      const updated = [...formData.aboutSections];
+                      updated[sectionIndex].title = e.target.value;
+                      setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                    }}
+                    className="w-full border rounded-lg px-3 py-2"
+                    placeholder="What is Search Engine Optimization (SEO)?"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block mb-1 text-sm">Description</label>
+                  <textarea
+                    value={section.description}
+                    onChange={(e) => {
+                      const updated = [...formData.aboutSections];
+                      updated[sectionIndex].description = e.target.value;
+                      setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                    }}
+                    rows={4}
+                    className="w-full border rounded-lg px-3 py-2"
+                  />
+                </div>
+
+                <div className="grid gap-6 grid-cols-2">
+                  {/* Bullets */}
+                  <div className="mb-4">
+                    <label className="block mb-2 text-sm">Bullet Points</label>
+                    {(section.bullets || []).map((bullet, bIndex) => (
+                      <div key={bIndex} className="flex gap-2 mb-2">
+                        <input
+                          type="text"
+                          value={bullet}
+                          onChange={(e) => {
+                            const updated = [...formData.aboutSections];
+                            updated[sectionIndex].bullets[bIndex] = e.target.value;
+                            setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                          }}
+                          className="flex-1 border rounded-lg px-3 py-2"
+                          placeholder="Higher Google rankings & visibility"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updated = [...formData.aboutSections];
+                            updated[sectionIndex].bullets = updated[
+                              sectionIndex
+                            ].bullets.filter((_, i) => i !== bIndex);
+                            setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                          }}
+                          className="text-red-500 px-2"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const updated = [...formData.aboutSections];
+                        updated[sectionIndex].bullets.push("");
+                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                      }}
+                      className="text-sm text-blue-600"
+                    >
+                      + Add Bullet
+                    </button>
+                  </div>
+
+                  {/* Image */}
+                  <div className="w-[60%]">
+                    <label className="block mb-2 text-sm hidden">Image</label>
+                    <MediaUpload
+                      label="About Section Image"
+                      value={section.image}
+                      onChange={(media) => {
+                        const updated = [...formData.aboutSections];
+                        updated[sectionIndex].image = media;
+                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
 
             <button
               type="button"
@@ -624,210 +750,90 @@ export default function CreateServicePage() {
                   ],
                 }));
               }}
-              className="bg-black text-white px-4 py-2 rounded-lg text-sm"
+              className="text-sm bg-black text-white px-4 py-2 rounded-lg hover:bg-black/80 cursor-pointer"
             >
               + Add About Section
             </button>
           </div>
 
-          {(formData.aboutSections || []).map((section, sectionIndex) => (
-            <div
-              key={sectionIndex}
-              className="border rounded-xl p-5 mb-6 bg-gray-50 relative"
-            >
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    aboutSections: prev.aboutSections.filter(
-                      (_, i) => i !== sectionIndex
-                    ),
-                  }));
-                }}
-                className="absolute top-4 right-4 text-red-500"
-              >
-                Remove
-              </button>
-
-              <p className="text-xs text-gray-400 mb-4">
-                Section {sectionIndex + 1} →{" "}
-                {sectionIndex % 2 === 0
-                  ? "Content Left + Image Right"
-                  : "Image Left + Content Right"}
-              </p>
-
-              <div className="mb-4">
-                <label className="block mb-1 text-sm">Title</label>
-                <input
-                  type="text"
-                  value={section.title}
-                  onChange={(e) => {
-                    const updated = [...formData.aboutSections];
-                    updated[sectionIndex].title = e.target.value;
-                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                  }}
-                  className="w-full border rounded-lg px-3 py-2"
-                  placeholder="What is Search Engine Optimization (SEO)?"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-1 text-sm">Description</label>
-                <textarea
-                  value={section.description}
-                  onChange={(e) => {
-                    const updated = [...formData.aboutSections];
-                    updated[sectionIndex].description = e.target.value;
-                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                  }}
-                  rows={4}
-                  className="w-full border rounded-lg px-3 py-2"
-                />
-              </div>
-
-              {/* Bullets */}
-              <div className="mb-4">
-                <label className="block mb-2 text-sm">Bullet Points</label>
-                {(section.bullets || []).map((bullet, bIndex) => (
-                  <div key={bIndex} className="flex gap-2 mb-2">
-                    <input
-                      type="text"
-                      value={bullet}
-                      onChange={(e) => {
-                        const updated = [...formData.aboutSections];
-                        updated[sectionIndex].bullets[bIndex] = e.target.value;
-                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                      }}
-                      className="flex-1 border rounded-lg px-3 py-2"
-                      placeholder="Higher Google rankings & visibility"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const updated = [...formData.aboutSections];
-                        updated[sectionIndex].bullets = updated[
-                          sectionIndex
-                        ].bullets.filter((_, i) => i !== bIndex);
-                        setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                      }}
-                      className="text-red-500 px-2"
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))}
-                <button
-                  type="button"
-                  onClick={() => {
-                    const updated = [...formData.aboutSections];
-                    updated[sectionIndex].bullets.push("");
-                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                  }}
-                  className="text-sm text-blue-600"
-                >
-                  + Add Bullet
-                </button>
-              </div>
-
-              {/* Image */}
-              <div>
-                <label className="block mb-2 text-sm">Image</label>
-                <MediaUpload
-                  label="About Section Image"
-                  value={section.image}
-                  onChange={(media) => {
-                    const updated = [...formData.aboutSections];
-                    updated[sectionIndex].image = media;
-                    setFormData((prev) => ({ ...prev, aboutSections: updated }));
-                  }}
-                />
-              </div>
-            </div>
-          ))}
         </section>
 
         {/* ====================== FAQs ====================== */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-xl font-semibold">FAQs</h2>
-              <p className="text-sm text-gray-500 mt-1">
-                Add frequently asked questions
-              </p>
-            </div>
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white mb-4">FAQs</h2>
 
-            <button
-              type="button"
-              onClick={() => {
-                setFormData((prev) => ({
-                  ...prev,
-                  faqs: [...(prev.faqs || []), { question: "", answer: "" }],
-                }));
-              }}
-              className="bg-black text-white px-4 py-2 rounded-lg text-sm"
-            >
-              + Add FAQ
-            </button>
+          <div className="px-4 grid grid-cols-2 gap-4">
+            {(formData.faqs || []).map((faq, index) => (
+              <div key={index} className="border rounded-lg p-4 mb-4 relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      faqs: prev.faqs.filter((_, i) => i !== index),
+                    }));
+                  }}
+                  className="absolute top-3 right-3 text-red-500"
+                >
+                  ×
+                </button>
+
+                <div className="mb-3">
+                  <label className="block mb-1 text-sm">Question</label>
+                  <input
+                    type="text"
+                    value={faq.question}
+                    onChange={(e) => {
+                      const updated = [...formData.faqs];
+                      updated[index].question = e.target.value;
+                      setFormData((prev) => ({ ...prev, faqs: updated }));
+                    }}
+                    className="w-full border rounded-lg px-3 py-2"
+                    placeholder="What is included in this service?"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-1 text-sm">Answer</label>
+                  <textarea
+                    value={faq.answer}
+                    onChange={(e) => {
+                      const updated = [...formData.faqs];
+                      updated[index].answer = e.target.value;
+                      setFormData((prev) => ({ ...prev, faqs: updated }));
+                    }}
+                    rows={3}
+                    className="w-full border rounded-lg px-3 py-2"
+                    placeholder="Detailed answer..."
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
-          {(formData.faqs || []).map((faq, index) => (
-            <div key={index} className="border rounded-lg p-4 mb-4 relative">
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    faqs: prev.faqs.filter((_, i) => i !== index),
-                  }));
-                }}
-                className="absolute top-3 right-3 text-red-500"
-              >
-                ×
-              </button>
-
-              <div className="mb-3">
-                <label className="block mb-1 text-sm">Question</label>
-                <input
-                  type="text"
-                  value={faq.question}
-                  onChange={(e) => {
-                    const updated = [...formData.faqs];
-                    updated[index].question = e.target.value;
-                    setFormData((prev) => ({ ...prev, faqs: updated }));
-                  }}
-                  className="w-full border rounded-lg px-3 py-2"
-                  placeholder="What is included in this service?"
-                />
-              </div>
-
-              <div>
-                <label className="block mb-1 text-sm">Answer</label>
-                <textarea
-                  value={faq.answer}
-                  onChange={(e) => {
-                    const updated = [...formData.faqs];
-                    updated[index].answer = e.target.value;
-                    setFormData((prev) => ({ ...prev, faqs: updated }));
-                  }}
-                  rows={3}
-                  className="w-full border rounded-lg px-3 py-2"
-                  placeholder="Detailed answer..."
-                />
-              </div>
-            </div>
-          ))}
+          <button
+            type="button"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                faqs: [...(prev.faqs || []), { question: "", answer: "" }],
+              }));
+            }}
+            className="bg-black text-white px-4 py-2 rounded-lg text-sm ml-4 cursor-pointer hover:bg-black/80"
+          >
+            + Add FAQ
+          </button>
         </section>
 
         {/* SETTINGS */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-6">
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">
             Publishing Settings
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-5 px-4">
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Status
               </label>
 
@@ -835,7 +841,7 @@ export default function CreateServicePage() {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               >
                 <option value="draft">
                   Draft
@@ -848,7 +854,7 @@ export default function CreateServicePage() {
             </div>
 
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Display Order
               </label>
 
@@ -857,21 +863,21 @@ export default function CreateServicePage() {
                 name="order"
                 value={formData.order}
                 onChange={handleChange}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
           </div>
         </section>
 
         {/* SEO */}
-        <section className="rounded-xl p-6 bg-white shadow border border-gray-200">
-          <h2 className="text-xl font-semibold mb-6">
+        <section className="rounded-xl bg-white border border-gray-200 pb-4">
+          <h2 className="font-medium mb-2 bg-primary px-4 py-2 rounded-t-xl text-white">
             SEO
           </h2>
 
-          <div className="space-y-5">
+          <div className="space-y-5 px-4">
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Meta Title
               </label>
 
@@ -880,12 +886,12 @@ export default function CreateServicePage() {
                 name="metaTitle"
                 value={formData.seo.metaTitle}
                 onChange={handleSeoChange}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
 
             <div>
-              <label className="block mb-2">
+              <label className="block leading-5 text-xs">
                 Meta Description
               </label>
 
@@ -896,7 +902,7 @@ export default function CreateServicePage() {
                 }
                 onChange={handleSeoChange}
                 rows={4}
-                className="w-full border rounded-lg px-4 py-3"
+                className="w-full border rounded-lg px-3 py-2 text-sm"
               />
             </div>
           </div>
