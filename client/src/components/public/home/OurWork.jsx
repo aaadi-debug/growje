@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import RotatingCards from "./RotatingCards";
 
 export default function OurWork({ featuredProjects = [], services = [] }) {
     const [activeTab, setActiveTab] = useState("all");

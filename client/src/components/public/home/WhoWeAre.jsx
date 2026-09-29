@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import ScrollTextSection from "./ScrollTextSection";
 
 export default function WhoAreWe() {
 
@@ -24,51 +25,10 @@ export default function WhoAreWe() {
                     aria-hidden="true"
                 />
 
-                <div className="grid lg:grid-cols-12 lg:gap-12">
-                    <div className="lg:col-span-4">
-                        {/* <p className="text-xs uppercase tracking-[0.2em] text-black/40">
-                            01 — Who we are
-                        </p> */}
-                        <Image
-                            src="/assets/images/home/whoweare.jpg"
-                            alt="Who We Are Illustration"
-                            width={100}
-                            height={100}
-                            className="w-full lg:block hidden"
-                        />
-                    </div>
+                <div className="relative z-10">
+                    <ScrollTextSection />
 
-
-                    <div className="lg:col-span-8 lg:col-start-5">
-                        <h2 className="text-4xl md:text-6xl 2xl:text-7xl xl:text-7xl lg:text-5xl leading-[0.95] tracking-[-0.05em] font-medium">
-                            A creative studio for brands
-                            that refuse to blend in.
-                        </h2>
-
-                        <div className="mt-12 grid md:grid-cols-2 gap-8">
-                            <p className="text-black/60 leading-relaxed">
-                                GROWJE brings strategy, design,
-                                technology and storytelling together to
-                                create digital experiences that people
-                                actually remember.
-                            </p>
-
-                            <p className="text-black/60 leading-relaxed">
-                                From the first idea to the final pixel,
-                                we work closely with ambitious businesses
-                                to turn their vision into something
-                                distinctive.
-                            </p>
-                        </div>
-
-                        <Image
-                            src="/assets/images/home/whoweare.jpg"
-                            alt="Who We Are Illustration"
-                            width={100}
-                            height={100}
-                            className="w-full lg:hidden"
-                        />
-
+                    <div className="flex justify-center">
                         <Link
                             href="/about-us"
                             className="

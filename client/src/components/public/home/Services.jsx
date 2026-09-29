@@ -33,7 +33,7 @@ export default function Services({ services }) {
                     {/* <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20"> */}
 
                     <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-10">
-                        Our Services
+                        Our Work
                     </h2>
                     {/* </div> */}
 
