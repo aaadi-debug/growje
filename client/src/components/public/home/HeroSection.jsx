@@ -131,16 +131,16 @@ export default function HeroSection() {
 
                 {/* <div className="absolute inset-0 bg-black/60" /> */}
 
-                <div className="relative z-10 flex min-h-[60vh] md:min-h-[75vh] lg:min-h-screen items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
+                {/* <div className="relative z-10 flex min-h-[60vh] md:min-h-[75vh] lg:min-h-screen items-end px-5 pb-10 md:px-10 lg:px-16 lg:pb-16">
                     <div className="max-w-7xl">
                         <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/60">
                             GROWJE
                         </p>
-                        {/* <h1 className="max-w-6xl text-3xl font-medium leading-[0.92] md:text-5xl lg:text-[5vw]">
+                        <h1 className="max-w-6xl text-3xl font-medium leading-[0.92] md:text-5xl lg:text-[5vw]">
                             Your headline here
-                        </h1> */}
+                        </h1>
                     </div>
-                </div>
+                </div> */}
             </section>
 
             {/* <section className="relative min-h-screen bg-primary text-white overflow-hidden flex items-end">

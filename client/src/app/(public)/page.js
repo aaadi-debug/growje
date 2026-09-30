@@ -65,12 +65,12 @@ export default async function HomePage() {
       {/* <ClientMarquee /> */}
       <WhoAreWe />
       <Services services={services} />
-      <OurWork featuredProjects={featuredProjects} services={services} />
       <RotatingCards />
+      <OurWork featuredProjects={featuredProjects} services={services} />
       <Approach />
       <Testimonials />
       <NumbersSection />
-      <LetsTalk />
+      {/* <LetsTalk /> */}
     </main>
   );
 }

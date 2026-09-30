@@ -7,11 +7,6 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-/* ------------------------------------------------------------------ *
- *  EDIT YOUR CARDS HERE
- *  image : optional path/URL (e.g. "/projects/mahou.jpg"). If omitted,
- *          the gradient in `bg` is used as a placeholder.
- * ------------------------------------------------------------------ */
 const ITEMS = [
     { title: "Mahou", href: "/project/mahou", image: "", bg: "linear-gradient(160deg,#0f7a4a,#0a3d2a)" },
     { title: "CUPRA", href: "/project/cupra", image: "", bg: "linear-gradient(160deg,#e9e9e9,#bdbdbd)" },
@@ -23,23 +18,26 @@ const ITEMS = [
     { title: "Submer", href: "/project/submer", image: "", bg: "linear-gradient(160deg,#7b4dff,#2c1a7a)" },
 ];
 
-const MIN_CARDS = 20; // ring is filled up to this many cards (items repeat)
-const DURATION = 80; // seconds for one full rotation (higher = slower)
-const DIRECTION = 1; // 1 or -1 to flip the rotation direction
+const MIN_CARDS = 20;
+const DURATION = 80;
+const DIRECTION = 1;
+
+// Scale settings — tweak these
+const CENTER_SCALE = 0.85; // front card (smaller)
+const SIDE_SCALE = 1.15;   // side cards (larger)
 
 export default function RotatingCards() {
     const sectionRef = useRef(null);
     const ringRef = useRef(null);
     const tweenRef = useRef(null);
+    const cardEls = useRef([]);
 
-    // repeat items until the ring has enough cards to look full
     const cards = useMemo(() => {
         let list = [...ITEMS];
         while (list.length < MIN_CARDS) list = list.concat(ITEMS);
         return list;
     }, []);
 
-    // Position every card around the inside of a cylinder
     useEffect(() => {
         const layout = () => {
             const section = sectionRef.current;
@@ -48,21 +46,23 @@ export default function RotatingCards() {
 
             const vw = section.clientWidth;
             const n = cards.length;
-            const cardW = Math.max(140, Math.min(vw * 0.15, 300));
+            const cardW = Math.max(160, Math.min(vw * 0.18, 340));
             const cardH = cardW * 1.38;
-            const pitch = cardW * 1.08; // card width + gap
+            const pitch = cardW * 1.02;
             const radius = pitch / (2 * Math.tan(Math.PI / n));
 
             section.style.perspective = `${radius * 1.65}px`;
 
-            Array.from(ring.children).forEach((el, i) => {
+            cardEls.current = Array.from(ring.children);
+
+            cardEls.current.forEach((el, i) => {
                 const angle = (360 / n) * i;
                 el.style.width = `${cardW}px`;
                 el.style.height = `${cardH}px`;
                 el.style.marginLeft = `${-cardW / 2}px`;
                 el.style.marginTop = `${-cardH / 2}px`;
-                // rotate around the ring centre, then push the card to the far wall
-                // so it faces inward (we look at the inside of the cylinder)
+                // store base angle so we can use it later for scaling
+                el.dataset.angle = angle;
                 el.style.transform = `rotateY(${angle}deg) translateZ(${-radius}px)`;
             });
         };
@@ -72,14 +72,37 @@ export default function RotatingCards() {
         return () => window.removeEventListener("resize", layout);
     }, [cards]);
 
-    // Continuous rotation
+    // Continuously update scale of each card based on its current angle from the front
     useGSAP(
         () => {
-            tweenRef.current = gsap.to(ringRef.current, {
+            const ring = ringRef.current;
+            if (!ring) return;
+
+            tweenRef.current = gsap.to(ring, {
                 rotationY: 360 * DIRECTION,
                 duration: DURATION,
                 ease: "none",
                 repeat: -1,
+                onUpdate: () => {
+                    const currentRot = gsap.getProperty(ring, "rotationY");
+                    const n = cards.length;
+
+                    cardEls.current.forEach((el) => {
+                        if (!el) return;
+                        const baseAngle = parseFloat(el.dataset.angle || "0");
+                        // normalize angle difference to -180 → 180
+                        let diff = ((baseAngle + currentRot) % 360 + 540) % 360 - 180;
+                        const abs = Math.abs(diff) / 180; // 0 = front, 1 = back
+
+                        // front (abs ≈ 0) → CENTER_SCALE
+                        // sides (abs ≈ 0.5) → SIDE_SCALE
+                        const scale = CENTER_SCALE + (SIDE_SCALE - CENTER_SCALE) * Math.min(abs * 2, 1);
+
+                        // keep the original rotateY + translateZ and only change scale
+                        const radius = parseFloat(el.style.transform.match(/translateZ\(([^)]+)\)/)?.[1] || "0");
+                        el.style.transform = `rotateY(${baseAngle}deg) translateZ(${-Math.abs(radius)}px) scale(${scale})`;
+                    });
+                },
             });
 
             if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -89,7 +112,6 @@ export default function RotatingCards() {
         { scope: sectionRef }
     );
 
-    // Smoothly stop / resume the rotation
     const setSpeed = (value) => {
         if (!tweenRef.current) return;
         gsap.to(tweenRef.current, {
@@ -103,9 +125,15 @@ export default function RotatingCards() {
     return (
         <section
             ref={sectionRef}
-            className="relative h-[90vh] min-h-[520px] w-full overflow-hidden bg-black"
+            className="relative h-[80vh] min-h-[520px] w-full overflow-hidden bg-black"
         >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center tracking-wide pt-10">
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
+                style={{
+                    backgroundImage: "url('assets/images/home/services_bg.avif')",
+                }}
+            />
+            <h2 className="relative text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center tracking-wide pt-16">
                 The Showcase
             </h2>
             <div

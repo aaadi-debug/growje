@@ -203,12 +203,12 @@ export default function Header() {
                             Careers
                         </Link>
 
-                        <Link
+                        {/* <Link
                             href="/contact-us"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
                             Contact
-                        </Link>
+                        </Link> */}
                     </nav>
 
                     <div className="lg:block hidden">
@@ -225,7 +225,7 @@ export default function Header() {
                             </Link> */}
 
                             <Link
-                                href="tel:+919625870021"
+                                href="/contact-us"
                                 className={`group
                                     inline-flex
                                     items-center
@@ -248,8 +248,8 @@ export default function Header() {
                                     ${scrolled ? "border-black after:bg-primary hover:text-primary hover:border-primary hover:text-primary" : " border-white after:bg-white"}`
                                 }
                             >
-                                <Phone size={16} />
-                                Call Now
+                                {/* <Phone size={16} /> */}
+                                Contact Us
                             </Link>
                         </div>
                     </div>

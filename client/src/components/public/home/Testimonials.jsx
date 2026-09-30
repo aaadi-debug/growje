@@ -37,6 +37,23 @@ const testimonials = [
       "Rare to find a team that balances aesthetics and performance so well. Highly recommended for any serious brand.",
     rating: 5,
   },
+  {
+    id: 5,
+    name: "Sneha Patel",
+    role: "Product Manager, Lumen",
+    content:
+      "Rare to find a team that balances aesthetics and performance so well. Highly recommended for any serious brand.",
+    rating: 5,
+  },
+  {
+  
+    id: 6,
+    name: "Sneha Patel",
+    role: "Product Manager, Lumen",
+    content:
+      "Rare to find a team that balances aesthetics and performance so well. Highly recommended for any serious brand.",
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {
@@ -46,10 +63,12 @@ export default function Testimonials() {
   // Update visible cards based on screen size
   useEffect(() => {
     const updateVisible = () => {
-      if (window.innerWidth >= 1024) {
-        setVisibleCount(3); // desktop
+      if (window.innerWidth >= 1440) {
+        setVisibleCount(3.5); // tablet
+      } else if (window.innerWidth >= 1024) {
+        setVisibleCount(3); // tablet
       } else if (window.innerWidth >= 768) {
-        setVisibleCount(2); // tablet
+        setVisibleCount(2.5); // tablet
       } else {
         setVisibleCount(1); // mobile
       }
@@ -143,11 +162,11 @@ export default function Testimonials() {
                     <Quote className="w-7 h-7 text-black/20" strokeWidth={1.5} />
                   </div>
 
-                  <p className="text-base md:text-lg leading-relaxed font-light text-black/90 mb-6">
+                  <p className="leading-relaxed font-light text-black/90 mb-6 max-sm:text-sm max-sm:mb-2">
                     “{item.content}”
                   </p>
 
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-4 max-sm:mb-2">
                     {[...Array(item.rating)].map((_, i) => (
                       <Star
                         key={i}
