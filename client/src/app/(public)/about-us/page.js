@@ -6,6 +6,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import Approach_1 from "../../../../public/assets/images/home/approach_1.png"
 import Image from "next/image";
 import LetsTalk from "@/components/public/home/LetsTalk";
+import TeamSection from "@/components/public/TeamSection";
 
 const stats = [
   { value: "7k+", label: "Projects Delivered" },
@@ -270,8 +271,241 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ================= ABOUT + MISSION ================= */}
-      <section className="relative overflow-hidden px-6 lg:px-10 py-16 lg:py-28">
+      {/* ================= OWNER + ABOUT US + JOURNEY ================= */}
+      <section className="relative overflow-clip px-6 lg:px-10 py-16 lg:py-28">
+        {/* Background blurs */}
+        <div
+          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl"
+          aria-hidden="true"
+        />
+
+        {/* Optional light grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.65]
+              [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+              [background-size:48px_48px]"
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+
+            {/* ========== LEFT: STICKY OWNER IMAGE ========== */}
+            <div className="lg:col-span-5">
+              <div className="lg:sticky lg:top-24">
+                <div className="overflow-hidden rounded-2xl">
+                  <img
+                    src="assets/images/about_hero_bg.jpg"   // ← replace with real image
+                    alt="Founder of Growje"
+                    className="h-auto w-full object-cover border"
+                  />
+                </div>
+
+                {/* Optional name + designation under image */}
+                <div className="mt-6">
+                  <h3 className="text-xl font-medium tracking-tight">Anshul Rathore</h3>
+                  <p className="text-sm text-black/50">Founder & CEO</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ========== RIGHT: SCROLLING CONTENT ========== */}
+            <div className="lg:col-span-7 space-y-20">
+
+              {/* ----- ABOUT US ----- */}
+              <div>
+                <FadeUp>
+                  <p className="text-xs uppercase tracking-[0.2em] text-black/40">
+                    About Growje
+                  </p>
+                  <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
+                    Where Ideas Evolve. Brands Grow.
+                  </h2>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-8 text-base leading-relaxed text-black/60 md:text-lg">
+                    Every brand begins with an idea, a vision, and a reason to be remembered. Growje was built with a simple thought — to build something of our own and create work that genuinely makes a difference for businesses.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Our journey began in 2021 under a different identity, marking the first chapter of an entrepreneurial vision. That chapter eventually came to an end, but the idea behind it continued to evolve. In 2023, that vision took a new shape as Growje.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    The name Growje represents one simple yet powerful philosophy — Brand Growth. From the beginning, our focus has been to help businesses build a meaningful digital presence through creativity, strategy, social media, digital marketing, and storytelling.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black md:text-lg">
+                    The Beginning of Our Journey.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Growje began with a clear vision but, like every growing business, the early journey came with its own challenges.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    In the beginning, the focus was on understanding businesses from the ground up. Every project brought a new challenge and every client taught us something different. We spent time speaking directly with clients, understanding their businesses, studying what their audiences were looking for, and creating solutions around their actual needs.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    From creating new designs and experimenting with different content approaches to personally working on Meta Ads, we were closely involved in every part of the process.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    There was no fixed formula.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    We learned. We experimented. We improved. And we kept moving forward.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black md:text-lg">
+                    Understanding Before Creating
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    As our experience grew, one belief became stronger — every business is different.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    A strategy that works for one brand may not work for another. That's why we don't believe in simply applying the same marketing formula to every client.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black md:text-lg">
+                    Growing Beyond Boundaries
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    With time, the work became bigger and the opportunities expanded.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    What started with a few projects gradually developed into larger opportunities, including working on government tenders. Our journey also expanded beyond India, giving us the opportunity to work with clients from international markets.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Every new project brought new perspectives, new challenges, and new opportunities to learn.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    And with that growth came something even more important — a growing team and a bigger vision.
+                  </p>
+                </FadeUp>
+
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black md:text-lg">
+                    Where We Are Today
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Today, Growje is more than a digital marketing company.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    We are building a growth-focused creative partner for ambitious businesses — from emerging brands taking their first steps to established businesses looking for their next stage of growth.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Our journey is still being written, but the mindset remains the same as it was in the beginning:
+                  </p>
+                </FadeUp>
+                <FadeUp delay={100}>
+                  <p className="mt-2 text-base leading-relaxed text-black/60 md:text-lg">
+                    Keep learning. Keep creating. Keep evolving.
+                  </p>
+                </FadeUp>
+              </div>
+
+              {/* ----- JOURNEY (Year by Year) ----- */}
+              <div>
+                <FadeUp>
+                  <p className="text-xs uppercase tracking-[0.2em] text-black/40">
+                    Our Journey
+                  </p>
+                  <h3 className="mt-4 text-3xl font-medium tracking-tight md:text-4xl">
+                    From idea to impact
+                  </h3>
+                </FadeUp>
+
+                <div className="mt-12 space-y-12">
+                  {/* Example timeline items - replace with real data */}
+                  {[
+                    {
+                      year: "2023",
+                      title: "The Beginning",
+                      description: "The idea of starting something of his own was always there. After spending three years in the corporate world, our founder decided it was time to take that experience and build something of his own. The journey started small, working with just a few clients and figuring things out one project at a time. From sitting with clients, understanding what they really wanted, trying new designs, and keeping up with what was happening in the market, every day brought something new to learn. Finally, that journey became Growje",
+                    },
+                    {
+                      year: "2024",
+                      title: "Scaling Up",
+                      description: "What started with a few projects slowly grew through consistent work and social media, and by the end of 2024, clients had started finding Growje on their own and reaching out.",
+                    },
+                    {
+                      year: "2025",
+                      title: "Today",
+                      description: "Today, Growje is still driven by the same mindset — keep learning, keep creating, and keep finding better ways to help brands grow.",
+                    },
+                  ].map((item, index) => (
+                    <FadeUp key={item.year} delay={index * 80}>
+                      <div className="flex gap-6 max-sm:flex-col">
+                        {/* Year */}
+                        <div className="w-20 shrink-0">
+                          <span className="text-2xl font-medium text-primary">
+                            {item.year}
+                          </span>
+                        </div>
+
+                        {/* Content */}
+                        <div className="border-l border-black/10 pl-6">
+                          <h4 className="text-lg font-medium">{item.title}</h4>
+                          <p className="mt-2 text-black/60 leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    </FadeUp>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= VISSION + MISSION ================= */}
+      <section className="relative overflow-hidden px-6 lg:px-10 pb-16 lg:pb-28">
         <div
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
           aria-hidden="true"
@@ -290,70 +524,33 @@ export default function AboutUsPage() {
         />
 
         <div className="relative mx-auto">
-          <div className="grid items-center gap-16 max-sm:gap-8 lg:grid-cols-2">
-            {/* Left Content */}
-            <FadeUp delay={200} className="rounded-3xl bg-primary max-sm:order-2">
-              <div className="rounded-3xl p-10 text-white lg:p-12 max-sm:px-6 max-sm:py-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/60">
-                  Company Mission
-                </p>
-                <p className="mt-6 text-xl max-sm:text-base leading-relaxed text-white/80">
-                  To empower businesses with innovative digital solutions that
-                  drive growth, enhance brand identity, and deliver measurable
-                  results.
-                </p>
+          <div className="grid gap-16 max-sm:gap-8 lg:grid-cols-2">
+            <div>
+              <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
+                Company Mission
+              </h2>
+              <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
+                To help growing brands get noticed, connect with the right people, and grow with confidence. We bring together digital marketing, creative ideas, technology, and storytelling to create work that feels real and makes a difference. We want to make good marketing more accessible for small and growing businesses, while building long-term relationships that help brands move forward.
+              </p>
+            </div>
 
-                <div className="mt-12 grid grid-cols-2 gap-8">
-                  {stats.map((stat) => (
-                    <div key={stat.label}>
-                      <p className="text-3xl font-medium tracking-tight md:text-4xl">
-                        <Counter value={stat.value} />
-                      </p>
-                      <p className="mt-2 text-sm text-white/50">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeUp>
-
-            {/* Right Stats Card */}
-            <div className="max-sm:order-1">
-              <FadeUp>
-                <p className="text-xs uppercase tracking-[0.2em] text-black/40">
-                  learn about us
-                </p>
-                <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
-                  Creative thinking meets digital execution.
-                </h2>
-              </FadeUp>
-
-              <FadeUp delay={100}>
-                <p className="mt-8 text-base leading-relaxed text-black/60 md:text-lg">
-                  We believe great digital work isn’t just about making
-                  something look good. It should communicate clearly, solve
-                  real problems and create measurable value for businesses.
-                </p>
-              </FadeUp>
-
-              <FadeUp delay={150}>
-                <div className="mt-4 space-y-3">
-                  {principles.map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
-                        <Check size={14} />
-                      </span>
-                      <span className="text-black/80">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </FadeUp>
+            <div>
+              <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
+                Our Vision
+              </h2>
+              <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
+                Our vision is to build Growje into a recognised creative and digital company that helps ambitious brands turn their ideas into something people remember. We aim to grow alongside our clients, keep evolving with the changing digital world, and create work that is not just seen, but valued, remembered, and trusted.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ================= TEAM ================= */}
+      <TeamSection />
+
       {/* ================= VALUES ================= */}
-      <section className="relative overflow-hidden bg-[#f4f4f0] px-6 lg:px-10 py-16 lg:py-28">
+      <section className="relative overflow-hidden bg-[#f4f4f0] px-6 lg:px-10 pb-16 pt-12 lg:pb-20 lg:pt-16">
         <div
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
           aria-hidden="true"
@@ -372,22 +569,9 @@ export default function AboutUsPage() {
 
         <div className="relative mx-auto">
           {/* Header */}
-          <FadeUp>
-            <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
-                  What drives us
-                </p>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-                  Our way of working
-                </h2>
-              </div>
-
-              <p className="max-w-sm text-black/50 leading-relaxed lg:pt-10">
-                We measure success not just by projects delivered, but by the lasting impact we create for our partners.
-              </p>
-            </div>
-          </FadeUp>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-12 text-center">
+            Our way of working
+          </h2>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((item, index) => (
@@ -410,22 +594,9 @@ export default function AboutUsPage() {
       {/* ================= Services ================= */}
       <section className="bg-black text-white py-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 px-6 lg:px-10 pt-4 lg:pt-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
-              Strategic
-            </p>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-              Approach we follow
-            </h2>
-          </div>
-
-          <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
-            From strategy and branding to digital
-            experiences, we help businesses become
-            impossible to ignore.
-          </p>
-        </div>
+        <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-center mb-12">
+          Our Secret Sauce
+        </h2>
 
         <div className="lg:block md:block hidden">
           <img src="/assets/images/home/approach_1.png" />

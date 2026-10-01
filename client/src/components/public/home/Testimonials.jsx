@@ -140,7 +140,7 @@ export default function Testimonials() {
       <div className="relative z-10">
         {/* Header */}
         <h2 className="text-black text-center text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.05em] font-medium mb-12 lg:mb-16">
-          Real words from real our partners.
+          Voices of GROWJE
         </h2>
 
         {/* Slider */}

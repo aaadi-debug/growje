@@ -111,11 +111,23 @@ export default function Header() {
                             href="/about-us"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
-                            About Us
+                            Our DNA
+                        </Link>
+                        <Link
+                            href="/digital-lab"
+                            className="text-sm font-medium hover:opacity-60 transition"
+                        >
+                            The Digital Lab
+                        </Link>
+                        <Link
+                            href="/impact-zone"
+                            className="text-sm font-medium hover:opacity-60 transition"
+                        >
+                            The Impact Zone
                         </Link>
 
                         {/* Online Marekting */}
-                        <div
+                        {/* <div
                             className="relative"
                             onMouseEnter={() => setServicesOpen(true)}
                             onMouseLeave={() => setServicesOpen(false)}
@@ -170,10 +182,10 @@ export default function Header() {
                                     </div>
                                 </div>
                             )}
-                        </div>
+                        </div> */}
 
                          {/* Offline Marekting */}
-                        <div
+                        {/* <div
                             className="relative"
                             // onMouseEnter={() => setServicesOpen(true)}
                             // onMouseLeave={() => setServicesOpen(false)}
@@ -187,13 +199,13 @@ export default function Header() {
                             </button>
 
                             
-                        </div>
+                        </div> */}
 
                         <Link
                             href="/articles"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
-                            Blogs
+                            Think Tank
                         </Link>
 
                         <Link
@@ -314,53 +326,19 @@ export default function Header() {
                             </Link> */}
 
                             <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>
-                                About Us
+                                Our DNA
                             </Link>
 
-                            <div>
-                                <button
-                                    type="button"
-                                    onClick={() => setServicesOpen(!servicesOpen)}
-                                    className="flex items-center gap-2 w-full"
-                                >
-                                    Online Marketing
-                                    <ChevronDown
-                                        size={18}
-                                        className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                                    />
-                                </button>
+                            <Link href="/digital-lab" onClick={() => setMobileMenuOpen(false)}>
+                                The Digital Lab
+                            </Link>
 
-                                {servicesOpen && (
-                                    <div className="mt-4 ml-3 flex flex-col gap-3 text-base text-black/70">
-                                        {services.map((service) => (
-                                            <Link
-                                                key={service._id}
-                                                href={`/${service.slug}`}
-                                                onClick={() => setMobileMenuOpen(false)}
-                                            >
-                                                {service.title}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
-                            <div>
-                                <button
-                                    type="button"
-                                    // onClick={() => setServicesOpen(!servicesOpen)}
-                                    className="flex items-center gap-2 w-full"
-                                >
-                                    Offline Marketing
-                                    <ChevronDown
-                                        size={18}
-                                        className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                                    />
-                                </button>
-                            </div>
+                            <Link href="/impact-zone" onClick={() => setMobileMenuOpen(false)}>
+                                The Impact Zone
+                            </Link>
 
                             <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>
-                                Blogs
+                                Think Tank
                             </Link>
 
                             <Link href="/careers" onClick={() => setMobileMenuOpen(false)}>
@@ -368,7 +346,7 @@ export default function Header() {
                             </Link>
 
                             <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
-                                Contact
+                                Contact Us
                             </Link>
                         </nav>
 

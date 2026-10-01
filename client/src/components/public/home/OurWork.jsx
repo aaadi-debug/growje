@@ -34,9 +34,9 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
             {/* <div className="relative z-10 flex items-end justify-between mb-10 md:mb-16"> */}
             <div className="relative z-10  mb-10 md:mb-16">
 
-                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center">
-                    Our Work
-                </h2>
+                {/* <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center">
+                    Industries We Serve
+                </h2> */}
 
                 {/* <Link
                     href="/portfolio"
@@ -82,6 +82,8 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                             </button>
                         ))} */}
 
+
+
                         <a
                             href="#"
                             className={`
@@ -89,7 +91,19 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                 bg-white text-black/70 hover:bg-primary hover:text-white
                             `}
                         >
-                            Hospitality
+                            Social Media
+                        </a>
+
+
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Graphic Design
                         </a>
 
                         <a
@@ -99,7 +113,57 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                 bg-white text-black/70 hover:bg-primary hover:text-white
                             `}
                         >
-                            FMCG
+                            Web & Digital
+                        </a>
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Branding & Identity
+                        </a>
+
+                        {/* <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Video & Motion
+                        </a>
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Campaigns
+                        </a> */}
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Print & Packaging
+                        </a>
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Events & Experiences
                         </a>
                     </div>
                 )}

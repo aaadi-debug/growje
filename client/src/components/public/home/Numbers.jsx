@@ -92,20 +92,9 @@ export default function NumbersSection() {
 
             <div className="relative z-10 ">
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10">
-                    <div>
-                        {/* <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
-                            06 — Impact
-                        </p> */}
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-                            Numbers that speak louder
-                        </h2>
-                    </div>
-
-                    {/* <p className="max-w-sm text-white/50 leading-relaxed lg:pt-4">
-                        We measure success not just by projects delivered, but by the lasting impact we create for our partners.
-                    </p> */}
-                </div>
+                <h2 className="text-center text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-12">
+                    Numbers that speak louder
+                </h2>
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
