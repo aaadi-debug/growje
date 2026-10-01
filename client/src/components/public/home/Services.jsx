@@ -20,30 +20,21 @@ export default function Services({ services }) {
 
     return (
         <>
-            <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 overflow-hidden">
+            <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 overflow-hidden bg-black">
 
+                {/* Background image */}
                 <div
-                    className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
-                    aria-hidden="true"
-                />
-                <div
-                    className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl"
-                    aria-hidden="true"
-                />
-
-                {/* Optional light grid */}
-                <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.65]
-                    [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
-                    [background-size:48px_48px]"
-                    aria-hidden="true"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
+                    style={{
+                        backgroundImage: "url('assets/images/home/services_bg.avif')", // ← change to your actual filename
+                    }}
                 />
 
 
                 <div className="relative z-10">
                     {/* <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20"> */}
 
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-10 text-black">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-10 text-white text-center">
                         Our Services
                     </h2>
                     {/* </div> */}

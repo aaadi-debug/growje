@@ -51,26 +51,30 @@ export default function ScrollTextSection() {
         // The first heading is already visible when the section is reached,
         // so only the following headings wipe in.
         if (i > 0) {
-          // IN: each line wipes in left-to-right, one after another
+          // IN: whole block wipes in together (no stagger)
           tl.fromTo(
             lines,
             { "--in": 0 },
-            { "--in": 1, duration: 1, stagger: 0.55 },
-            ">-0.4"
+            { "--in": 1, duration: 0.8, stagger: 0 }, // ← was 1 + stagger 0.55
+            ">-0.3"
           );
 
           // HOLD
-          tl.to({}, { duration: 0.8 });
+          tl.to({}, { duration: 0.6 });
         }
 
-        // OUT: each line wipes out left-to-right, top to bottom
+        // OUT: whole block wipes out together (no stagger)
         if (!isLast) {
-          tl.to(lines, { "--out": 1, duration: 1, stagger: 0.45 });
+          tl.to(lines, {
+            "--out": 1,
+            duration: 0.8, // slightly shorter
+            stagger: 0,    // ← was 0.45 – this is the main speed-up
+          });
         }
       });
 
       // hold the final heading before unpinning
-      tl.to({}, { duration: 1 });
+      tl.to({}, { duration: 0.8 });
     },
     { scope: sectionRef }
   );

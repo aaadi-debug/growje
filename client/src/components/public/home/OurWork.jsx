@@ -143,7 +143,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
             </div> */}
 
                 {/* Projects Slider */}
-                <div className="relative">
+                {/* <div className="relative">
                     {filteredProjects.length > 0 ? (
                         <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide">
                             {filteredProjects.map((project) => {
@@ -172,9 +172,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                         </div>
 
                                         <div className="mt-2 pb-3 flex-col gap-4 px-4">
-                                            {/* <h3 className="text-xl md:text-2xl font-medium">
-                                                {project.title}
-                                            </h3> */}
+                                            
                                             {project.category && (
                                                 <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">
                                                     {project.title || project.clientName}
@@ -196,7 +194,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                             No projects found for this service.
                         </div>
                     )}
-                </div>
+                </div> */}
 
                 {/* Mobile View All */}
                 {/* <div className="mt-16 md:hidden">
