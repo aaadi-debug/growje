@@ -20,7 +20,7 @@ export default function Services({ services }) {
 
     return (
         <>
-            <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 overflow-hidden bg-black">
+            <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 lg:pb-40 overflow-hidden bg-black">
 
                 {/* Background image */}
                 <div

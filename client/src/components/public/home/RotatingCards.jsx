@@ -23,8 +23,8 @@ const DURATION = 80;
 const DIRECTION = 1;
 
 // Scale settings — tweak these
-const CENTER_SCALE = 0.85; // front card (smaller)
-const SIDE_SCALE = 1.15;   // side cards (larger)
+const CENTER_SCALE = 1.04; // front card (smaller)
+const SIDE_SCALE = 1.35;   // side cards (larger)
 
 export default function RotatingCards() {
     const sectionRef = useRef(null);
@@ -48,7 +48,7 @@ export default function RotatingCards() {
             const n = cards.length;
             const cardW = Math.max(160, Math.min(vw * 0.18, 340));
             const cardH = cardW * 1.38;
-            const pitch = cardW * 1.02;
+            const pitch = cardW * 1.20;
             const radius = pitch / (2 * Math.tan(Math.PI / n));
 
             section.style.perspective = `${radius * 1.65}px`;
@@ -133,7 +133,7 @@ export default function RotatingCards() {
                     backgroundImage: "url('assets/images/home/services_bg.avif')",
                 }}
             />
-            <h2 className="relative text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center tracking-wide pt-16">
+            <h2 className="relative text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center tracking-wide">
                 The Showcase
             </h2>
             <div

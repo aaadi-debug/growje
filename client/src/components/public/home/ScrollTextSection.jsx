@@ -37,9 +37,9 @@ export default function ScrollTextSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=500%", // total scroll distance while pinned
+          end: "+=220%", // total scroll distance while pinned
           pin: true,
-          scrub: 0.8, // smoothing: higher = more lag
+          scrub: 0.6, // smoothing: higher = more lag
           anticipatePin: 1,
         },
       });
@@ -55,26 +55,26 @@ export default function ScrollTextSection() {
           tl.fromTo(
             lines,
             { "--in": 0 },
-            { "--in": 1, duration: 0.8, stagger: 0 }, // ← was 1 + stagger 0.55
+            { "--in": 1, duration: 0.7, stagger: 0 }, // ← was 1 + stagger 0.55
             ">-0.3"
           );
 
           // HOLD
-          tl.to({}, { duration: 0.6 });
+          tl.to({}, { duration: 0.4 });
         }
 
         // OUT: whole block wipes out together (no stagger)
         if (!isLast) {
           tl.to(lines, {
             "--out": 1,
-            duration: 0.8, // slightly shorter
+            duration: 0.7, // slightly shorter
             stagger: 0,    // ← was 0.45 – this is the main speed-up
           });
         }
       });
 
       // hold the final heading before unpinning
-      tl.to({}, { duration: 0.8 });
+      tl.to({}, { duration: 0.3 });
     },
     { scope: sectionRef }
   );

@@ -21,7 +21,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
     console.log("Fileterd Projects: ", filteredProjects)
 
     return (
-        <section className="relative overflow-hidden px-6 lg:px-10 pb-16 lg:pb-24 bg-black -mt-16">
+        <section className="relative overflow-hidden px-6 lg:px-10 pb-16 lg:pb-24 bg-black">
             {/* Background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
@@ -67,7 +67,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                             All
                         </button>
 
-                        {services.map((service) => (
+                        {/* {services.map((service) => (
                             <button
                                 key={service._id}
                                 onClick={() => setActiveTab(service._id)}
@@ -80,7 +80,27 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                             >
                                 {service.title}
                             </button>
-                        ))}
+                        ))} */}
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Hospitality
+                        </a>
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            FMCG
+                        </a>
                     </div>
                 )}
 
