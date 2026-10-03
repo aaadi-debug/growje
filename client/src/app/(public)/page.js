@@ -64,7 +64,7 @@ export default async function HomePage() {
       <HeroSection />
       {/* <ClientMarquee /> */}
       <WhoAreWe />
-      <Services services={services} />
+      <Services featuredProjects={featuredProjects} services={services} />
       <RotatingCards />
       <OurWork featuredProjects={featuredProjects} services={services} />
       <Approach />

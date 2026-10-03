@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 // ─────────────────────────────────────────────
@@ -16,7 +19,17 @@ const serviceImages = {
 // fallback image if title doesn't match
 const defaultImage = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80";
 
-export default function Services({ services }) {
+export default function Services({ featuredProjects = [], services }) {
+
+        const [activeTab, setActiveTab] = useState("all");
+    
+        // Filter projects based on selected service
+        const filteredProjects =
+            activeTab === "all"
+                ? featuredProjects
+                : featuredProjects.filter((project) =>
+                    project.services?.some((service) => service._id === activeTab)
+            );
 
     return (
         <>
@@ -38,6 +51,45 @@ export default function Services({ services }) {
                         Our Services
                     </h2>
                     {/* </div> */}
+
+                                    {/* Tabs */}
+                {services.length > 0 && (
+                    <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10 overflow-x-auto pb-2 scrollbar-hide">
+                        <button
+                            onClick={() => setActiveTab("all")}
+                            className={`
+                            px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
+                            ${activeTab === "all"
+                                    ? "bg-primary text-white" : "bg-white text-black/70 hover:bg-primary hover:text-white"
+                                }
+                        `}
+                        >
+                            All
+                        </button>
+
+
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Digital
+                        </a>
+
+                        <a
+                            href="#"
+                            className={`
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                bg-white text-black/70 hover:bg-primary hover:text-white
+                            `}
+                        >
+                            Ground
+                        </a>
+                    </div>
+                )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {services.map((service) => {

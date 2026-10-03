@@ -525,7 +525,7 @@ export default function AboutUsPage() {
 
         <div className="relative mx-auto">
           <div className="grid gap-16 max-sm:gap-8 lg:grid-cols-2">
-            <div>
+            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white">
               <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
                 Company Mission
               </h2>
@@ -534,7 +534,7 @@ export default function AboutUsPage() {
               </p>
             </div>
 
-            <div>
+            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white">
               <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
                 Our Vision
               </h2>

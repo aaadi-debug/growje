@@ -12,7 +12,7 @@ const team = [
         name: "Barsha",
         profession: "Hiring Manager",
         specialName: "HR",
-        photo: "",
+        photo: "assets/images/team/barsha.jpeg",
         description:
             "Anshul started Growje to give brands digital work that actually performs. He sets the direction for every project and stays close to clients from the first call to launch.",
     },
@@ -21,7 +21,7 @@ const team = [
         name: "Yashika",
         profession: "Social Media Handler",
         specialName: "Trend Maker",
-        photo: "assets/images/member-1.jpeg",
+        photo: "assets/images/team/yashika.png",
         description:
             "Leads brand identity and visual design. Turns rough ideas into clear, memorable work across web, social and print.",
     },
@@ -30,19 +30,64 @@ const team = [
         name: "Harsh",
         profession: "Graphic Designer",
         specialName: "Idea Illustrator",
-        photo: "",
+        photo: "assets/images/team/harsh.png",
         description:
             "Builds fast, reliable websites and web apps. Obsessed with clean code, performance and things that just work.",
     },
     {
         id: 4,
-        name: "Team Member Four",
-        profession: "Performance Marketer",
-        specialName: "The Growth Hacker",
-        photo: "",
+        name: "Meenakshi",
+        profession: "Graphic Designer",
+        specialName: "Visual Crafter",
+        photo: "assets/images/team/meenakshi.png",
         description:
             "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
     },
+    {
+        id: 5,
+        name: "Aditya",
+        profession: "Website Developer",
+        specialName: "Code Crafter",
+        photo: "assets/images/team/aditya.png",
+        description:
+            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+    },
+    {
+        id: 6,
+        name: "Pooja",
+        profession: "Social Media Manager",
+        specialName: "Social Strategist",
+        photo: "assets/images/team/pooja.png",
+        description:
+            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+    },
+    {
+        id: 7,
+        name: "Sahil",
+        profession: "Video Editor",
+        specialName: "Edit Wizard",
+        photo: "assets/images/team/sahil.png",
+        description:
+            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+    },
+    {
+        id: 8,
+        name: "Zaid",
+        profession: "Video Editor 2",
+        specialName: "Frame Blender",
+        photo: "assets/images/team/zaid.png",
+        description:
+            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+    },
+    {
+        id: 9,
+        name: "Alok",
+        profession: "Video Editor 3",
+        specialName: "Edit Architect",
+        photo: "assets/images/team/alok.png",
+        description:
+            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+    }
 ];
 
 /* ------------------------------------------------------------------
