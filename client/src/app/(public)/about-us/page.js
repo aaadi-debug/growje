@@ -525,22 +525,36 @@ export default function AboutUsPage() {
 
         <div className="relative mx-auto">
           <div className="grid gap-16 max-sm:gap-8 lg:grid-cols-2">
-            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white">
-              <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
-                Company Mission
-              </h2>
-              <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
-                To help growing brands get noticed, connect with the right people, and grow with confidence. We bring together digital marketing, creative ideas, technology, and storytelling to create work that feels real and makes a difference. We want to make good marketing more accessible for small and growing businesses, while building long-term relationships that help brands move forward.
-              </p>
+            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white flex relative">
+              <img
+                src="assets/images/mission.jpg"
+                alt="Mission Illustration"
+                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl"
+              />
+              <div className="z-10 pb-20">
+                <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
+                  Company Mission
+                </h2>
+                <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
+                  To help growing brands get noticed, connect with the right people, and grow with confidence. We bring together digital marketing, creative ideas, technology, and storytelling to create work that feels real and makes a difference. We want to make good marketing more accessible for small and growing businesses, while building long-term relationships that help brands move forward.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white">
-              <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
-                Our Vision
-              </h2>
-              <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
-                Our vision is to build Growje into a recognised creative and digital company that helps ambitious brands turn their ideas into something people remember. We aim to grow alongside our clients, keep evolving with the changing digital world, and create work that is not just seen, but valued, remembered, and trusted.
-              </p>
+            <div className="border border-gray-400 lg:p-6 p-4 rounded-2xl bg-white flex relative">
+              <img
+                src="assets/images/vision.jpg"
+                alt="Mission Illustration"
+                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl"
+              />
+              <div className="z-10 pb-20">
+                <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-[-0.04em] md:text-5xl">
+                  Our Vision
+                </h2>
+                <p className="mt-6 text-gray-500 text-lg max-sm:text-base">
+                  Our vision is to build Growje into a recognised creative and digital company that helps ambitious brands turn their ideas into something people remember. We aim to grow alongside our clients, keep evolving with the changing digital world, and create work that is not just seen, but valued, remembered, and trusted.
+                </p>
+              </div>
             </div>
           </div>
         </div>

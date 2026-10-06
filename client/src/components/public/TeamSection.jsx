@@ -14,7 +14,7 @@ const team = [
         specialName: "HR",
         photo: "assets/images/team/barsha.jpeg",
         description:
-            "Anshul started Growje to give brands digital work that actually performs. He sets the direction for every project and stays close to clients from the first call to launch.",
+            "Keeps the people, culture and team spirit moving together.Makes sure the right people find the right place to grow.",
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const team = [
         specialName: "Trend Maker",
         photo: "assets/images/team/yashika.png",
         description:
-            "Leads brand identity and visual design. Turns rough ideas into clear, memorable work across web, social and print.",
+            "Always one trend ahead and ready to turn it into content.Brings fresh ideas, relatable concepts and social-first energy.",
     },
     {
         id: 3,
@@ -32,7 +32,7 @@ const team = [
         specialName: "Idea Illustrator",
         photo: "assets/images/team/harsh.png",
         description:
-            "Builds fast, reliable websites and web apps. Obsessed with clean code, performance and things that just work.",
+            "Turns ideas into visuals that actually speak.Brings creativity, concepts & fresh design energy to every project.",
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const team = [
         specialName: "Visual Crafter",
         photo: "assets/images/team/meenakshi.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Crafts visuals that make brands look memorable and modern.From concepts to creatives, she adds her own visual touch.",
     },
     {
         id: 5,
@@ -50,7 +50,7 @@ const team = [
         specialName: "Code Crafter",
         photo: "assets/images/team/aditya.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Turns creative ideas into websites that actually work.Blends clean code, smooth experiences and modern web design.",
     },
     {
         id: 6,
@@ -59,7 +59,7 @@ const team = [
         specialName: "Social Strategist",
         photo: "assets/images/team/pooja.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Turns social media into stories people actually want to follow.Plans, creates and connects content with the right audience.",
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const team = [
         specialName: "Edit Wizard",
         photo: "assets/images/team/sahil.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Where ordinary clips meet a little editing magic.Creates smooth, engaging edits that keep viewers watching.",
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const team = [
         specialName: "Frame Blender",
         photo: "assets/images/team/zaid.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Turns raw footage into scroll-stopping stories.Plays with cuts, transitions and visuals to make every frame count.",
     },
     {
         id: 9,
@@ -86,7 +86,7 @@ const team = [
         specialName: "Edit Architect",
         photo: "assets/images/team/alok.png",
         description:
-            "Plans and runs campaigns that turn attention into leads. Tracks every rupee and tests relentlessly.",
+            "Builds stories frame by frame with precision and creativity.From pacing to transitions, every cut has a purpose.",
     }
 ];
 
@@ -143,7 +143,7 @@ function TeamModal({ member, onClose }) {
                     type="button"
                     onClick={handleClose}
                     aria-label="Close"
-                    className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-black shadow transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-black shadow transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
                 >
                     <X size={18} />
                 </button>
@@ -216,13 +216,6 @@ export default function TeamSection() {
                             className="group text-left focus:outline-none bg-white rounded-3xl cursor-pointer"
                         >
                             <div className="relative overflow-hidden rounded-t-3xl bg-black/5 ring-primary ring-offset-4 group-focus-visible:ring-2 border-b border-gray-200">
-                                {/* Ribbon – special name */}
-                                {/* <span className="absolute left-0 top-5 z-10 bg-primary py-1.5 pl-4 pr-8 text-sm font-medium text-white shadow-md [clip-path:polygon(0_0,100%_0,calc(100%-14px)_50%,100%_100%,0_100%)]">
-                                    {member.specialName}
-                                </span> */}
-                                <span className="absolute left-0 top-5 z-10 rounded-r-full bg-primary py-1.5 pl-4 pr-5 text-sm font-medium text-white shadow-lg shadow-black/20">
-                                    {member.specialName}
-                                </span>
                                 <img
                                     src={member.photo || "assets/images/no-image.jpeg"}
                                     alt={member.name}
@@ -235,7 +228,7 @@ export default function TeamSection() {
                                 <h3 className="mt-1 text-xl font-medium tracking-tight text-black font-bold">
                                     {member.name}
                                 </h3>
-                                <p className="text-sm text-black/50">{member.profession}</p>
+                                <p className="text-sm text-black/50 font-bold">{member.specialName}</p>
                             </div>
                         </button>
                     ))}

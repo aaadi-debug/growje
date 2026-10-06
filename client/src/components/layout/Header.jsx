@@ -261,7 +261,7 @@ export default function Header() {
                                 }
                             >
                                 {/* <Phone size={16} /> */}
-                                Contact Us
+                                Get In Touch
                             </Link>
                         </div>
                     </div>
@@ -346,7 +346,7 @@ export default function Header() {
                             </Link>
 
                             <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
-                                Contact Us
+                                Get In Touch
                             </Link>
                         </nav>
 

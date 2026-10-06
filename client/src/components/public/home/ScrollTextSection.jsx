@@ -10,7 +10,16 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 // Two headings, shown one after the other
 const BLOCKS = [
   ["A creative studio", "for brands that refuse", "to blend in"],
-  ["Hi there!", "We are Growje, an Innovation", "& Digital agency"],
+  [
+    <>
+      <span className="text-primary">Hi</span> there!
+    </>,
+    <>
+      We are <span className="text-primary">GROWJE</span>, an Innovation
+    </>,
+    "& Digital agency",
+  ],
+  // ["Hi there!", "We are Growje, an Innovation", "& Digital agency"],
 ];
 
 // Softness of the gradient edge, as % of the line's width
@@ -87,7 +96,7 @@ export default function ScrollTextSection() {
       {BLOCKS.map((lines, b) => (
         <h2
           key={b}
-          className="st-block absolute inset-0 flex flex-col items-center justify-center px-4 text-center font-medium"
+          className="st-block absolute inset-0 flex flex-col items-center justify-center px-4 text-center font-semibold"
         >
           {lines.map((line, i) => (
             <span

@@ -55,7 +55,7 @@ export default function WhoAreWe() {
                                 hover:text-primary hover:border-primary
                             "
                         >
-                            More about us
+                            More of Our DNA
                             <ArrowUpRight
                                 size={16}
                                 className="transition-all duration-300 ease-out group-hover:rotate-45 group-hover:translate-x-1"
