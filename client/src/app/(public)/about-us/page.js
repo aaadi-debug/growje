@@ -560,11 +560,9 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ================= TEAM ================= */}
-      <TeamSection />
-
       {/* ================= VALUES ================= */}
-      <section className="relative overflow-hidden bg-[#f4f4f0] px-6 lg:px-10 pb-16 pt-12 lg:pb-20 lg:pt-16">
+      <section className="relative overflow-hidden bg-white px-6 lg:px-10 pb-16 pt-12 lg:pb-20 lg:pt-16">
+        {/* Soft background blobs */}
         <div
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
           aria-hidden="true"
@@ -576,34 +574,87 @@ export default function AboutUsPage() {
         {/* Optional light grid */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.65]
-                    [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
-                    [background-size:48px_48px]"
+              [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+              [background-size:48px_48px]"
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto">
+        <div className="relative mx-auto max-w-5xl">
           {/* Header */}
-          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-12 text-center">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-16 md:mb-20 text-center">
             Our way of working
           </h2>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((item, index) => (
-              <FadeUp key={item.number} delay={index * 80}>
-                <div className="group h-full rounded-2xl border border-primary bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white group">
-                  <span className="text-sm text-black/30 group-hover:text-white/40">
-                    {item.number}
-                  </span>
-                  <h3 className="mt-6 text-xl font-semibold text-primary group-hover:text-white">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-black/55 group-hover:text-white/60">
-                    {item.description}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
+          {/* Timeline */}
+          <div className="relative">
+            {/* Center dotted line */}
+            <div
+              className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 
+                   bg-[repeating-linear-gradient(to_bottom,theme(colors.primary)_0,theme(colors.primary)_6px,transparent_6px,transparent_14px)]
+                   opacity-40"
+              aria-hidden="true"
+            />
+
+            <div className="space-y-16 md:space-y-24">
+              {values.map((item, index) => {
+                const isLeft = index % 2 === 0;
+
+                return (
+                  // <FadeUp key={item.number} delay={index * 120}>
+                  <FadeUp
+                    key={item.number}
+                    delay={index * 120}
+                    initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                  >
+                    <div
+                      className={`relative flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                        }`}
+                    >
+                      {/* Card */}
+                      <div
+                        className={`w-full md:w-[calc(50%-2.5rem)] group rounded-2xl border border-primary bg-white p-7 md:p-8
+                              transition-all duration-500
+                              hover:-translate-y-1 hover:bg-primary hover:text-white
+                              ${isLeft ? "md:mr-auto" : "md:ml-auto"}`}
+                      >
+                        <span className="text-sm text-black/30 group-hover:text-white/40">
+                          {item.number}
+                        </span>
+                        <h3 className="mt-5 text-xl font-semibold text-primary group-hover:text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-black/55 group-hover:text-white/60">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      {/* Center node */}
+                      <div
+                        className="absolute left-1/2 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2
+                             items-center justify-center rounded-full border-2 border-primary bg-[#f4f4f0]
+                             text-sm font-semibold text-primary shadow-sm
+                             transition-all duration-500
+                             group-hover:bg-primary group-hover:text-white max-sm:hidden"
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+
+                      {/* Spacer so the opposite side stays empty on desktop */}
+                      <div className="hidden md:block md:w-[calc(50%-2.5rem)]" />
+                    </div>
+                  </FadeUp>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ================= TEAM ================= */}
+      <TeamSection />
+
+
 
       {/* ================= Services ================= */}
       <section className="bg-black text-white py-10">

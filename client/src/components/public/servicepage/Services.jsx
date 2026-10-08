@@ -17,20 +17,20 @@ export default function Services({ servicesData }) {
 
           <div className="relative z-10 ">
             {/* Header */}
-            <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10">
-              <div>
+            {/* <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10"> */}
+              {/* <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
                   SERVICES WE OFFER
-                </p>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
+                </p> */}
+                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-center mb-12">
                   {servicesData.title}
                 </h2>
-              </div>
+              {/* </div> */}
 
-              <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
+              {/* <p className="max-w-sm text-white/50 leading-relaxed lg:pt-10">
                 We measure success not just by projects delivered, but by the lasting impact we create for our partners.
               </p>
-            </div>
+            </div> */}
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">

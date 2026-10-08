@@ -28,14 +28,17 @@ export default function ServicePage({ service, projects = [] }) {
       {/* ================= CLIENT MARQUEE ============ */}
       <ClientMarquee clients={service.clients} />
 
-      {/* ================= SERVICE INTRO ============= */}
-      <ServiceForm service={service} />
+      {/* ================ SERVICES SECTION (Only One) ========= */}
+      <Services servicesData={servicesSection} />
 
       {/* ================= PORTFOLIO ================= */}
       <Portfolio service={service} projects={projects} />
+      
+      {/* ================= SERVICE INTRO ============= */}
+      <ServiceForm service={service} />
 
-      {/* ================ SERVICES SECTION (Only One) ========= */}
-      <Services servicesData={servicesSection} />
+
+
 
       {/* ================ PROCESS SECTION ============= */}
       <Process processData={processSection} />

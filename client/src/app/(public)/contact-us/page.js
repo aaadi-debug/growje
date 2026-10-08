@@ -385,7 +385,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Side - FORM */}
-          <div className="border bg-gray-100 px-6 lg:px-10 py-10 lg:py-16">
+          <div className="bg-gray-100 px-6 lg:px-10 py-10 lg:py-16">
             {/* Header */}
             <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-10">
               <div>
@@ -590,7 +590,7 @@ export default function ContactPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="relative overflow-hidden text-black px-6 lg:px-10 py-16 lg:py-24">
+      {/* <section className="relative overflow-hidden text-black px-6 lg:px-10 py-16 lg:py-24">
         <div
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
           aria-hidden="true"
@@ -600,7 +600,7 @@ export default function ContactPage() {
           aria-hidden="true"
         />
 
-        {/* Optional light grid */}
+        Optional light grid
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.65]
                     [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
@@ -654,7 +654,7 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
