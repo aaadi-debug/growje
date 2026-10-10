@@ -114,16 +114,16 @@ export default function Header() {
                             Our DNA
                         </Link>
                         <Link
-                            href="/digital-lab"
+                            href="/digital-zone"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
-                            The Digital Lab
+                            Digital Zone
                         </Link>
                         <Link
-                            href="/impact-zone"
+                            href="/offline-zone"
                             className="text-sm font-medium hover:opacity-60 transition"
                         >
-                            The Impact Zone
+                            Offline Zone
                         </Link>
 
                         {/* Online Marekting */}
@@ -329,12 +329,12 @@ export default function Header() {
                                 Our DNA
                             </Link>
 
-                            <Link href="/digital-lab" onClick={() => setMobileMenuOpen(false)}>
-                                The Digital Lab
+                            <Link href="/digital-zone" onClick={() => setMobileMenuOpen(false)}>
+                                Digital Zone
                             </Link>
 
-                            <Link href="/impact-zone" onClick={() => setMobileMenuOpen(false)}>
-                                The Impact Zone
+                            <Link href="/offline-zone" onClick={() => setMobileMenuOpen(false)}>
+                                Offline Zone
                             </Link>
 
                             <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>

@@ -18,6 +18,14 @@ const serviceSchema = new mongoose.Schema(
       trim: true,
     },
 
+    // ✅ ADD THIS
+    category: {
+      type: String,
+      enum: ["online", "offline"],
+      default: "online",
+      required: true,
+    },
+
     shortDescription: {
       type: String,
       default: "",

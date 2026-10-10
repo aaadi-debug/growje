@@ -60,6 +60,7 @@ export default function EditServicePage() {
 
         setFormData({
           ...service,
+          category: service.category || "online",
           clients: service.clients || [],
           servicesSection: service.servicesSection || { title: "", items: [] },
           processSection: service.processSection || { title: "", steps: [] },
@@ -268,6 +269,20 @@ export default function EditServicePage() {
               rows={4}
               className="w-full border rounded-lg px-3 py-2 text-sm"
             />
+          </div>
+
+          {/* row 3 */}
+          <div className="px-4 pb-4">
+            <label className="block leading-5 text-xs">Category</label>
+            <select
+              name="category"
+              value={formData.category || "online"}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-3 py-2 text-sm"
+            >
+              <option value="online">Online Marketing</option>
+              <option value="offline">Offline Marketing</option>
+            </select>
           </div>
         </section>
 

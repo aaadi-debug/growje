@@ -299,9 +299,9 @@ export default function AboutUsPage() {
               <div className="lg:sticky lg:top-24">
                 <div className="overflow-hidden rounded-2xl">
                   <img
-                    src="assets/images/about_hero_bg.jpg"   // ← replace with real image
+                    src="assets/images/Founder.png"   // ← replace with real image
                     alt="Founder of Growje"
-                    className="h-auto w-full object-cover border"
+                    className="h-auto 2xl:w-[80%] xl:w-[80%] lg:w-[90%] md:w-[30%] w-[60%] object-cover border rounded-2xl"
                   />
                 </div>
 
@@ -590,8 +590,8 @@ export default function AboutUsPage() {
             {/* Center dotted line */}
             <div
               className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 
-                   bg-[repeating-linear-gradient(to_bottom,theme(colors.primary)_0,theme(colors.primary)_6px,transparent_6px,transparent_14px)]
-                   opacity-40"
+           bg-[repeating-linear-gradient(to_bottom,theme(colors.primary)_0,theme(colors.primary)_6px,transparent_6px,transparent_14px)]
+           opacity-40"
               aria-hidden="true"
             />
 
@@ -600,50 +600,46 @@ export default function AboutUsPage() {
                 const isLeft = index % 2 === 0;
 
                 return (
-                  // <FadeUp key={item.number} delay={index * 120}>
-                  <FadeUp
+                  <div
                     key={item.number}
-                    delay={index * 120}
-                    initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    data-aos={isLeft ? "fade-up-right" : "fade-up-left"}
+                    data-aos-delay={index * 100}
+                    data-aos-duration="700"
+                    className={`relative flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                      }`}
                   >
+                    {/* Card */}
                     <div
-                      className={`relative flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                        }`}
+                      className={`w-full md:w-[calc(50%-2.5rem)] group rounded-2xl border border-primary bg-white p-7 md:p-8
+                    transition-all duration-500
+                    hover:-translate-y-1 hover:bg-primary hover:text-white
+                    ${isLeft ? "md:mr-auto" : "md:ml-auto"}`}
                     >
-                      {/* Card */}
-                      <div
-                        className={`w-full md:w-[calc(50%-2.5rem)] group rounded-2xl border border-primary bg-white p-7 md:p-8
-                              transition-all duration-500
-                              hover:-translate-y-1 hover:bg-primary hover:text-white
-                              ${isLeft ? "md:mr-auto" : "md:ml-auto"}`}
-                      >
-                        <span className="text-sm text-black/30 group-hover:text-white/40">
-                          {item.number}
-                        </span>
-                        <h3 className="mt-5 text-xl font-semibold text-primary group-hover:text-white">
-                          {item.title}
-                        </h3>
-                        <p className="mt-3 text-sm leading-relaxed text-black/55 group-hover:text-white/60">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      {/* Center node */}
-                      <div
-                        className="absolute left-1/2 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2
-                             items-center justify-center rounded-full border-2 border-primary bg-[#f4f4f0]
-                             text-sm font-semibold text-primary shadow-sm
-                             transition-all duration-500
-                             group-hover:bg-primary group-hover:text-white max-sm:hidden"
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-
-                      {/* Spacer so the opposite side stays empty on desktop */}
-                      <div className="hidden md:block md:w-[calc(50%-2.5rem)]" />
+                      <span className="text-sm text-black/30 group-hover:text-white/40">
+                        {item.number}
+                      </span>
+                      <h3 className="mt-5 text-xl font-semibold text-primary group-hover:text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-black/55 group-hover:text-white/60">
+                        {item.description}
+                      </p>
                     </div>
-                  </FadeUp>
+
+                    {/* Center node */}
+                    <div
+                      className="absolute left-1/2 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2
+                   items-center justify-center rounded-full border-2 border-primary bg-[#f4f4f0]
+                   text-sm font-semibold text-primary shadow-sm
+                   transition-all duration-500
+                   group-hover:bg-primary group-hover:text-white max-sm:hidden"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    {/* Spacer */}
+                    <div className="hidden md:block md:w-[calc(50%-2.5rem)]" />
+                  </div>
                 );
               })}
             </div>

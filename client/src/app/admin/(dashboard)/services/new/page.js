@@ -18,6 +18,7 @@ export default function CreateServicePage() {
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
+    category: "online",
     shortDescription: "",
     hero: {
       title: "",
@@ -253,6 +254,20 @@ export default function CreateServicePage() {
               rows={4}
               className="w-full border rounded-lg px-3 py-2 text-sm"
             />
+          </div>
+
+          {/* ✅ rpw 3 */}
+          <div className="mt-2 px-4">
+            <label className="block leading-5 text-xs">Category</label>
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-3 py-2 text-sm"
+            >
+              <option value="online">Online Marketing</option>
+              <option value="offline">Offline Marketing</option>
+            </select>
           </div>
         </section>
 

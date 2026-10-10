@@ -11,6 +11,7 @@ const createService = async (req, res) => {
     const {
       title,
       slug,
+      category,
       shortDescription,
       hero,
       clients,
@@ -40,6 +41,7 @@ const createService = async (req, res) => {
     const service = await Service.create({
       title,
       slug,
+      category,
       shortDescription,
       hero,
       clients,
@@ -193,6 +195,7 @@ const updateService = async (req, res) => {
     const {
       title,
       slug,
+      category,
       shortDescription,
       hero,
       clients,
@@ -226,6 +229,7 @@ const updateService = async (req, res) => {
 
     service.title = title ?? service.title;
     service.slug = slug?.toLowerCase() ?? service.slug;
+    service.category = category ?? service.category;
     service.shortDescription =
       shortDescription ?? service.shortDescription;
 

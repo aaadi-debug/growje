@@ -129,6 +129,10 @@ export default function ServicesPage() {
                   </th>
 
                   <th className="text-left px-6 py-4">
+                    Category
+                  </th>
+
+                  <th className="text-left px-6 py-4">
                     Status
                   </th>
 
@@ -156,13 +160,24 @@ export default function ServicesPage() {
                       {service.slug}
                     </td>
 
+                    {/* ← new Category cell */}
                     <td className="px-6 py-4">
                       <span
-                        className={`px-3 py-1 capitalize rounded-full text-sm ${
-                          service.status === "published"
+                        className={`px-3 py-1 capitalize rounded-full text-sm ${service.category === "online"
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-purple-100 text-purple-700"
+                          }`}
+                      >
+                        {service.category || "—"}
+                      </span>
+                    </td>
+
+                    <td className="px-6 py-4">
+                      <span
+                        className={`px-3 py-1 capitalize rounded-full text-sm ${service.status === "published"
                             ? "bg-green-100 text-green-700"
                             : "bg-yellow-100 text-yellow-700"
-                        }`}
+                          }`}
                       >
                         {service.status}
                       </span>

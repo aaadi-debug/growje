@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import AdminLogout from "./AdminLogout";
-
 
 export default function AdminHeader({ user }) {
   return (
@@ -19,7 +19,16 @@ export default function AdminHeader({ user }) {
 
       <div className="flex items-center bg-gray-200 px-3">
         <div className="flex gap-2 items-center">
-          <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
+          <div className="h-10 w-10 bg-gray-300 rounded-full">
+            <Image
+              src="/assets/images/Founder.png"   // ← correct path
+              alt="Founder / CEO"
+              width={100}
+              height={100}
+              className="rounded-full h-10 w-10 border border-gray-500"
+              // sizes="32px"
+            />
+          </div>
           <div>
             <p className="text-sm leading-2 pt-2">{user?.name || "Anshul Rathore"}</p>
             <p>{user?.email}</p>

@@ -21,6 +21,14 @@ const menuItems = [
     href: "/admin/projects",
   },
   {
+    name: "Digital Zone",
+    href: "/admin/digital-zone",
+  },
+  {
+    name: "Offline Zone",
+    href: "/admin/offline-zone",
+  },
+  {
     name: "Blogs",
     href: "/admin/blogs",
   },
