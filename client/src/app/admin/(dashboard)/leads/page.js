@@ -365,24 +365,16 @@ export default function LeadsPage() {
           }
           className="rounded-lg border bg-white px-4 py-3 text-sm outline-none focus:border-black"
         >
-          <option value="all">
-            All leads
-          </option>
+          <option value="all">All leads</option>
+          <option value="new">New</option>
+          <option value="contacted">Contacted</option>
+          <option value="closed">Closed</option>
 
-          <option value="new">
-            New
-          </option>
-
-          <option value="contacted">
-            Contacted
-          </option>
-
-          <option value="closed">
-            Closed
-          </option>
-
+          {/* Sources */}
           <option value="Service Page">Service Page</option>
           <option value="Contact Form">Contact Form</option>
+          <option value="Digital Zone Page">Digital Zone</option>
+          <option value="Offline Zone Page">Offline Zone</option>
         </select>
       </div>
 
@@ -634,17 +626,23 @@ function LeadRow({
       </td>
 
       {/* SERVICE */}
+      {/* <td className="p-4">
+        <span className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium w-fit">
+          {lead.service || "—"}
+        </span>
+      </td> */}
+
+      {/* SOURCE */}
       <td className="p-4">
         <div className="flex flex-col gap-1.5">
-          <span className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium w-fit">
-            {lead.service}
-          </span>
-
-          {/* Source Badge */}
           <span
             className={`rounded-full px-2.5 py-1 text-[11px] font-medium w-fit ${lead.source === "Service Page"
-              ? "bg-purple-100 text-purple-700"
-              : "bg-sky-100 text-sky-700"
+                ? "bg-purple-100 text-purple-700"
+                : lead.source === "Digital Zone Page"
+                  ? "bg-blue-100 text-blue-700"
+                  : lead.source === "Offline Zone Page"
+                    ? "bg-orange-100 text-orange-700"
+                    : "bg-sky-100 text-sky-700"
               }`}
           >
             {lead.source || "Contact Form"}
@@ -657,6 +655,7 @@ function LeadRow({
           )}
         </div>
       </td>
+
 
       {/* ACTIONS */}
       <td className="p-4">

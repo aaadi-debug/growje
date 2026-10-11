@@ -40,7 +40,7 @@ const leadSchema = new mongoose.Schema(
 
     source: {
       type: String,
-      enum: ["Contact Form", "Service Page"],
+      enum: ["Contact Form", "Service Page", "Digital Zone Page", "Offline Zone Page"],
       default: "Contact Form",
     },
 

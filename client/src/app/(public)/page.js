@@ -58,6 +58,9 @@ export default async function HomePage() {
   const featuredProjects = projects.slice(0, 6);
   // console.log(services)
 
+  const publishedProjects = projects.filter(
+    (p) => p.status === "published"
+  );
 
   return (
     <main className="bg-white text-black">
@@ -65,7 +68,7 @@ export default async function HomePage() {
       {/* <ClientMarquee /> */}
       <WhoAreWe />
       <Services featuredProjects={featuredProjects} services={services} />
-      <RotatingCards />
+      <RotatingCards projects={publishedProjects} />
       <OurWork featuredProjects={featuredProjects} services={services} />
       <Approach />
       <Testimonials />

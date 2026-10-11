@@ -240,7 +240,6 @@ export default function ServiceForm({ service }) {
               {service.shortDescription || service.title}
             </h2>
           </div>
-
         </div>
       </div>
     </section>

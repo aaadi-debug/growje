@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import About from "@/components/public/servicepage/About";
 import Faqs from "@/components/public/servicepage/Faqs";
+import DigitalZoneForm from "@/components/public/DigitalZoneForm";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -139,6 +140,8 @@ export default function DigitalZonePage() {
           })}
         </div>
       </section>
+
+      <DigitalZoneForm services={services} />
 
       {/* ========== 3. ABOUT SECTIONS (your component) ========== */}
       <About aboutData={aboutSections} />

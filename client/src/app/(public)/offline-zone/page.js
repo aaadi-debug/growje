@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import About from "@/components/public/servicepage/About";
 import Faqs from "@/components/public/servicepage/Faqs";
+import OfflineZoneForm from "@/components/public/OfflineZoneForm";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -133,6 +134,8 @@ export default function OfflineZonePage() {
           })}
         </div>
       </section>
+
+      <OfflineZoneForm services={services} />
 
       {/* ========== 3. ABOUT SECTIONS (your component) ========== */}
       <About aboutData={aboutSections} />

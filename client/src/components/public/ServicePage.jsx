@@ -37,9 +37,6 @@ export default function ServicePage({ service, projects = [] }) {
       {/* ================= SERVICE INTRO ============= */}
       <ServiceForm service={service} />
 
-
-
-
       {/* ================ PROCESS SECTION ============= */}
       <Process processData={processSection} />
 
