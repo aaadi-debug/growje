@@ -95,7 +95,7 @@ export default function OfflineZoneForm({ services = [] }) {
   return (
     <section
       id="offline_zone_form"
-      className="relative overflow-hidden px-6 lg:px-10 py-12 lg:py-24 bg-white"
+      className="relative overflow-hidden px-6 lg:px-10 lg:py-16 lg:py-16 md:py-12 py-6 bg-white"
     >
       {/* Background */}
       <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
@@ -106,8 +106,8 @@ export default function OfflineZoneForm({ services = [] }) {
         [background-size:48px_48px]"
       />
 
-      <div className="relative z-10 px-2 max-sm:px-0 mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+      <div className="relative z-10 px-2 max-sm:px-0 mx-auto max-w-xl">
+        {/* <div className="grid lg:grid-cols-2 gap-12 lg:gap-20"> */}
           {/* Left - Form */}
           <div className="bg-white border border-primary/50 rounded-2xl p-6 md:p-8 shadow-sm">
             {success ? (
@@ -242,7 +242,7 @@ export default function OfflineZoneForm({ services = [] }) {
           </div>
 
           {/* Right side text */}
-          <div className="lg:sticky lg:top-32">
+          {/* <div className="lg:sticky lg:top-32">
             <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
               Get Started
             </p>
@@ -251,8 +251,8 @@ export default function OfflineZoneForm({ services = [] }) {
               your project and we’ll help you create impactful real-world
               experiences.
             </h2>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </section>
   );

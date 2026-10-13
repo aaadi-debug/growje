@@ -125,7 +125,7 @@ export default function ServicesPage() {
                   </th>
 
                   <th className="text-left px-6 py-4">
-                    Slug
+                    Slug (URL)
                   </th>
 
                   <th className="text-left px-6 py-4">

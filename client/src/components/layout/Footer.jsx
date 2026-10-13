@@ -67,7 +67,7 @@ export default function Footer() {
             </h3>
 
             <div className="flex flex-col gap-3">
-              {services.map((service) => (
+              {/* {services.map((service) => (
                 <Link
                   key={service._id}
                   href={`/${service.slug}`}
@@ -75,7 +75,19 @@ export default function Footer() {
                 >
                   {service.title}
                 </Link>
-              ))}
+              ))} */}
+              <Link
+                href="/digital-zone"
+                className="text-sm text-white/60 hover:text-white transition"
+              >
+                Digital Zone
+              </Link>
+              <Link
+                href="/offline-zone"
+                className="text-sm text-white/60 hover:text-white transition"
+              >
+                Offline Zone
+              </Link>
             </div>
           </div>
 

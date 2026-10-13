@@ -34,7 +34,7 @@ export default function About({ aboutData = [] }) {
   if (!aboutData.length) return null;
 
   return (
-    <section className="relative px-6 lg:px-10 py-10 lg:py-24 bg-primary/10">
+    <section className="relative px-6 lg:px-10 lg:py-16 md:py-12 py-6 bg-primary/10">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
         
         {/* ========== LEFT - Sticky Image ========== */}
@@ -84,16 +84,16 @@ export default function About({ aboutData = [] }) {
                 About
               </p>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-6">
                 {section.title}
               </h2>
 
-              <p className="text-black/70 leading-relaxed mb-6 whitespace-pre-line">
+              <p className={`text-black/70 leading-relaxed whitespace-pre-line ${section.description ? "mb-2" : "mb-0"}`}>
                 {section.description}
               </p>
 
               {section.bullets?.length > 0 && (
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {section.bullets.map(
                     (bullet, bIndex) =>
                       bullet && (

@@ -190,7 +190,7 @@ export default function TeamSection() {
     const [selected, setSelected] = useState(null);
 
     return (
-        <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 lg:pb-40 overflow-hidden bg-black">
+        <section className="relative text-white px-6 lg:px-10 lg:py-16 md:py-12 py-6 overflow-hidden bg-black">
             {/* Background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
@@ -201,7 +201,7 @@ export default function TeamSection() {
 
             <div className="relative z-10 mx-auto">
                 {/* Header */}
-                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-12 text-center text-white">
+                <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
                     Meet the Makers
                 </h2>
 

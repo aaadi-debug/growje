@@ -91,7 +91,7 @@ export default function ServiceForm({ service }) {
   };
 
   return (
-    <section id="service_form" className="relative overflow-hidden px-6 lg:px-10 py-12 lg:py-24 bg-white">
+    <section id="service_form" className="relative overflow-hidden px-6 lg:px-10 lg:py-16 md:py-12 py-6 bg-white">
       {/* Background */}
       <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl" />
@@ -233,10 +233,10 @@ export default function ServiceForm({ service }) {
 
           {/* Form */}
           <div className="lg:sticky lg:top-32">
-            <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-2">
               Get Started
             </p>
-            <h2 className="text-lg max-sm:text-base text-black/60">
+            <h2 className="text-black/60">
               {service.shortDescription || service.title}
             </h2>
           </div>

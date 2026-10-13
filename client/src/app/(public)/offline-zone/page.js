@@ -9,9 +9,9 @@ import OfflineZoneForm from "@/components/public/OfflineZoneForm";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const serviceImages = {
-  "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
-  "Printing": "/assets/images/home/website_uiux.png",
-  "branding Services": "/assets/images/home/digi_mark.png",
+    "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
+    "Printing": "",
+    "Branding Services": "",
   // add more offline service images here
 };
 

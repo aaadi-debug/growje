@@ -165,7 +165,7 @@ export default function RotatingCards({ projects = [] }) {
         }}
       />
 
-      <h2 className="relative z-10 text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none text-white text-center pt-10">
+      <h2 className="relative z-10 text-3xl lg:text-5xl md:text-4xl tracking-[-0.06em] leading-none text-white text-center pt-10">
         The Showcase
       </h2>
 

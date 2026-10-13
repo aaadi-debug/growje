@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ChevronLeft } from "lucide-react"
+import { ArrowLeft, ChevronLeft, Trash2 } from "lucide-react"
 import MediaUpload from "../../../../../components/admin/MediaUpload";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -244,7 +244,7 @@ export default function CreateServicePage() {
           {/* row 2 */}
           <div className="mt-5 px-4">
             <label className="block leading-5 text-xs">
-              Short Description
+              Short Description (This will be placed at right side of the form in UI)
             </label>
 
             <textarea
@@ -279,7 +279,7 @@ export default function CreateServicePage() {
             {/* left side */}
             <div>
               <div className="mb-5">
-                <label className="block leading-5 text-xs">Hero Title</label>
+                <label className="block leading-5 text-xs">Hero Title (optional)</label>
                 <input
                   type="text"
                   name="title"
@@ -290,7 +290,7 @@ export default function CreateServicePage() {
               </div>
 
               <div className="mb-5">
-                <label className="block leading-5 text-xs">Media Type</label>
+                <label className="block leading-5 text-xs">Select Media Type (Auto-adjust, but if not kindly select suitable type)</label>
                 <select
                   name="mediaType"
                   value={formData.hero.mediaType}
@@ -307,7 +307,7 @@ export default function CreateServicePage() {
             {/* right side */}
             <div className="max-w-76">
               <MediaUpload
-                label="Hero Media"
+                label="Hero Media  (size - 16:9 ratio)"
                 value={formData.hero.media}
                 onChange={(media) =>
                   setFormData((prev) => ({
@@ -365,7 +365,7 @@ export default function CreateServicePage() {
           </div>
 
           {formData.clients.length > 0 && (
-            <div className="flex flex-wrap gap-3 mt-5">
+            <div className="flex flex-wrap gap-3 mt-3 px-4">
               {formData.clients.map(
                 (client, index) => (
                   <div
@@ -413,7 +413,7 @@ export default function CreateServicePage() {
 
             <div>
               <label className="block leading-5 text-xs">
-                Portfolio Subtitle
+                Portfolio Subtitle (optional)
               </label>
 
               <input
@@ -467,9 +467,9 @@ export default function CreateServicePage() {
                       servicesSection: { ...prev.servicesSection, items },
                     }));
                   }}
-                  className="absolute -top-1 right-1 text-red-500 cursor-pointer"
+                  className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded cursor-pointer"
                 >
-                  ×
+                  <Trash2 size={14} />
                 </button>
 
                 <input
@@ -565,9 +565,9 @@ export default function CreateServicePage() {
                       processSection: { ...prev.processSection, steps },
                     }));
                   }}
-                  className="absolute -top-1 right-1 text-red-500"
+                  className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded cursor-pointer"
                 >
-                  ×
+                  <Trash2 size={14} />
                 </button>
 
                 <input
@@ -870,7 +870,7 @@ export default function CreateServicePage() {
 
             <div>
               <label className="block leading-5 text-xs">
-                Display Order
+                Display Order (optional)
               </label>
 
               <input
@@ -893,7 +893,7 @@ export default function CreateServicePage() {
           <div className="space-y-5 px-4">
             <div>
               <label className="block leading-5 text-xs">
-                Meta Title
+                Meta Title (optional)
               </label>
 
               <input
@@ -907,7 +907,7 @@ export default function CreateServicePage() {
 
             <div>
               <label className="block leading-5 text-xs">
-                Meta Description
+                Meta Description (optional)
               </label>
 
               <textarea

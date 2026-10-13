@@ -9,12 +9,15 @@ import { ArrowUpRight } from "lucide-react";
 // Key = exact service title (or close enough)
 // ─────────────────────────────────────────────
 const serviceImages = {
-    "Brand Strategy": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
-    "Website UI/UX": "/assets/images/home/website_uiux.png",
+    //Online
     "Digital Marketing": "/assets/images/home/digi_mark.png",
-    "Content Creation": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    "Video Graphics": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
+    "Graphic Design": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
+    "Website UI/UX": "/assets/images/home/website_uiux.png",
+    //Offline
     "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
-    // add more as needed...
+    "Printing": "",
+    "Branding Services": "",
 };
 
 const defaultImage =

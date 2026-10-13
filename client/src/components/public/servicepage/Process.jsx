@@ -3,7 +3,7 @@ export default function Process({ processData }) {
     return (
         <>
             {processData?.steps?.length > 0 && (
-                <section className="relative overflow-hidden px-6 lg:px-10 py-16 lg:py-24 bg-gray-50">
+                <section className="relative overflow-hidden px-6 lg:px-10 lg:py-16 md:py-12 py-6 bg-gray-50">
 
                     {/* Soft blobs */}
                     <div
@@ -25,22 +25,11 @@ export default function Process({ processData }) {
 
                     <div className="relative z-10">
                         {/* Header */}
-                        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 mb-20 max-sm:mb-10">
-                            <div>
-                                <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
-                                    our process
-                                </p>
-                                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none">
-                                    {processData.title || "Our Process"}
-                                </h2>
-                            </div>
+                        <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
+                            {processData.title || "Our Process"}
+                        </h2>
 
-                            <p className="max-w-sm text-black/50 leading-relaxed lg:pt-10">
-                                We measure success not just by projects delivered, but by the lasting impact we create for our partners.
-                            </p>
-                        </div>
-
-                        <div className=" gap-6 mx-auto">
+                        <div className="gap-6 mx-auto">
                             {processData.steps.map((step, index) => (
                                 <div
                                     key={index}
