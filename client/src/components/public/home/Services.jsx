@@ -13,6 +13,7 @@ const serviceImages = {
     "Website UI/UX": "/assets/images/home/website_uiux.png",
     "Digital Marketing": "/assets/images/home/digi_mark.png",
     "Content Creation": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
     // add more as needed...
 };
 
@@ -30,11 +31,11 @@ export default function Services({ featuredProjects = [], services = [] }) {
                 ? services.filter((s) => s.category === "online")
                 : services.filter((s) => s.category === "offline");
 
-    // console.log("Services: ", services)
-    // console.log("filteredServices: ", filteredServices)
+    console.log("Services: ", services)
+    console.log("filteredServices: ", filteredServices)
 
     return (
-        <section className="relative text-white px-6 lg:px-10 py-16 lg:py-20 lg:pb-40 overflow-hidden bg-black">
+        <section className="relative text-white px-6 lg:px-10 lg:py-16 md:py-12 py-6 overflow-hidden bg-black">
             {/* Background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
@@ -44,7 +45,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
             />
 
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-10 text-white text-center">
+                <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
                     Our Services
                 </h2>
 
@@ -55,12 +56,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("all")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
-                ${activeTab === "all"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
+                                ${activeTab === "all"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             All
                         </button>
@@ -69,12 +70,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("digital")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                ${activeTab === "digital"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                ${activeTab === "digital"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             Digital
                         </button>
@@ -83,12 +84,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("ground")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                ${activeTab === "ground"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                ${activeTab === "ground"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             Ground
                         </button>
@@ -124,7 +125,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                                         <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
-                                            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight leading-tight">
+                                            <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl font-medium">
                                                 {service.title}
                                             </h3>
 

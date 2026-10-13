@@ -9,7 +9,7 @@ import OfflineZoneForm from "@/components/public/OfflineZoneForm";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const serviceImages = {
-  "Corporate Gift": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
+  "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
   "Printing": "/assets/images/home/website_uiux.png",
   "branding Services": "/assets/images/home/digi_mark.png",
   // add more offline service images here
@@ -64,7 +64,7 @@ export default function OfflineZonePage() {
     <main className="bg-white text-black">
       {/* HERO */}
       <section className="relative overflow-hidden min-h-screen flex items-end pb-16">
-        {hero.media?.url && (
+        {hero.media?.url ? (
           <>
             {hero.mediaType === "video" ? (
               <video
@@ -81,7 +81,21 @@ export default function OfflineZonePage() {
                 style={{ backgroundImage: `url(${hero.media.url})` }}
               />
             )}
+            {/* Soft dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/40" />
           </>
+        ) : (
+          /* Fallback when no media */
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-800 flex justify-center items-center">
+            <div className="col-span-full flex flex-col items-center justify-center py-24 text-center">
+              <h3 className="text-xl font-medium text-gray-700 mb-2">
+                No content available
+              </h3>
+              <p className="text-gray-500 text-sm max-w-sm">
+                Content will appear here once it is published.
+              </p>
+            </div>
+          </div>
         )}
 
         <div className="relative z-10 px-6 lg:px-12 text-white">
@@ -99,40 +113,63 @@ export default function OfflineZonePage() {
       </section>
 
       {/* SERVICES WE OFFER */}
-      <section className="px-6 lg:px-10 py-20">
-        <h2 className="text-4xl md:text-6xl tracking-tight text-center mb-14">
-          Services We Offer
-        </h2>
+      <section className="relative px-6 lg:px-10 py-20 overflow-hidden">
+        {/* Background */}
+        <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
+        <div className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.65]
+        [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+        [background-size:48px_48px]"
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {services.map((service) => {
-            const image =
-              serviceImages[service.title] ||
-              Object.entries(serviceImages).find(
-                ([key]) =>
-                  key.toLowerCase() === service.title?.toLowerCase()
-              )?.[1] ||
-              service.hero?.media?.url ||
-              defaultImage;
+        <div className="relative z-10 px-2 max-sm:px-0 mx-auto">
+          <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
+            Services We Offer
+          </h2>
 
-            return (
-              <Link
-                key={service._id}
-                href={`/${service.slug}`}
-                className="relative flex items-end p-8 rounded-2xl h-[50vh] group overflow-hidden"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
-                  style={{ backgroundImage: `url(${image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <h3 className="relative text-white text-3xl md:text-4xl font-medium">
-                  {service.title}
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+            {services.length > 0 ? (
+              services.map((service) => {
+                const image =
+                  serviceImages[service.title] ||
+                  Object.entries(serviceImages).find(
+                    ([key]) =>
+                      key.toLowerCase() === service.title?.toLowerCase()
+                  )?.[1] ||
+                  service.hero?.media?.url ||
+                  defaultImage;
+
+                return (
+                  <Link
+                    key={service._id}
+                    href={`/${service.slug}`}
+                    className="relative flex items-end p-8 rounded-2xl aspect-[4/5] group overflow-hidden"
+                  >
+                    <div
+                      className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
+                      style={{ backgroundImage: `url(${image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl font-medium">
+                      {service.title}
+                    </h3>
+                  </Link>
+                );
+              })
+            ) : (
+              <div className="col-span-full flex flex-col items-center justify-center py-24 text-center">
+                <h3 className="text-xl font-medium text-gray-700 mb-2">
+                  No services available
                 </h3>
-              </Link>
-            );
-          })}
+                <p className="text-gray-500 text-sm max-w-sm">
+                  Services will appear here once they are published.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
+
       </section>
 
       <OfflineZoneForm services={services} />

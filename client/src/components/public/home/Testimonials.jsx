@@ -96,7 +96,7 @@ export default function Testimonials() {
   }, [current, visibleCount]);
 
   return (
-    <section className="relative bg-white text-black px-6 lg:px-10 py-12 lg:py-20 overflow-hidden">
+    <section className="relative bg-white text-black px-6 lg:px-10 lg:py-16 md:py-12 py-6 overflow-hidden">
       {/* Soft background glow */}
       <div
         className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
@@ -139,7 +139,7 @@ export default function Testimonials() {
 
       <div className="relative z-10">
         {/* Header */}
-        <h2 className="text-black text-center text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.05em] font-medium mb-12 lg:mb-16">
+        <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
           Voices of GROWJE
         </h2>
 

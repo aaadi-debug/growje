@@ -78,7 +78,7 @@ function Counter({ value, suffix }) {
 
 export default function NumbersSection() {
     return (
-        <section className="relative bg-black/50 text-white px-6 lg:px-10 py-16 lg:py-24 overflow-hidden">
+        <section className="relative bg-black/50 text-white px-6 lg:px-10 lg:py-16 md:py-12 py-6 overflow-hidden">
             {/* Soft background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -92,7 +92,7 @@ export default function NumbersSection() {
 
             <div className="relative z-10 ">
                 {/* Header */}
-                <h2 className="text-center text-4xl md:text-6xl lg:text-7xl tracking-[-0.06em] leading-none mb-12">
+                <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
                     Numbers that speak louder
                 </h2>
 

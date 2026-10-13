@@ -158,18 +158,15 @@ export default function ArticlesPage() {
 
         <div className="mx-auto max-w-[1600px]">
           {loading ? (
-            <div className="p-10">
+            <div className="p-10 text-center h-20">
               Loading articles...
             </div>
           ) : blogs.length === 0 ? (
             <div className="flex min-h-[40vh] flex-col items-center justify-center text-center px-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                Journal
-              </p>
-              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">
+              <h3 className="text-xl font-medium text-gray-700 mb-2">
                 No articles yet
-              </h2>
-              <p className="max-w-md text-black/50 leading-relaxed">
+              </h3>
+              <p className="text-gray-500 text-sm max-w-sm">
                 We’re working on new insights and stories. Check back soon.
               </p>
             </div>
