@@ -100,7 +100,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                 )}
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-sm:gap-3">
                     {filteredServices.length > 0 ? (
                         filteredServices.map((service) => {
                             const image =
@@ -128,7 +128,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                                         <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
-                                            <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl font-medium">
+                                            <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                                                 {service.title}
                                             </h3>
 

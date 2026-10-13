@@ -113,7 +113,7 @@ export default function OfflineZonePage() {
       </section>
 
       {/* SERVICES WE OFFER */}
-      <section className="relative px-6 lg:px-10 py-20 overflow-hidden">
+      <section className="relative px-6 lg:px-10 lg:py-16 md:py-12 py-6 overflow-hidden">
         {/* Background */}
         <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
         <div className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl" />
@@ -128,7 +128,7 @@ export default function OfflineZonePage() {
             Services We Offer
           </h2>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-6 max-sm:gap-3">
             {services.length > 0 ? (
               services.map((service) => {
                 const image =
@@ -144,14 +144,14 @@ export default function OfflineZonePage() {
                   <Link
                     key={service._id}
                     href={`/${service.slug}`}
-                    className="relative flex items-end p-8 rounded-2xl aspect-[4/5] group overflow-hidden"
+                    className="relative flex items-end p-8 max-sm:p-4 rounded-2xl aspect-[4/5] group overflow-hidden"
                   >
                     <div
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
                       style={{ backgroundImage: `url(${image})` }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl font-medium">
+                    <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                       {service.title}
                     </h3>
                   </Link>

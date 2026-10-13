@@ -33,6 +33,10 @@ export default function Footer() {
     fetchServices();
   }, []);
 
+  // Split by category
+  const digitalServices = services.filter((s) => s.category === "online");
+  const offlineServices = services.filter((s) => s.category === "offline");
+
   return (
     <footer className="bg-black text-white">
       <div className="px-6 lg:px-10 pt-16 lg:pt-24 pb-8">
@@ -60,14 +64,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SERVICES */}
+          {/* Digital Zone */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
-              Services
+              Digital Zone
             </h3>
 
             <div className="flex flex-col gap-3">
-              {/* {services.map((service) => (
+              {digitalServices.map((service) => (
                 <Link
                   key={service._id}
                   href={`/${service.slug}`}
@@ -75,19 +79,26 @@ export default function Footer() {
                 >
                   {service.title}
                 </Link>
-              ))} */}
-              <Link
-                href="/digital-zone"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Digital Zone
-              </Link>
-              <Link
-                href="/offline-zone"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Offline Zone
-              </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Offline Zone */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
+              Offline Zone
+            </h3>
+
+            <div className="flex flex-col gap-3">
+              {offlineServices.map((service) => (
+                <Link
+                  key={service._id}
+                  href={`/${service.slug}`}
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  {service.title}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -102,34 +113,34 @@ export default function Footer() {
                 href="/about-us"
                 className="text-sm text-white/60 hover:text-white transition"
               >
-                About
+                Our DNA
               </Link>
 
               <Link
-                href="/portfolio"
+                href="/careers"
                 className="text-sm text-white/60 hover:text-white transition"
               >
-                Portfolio
+                Careers
               </Link>
 
               <Link
-                href="/blog"
+                href="/articles"
                 className="text-sm text-white/60 hover:text-white transition"
               >
-                Blogs
+                Think Tank
               </Link>
 
               <Link
                 href="/contact-us"
                 className="text-sm text-white/60 hover:text-white transition"
               >
-                Contact
+                Contact Us
               </Link>
             </div>
           </div>
 
           {/* CONTACT */}
-          <div>
+          {/* <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
               Get in touch
             </h3>
@@ -161,8 +172,7 @@ export default function Footer() {
                 +91-8766363438
               </a>
             </div>
-          </div>
-
+          </div> */}
         </div>
 
         {/* BOTTOM */}
@@ -181,7 +191,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/terms"
+              href="/terms-and-conditions"
               className="text-xs text-white/40 hover:text-white transition"
             >
               Terms

@@ -150,7 +150,8 @@ export default function DigitalZonePage() {
           <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center mb-6">
             Services We Offer
           </h2>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-6 max-sm:gap-3">
             {services.length > 0 ? (
               services.map((service) => {
                 // Match image by title (exact → case-insensitive → fallback)
@@ -167,14 +168,14 @@ export default function DigitalZonePage() {
                   <Link
                     key={service._id}
                     href={`/${service.slug}`}
-                    className="relative flex items-end p-8 rounded-2xl aspect-[4/5] group overflow-hidden"
+                    className="relative flex items-end p-8 max-sm:p-4 rounded-2xl aspect-[4/5] group overflow-hidden"
                   >
                     <div
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
                       style={{ backgroundImage: `url(${image})` }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl font-medium">
+                    <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                       {service.title}
                     </h3>
                   </Link>

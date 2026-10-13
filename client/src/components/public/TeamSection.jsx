@@ -206,16 +206,16 @@ export default function TeamSection() {
                 </h2>
 
                 {/* Cards */}
-                <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-14 grid gap-6 max-sm:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {team.map((member) => (
                         <button
                             key={member.id}
                             type="button"
                             onClick={() => setSelected(member)}
                             aria-haspopup="dialog"
-                            className="group text-left focus:outline-none bg-white rounded-3xl cursor-pointer"
+                            className="group text-left focus:outline-none bg-white rounded-2xl max-sm:rounded cursor-pointer"
                         >
-                            <div className="relative overflow-hidden rounded-t-3xl bg-black/5 ring-primary ring-offset-4 group-focus-visible:ring-2 border-b border-gray-200">
+                            <div className="relative overflow-hidden rounded-t-2xl max-sm:rounded-t bg-black/5 ring-primary ring-offset-4 group-focus-visible:ring-2 border-b border-gray-200">
                                 <img
                                     src={member.photo || "assets/images/no-image.jpeg"}
                                     alt={member.name}
@@ -224,11 +224,11 @@ export default function TeamSection() {
                                 />
                             </div>
 
-                            <div className="mt-4 pb-3 px-4">
-                                <h3 className="mt-1 text-xl font-medium tracking-tight text-black font-bold">
+                            <div className="mt-4 pb-3 px-4 max-sm:px-2 max-sm:mt-2">
+                                <h3 className="mt-1 text-xl font-medium tracking-tight text-black font-bold max-sm:text-lg">
                                     {member.name}
                                 </h3>
-                                <p className="text-sm text-black/50 font-bold">{member.specialName}</p>
+                                <p className="text-sm text-black/50 font-bold max-sm:font-medium">{member.specialName}</p>
                             </div>
                         </button>
                     ))}
