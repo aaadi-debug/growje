@@ -13,10 +13,10 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 // Custom images for services
 // ─────────────────────────────────────────────
 const serviceImages = {
-    "Digital Marketing": "/assets/images/home/digi_mark.png",
-    "Video Graphics": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
-    "Graphic Design": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
-    "Website UI/UX": "/assets/images/home/website_uiux.png",
+  "Digital Marketing": "/assets/images/home/digital-marketing.jpeg",
+  "Video Production & Editing": "/assets/images/home/video_prod.jpeg",
+  "Graphic Designing": "/assets/images/home/graphic-design.jpeg",
+  "Web development": "/assets/images/home/website-development.jpeg",
 };
 
 const defaultImage =
@@ -68,25 +68,6 @@ export default function DigitalZonePage() {
     <main className="bg-white text-black">
       {/* ========== 1. HERO ========== */}
       <section className="relative overflow-hidden min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-end pb-16">
-        {/* {hero.media?.url && (
-          <>
-            {hero.mediaType === "video" ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                src={hero.media.url}
-              />
-            ) : (
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${hero.media.url})` }}
-              />
-            )}
-          </>
-        )} */}
         {hero.media?.url ? (
           <>
             {hero.mediaType === "video" ? (
@@ -174,10 +155,25 @@ export default function DigitalZonePage() {
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
                       style={{ backgroundImage: `url(${image})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+
+                    {/* Bottom gradient + title */}
+                    <div className="absolute inset-x-0 bottom-0">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                      <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
+                        <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
+                          {service.title}
+                        </h3>
+
+                        <span className="shrink-0 w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
+                          <ArrowUpRight size={18} />
+                        </span>
+                      </div>
+                    </div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                       {service.title}
-                    </h3>
+                    </h3> */}
                   </Link>
                 );
               })

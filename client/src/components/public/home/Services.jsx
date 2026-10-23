@@ -10,14 +10,14 @@ import { ArrowUpRight } from "lucide-react";
 // ─────────────────────────────────────────────
 const serviceImages = {
     //Online
-    "Digital Marketing": "/assets/images/home/digi_mark.png",
-    "Video Graphics": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
-    "Graphic Design": "https://images.unsplash.com/photo-1557804506-669a709abc7d?w=800&q=80",
-    "Website UI/UX": "/assets/images/home/website_uiux.png",
+    "Digital Marketing": "/assets/images/home/digital-marketing.jpeg",
+    "Video Production & Editing": "/assets/images/home/video_prod.jpeg",
+    "Graphic Designing": "/assets/images/home/graphic-design.jpeg",
+    "Web development": "/assets/images/home/website-development.jpeg",
     //Offline
-    "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
-    "Printing": "",
-    "Branding Services": "",
+    "Corporate Gifting": "/assets/images/home/corporate-gifting.jpeg",
+    "Printing": "/assets/images/home/print-and-pack.jpeg",
+    "Events & Experiences": "/assets/images/home/events.jpeg",
 };
 
 const defaultImage =

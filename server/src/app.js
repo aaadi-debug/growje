@@ -38,6 +38,8 @@ const leadRoutes = require("./routes/lead.routes");
 const blogRoutes = require("./routes/blog.routes");
 const digitalZoneRoutes = require("./routes/digitalZone.routes")
 const offlineZoneRoutes = require("./routes/offlineZone.routes")
+const jobRoutes = require("./routes/job.routes")
+
 // app.use(
 //   cors({
 //     origin: process.env.CLIENT_URL,
@@ -65,6 +67,7 @@ app.use("/api/offline-zone", offlineZoneRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/leads", leadRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/jobs", jobRoutes);
 
 const multer = require("multer");
 

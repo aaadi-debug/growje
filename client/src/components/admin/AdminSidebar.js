@@ -44,6 +44,10 @@ const menuItems = [
     name: "Leads",
     href: "/admin/leads",
   },
+  {
+    name: "Careers",
+    href: "/admin/careers",
+  },
 ];
 
 export default function AdminSidebar() {

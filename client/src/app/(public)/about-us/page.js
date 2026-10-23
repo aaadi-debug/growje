@@ -529,7 +529,7 @@ export default function AboutUsPage() {
               <img
                 src="assets/images/mission.jpg"
                 alt="Mission Illustration"
-                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl"
+                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl opacity-50"
               />
               <div className="z-10 pb-20">
                 <h2 className="mt-5 font-medium leading-[1.1] tracking-[-0.04em] text-3xl lg:text-5xl md:text-4xl">
@@ -545,7 +545,7 @@ export default function AboutUsPage() {
               <img
                 src="assets/images/vision.jpg"
                 alt="Mission Illustration"
-                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl"
+                className="h-4/5 max-sm:h-1/2 absolute bottom-0 right-0 rounded-3xl opacity-50"
               />
               <div className="z-10 pb-20">
                 <h2 className="mt-5 font-medium leading-[1.1] tracking-[-0.04em] text-3xl lg:text-5xl md:text-4xl">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import About from "@/components/public/servicepage/About";
 import Faqs from "@/components/public/servicepage/Faqs";
 import OfflineZoneForm from "@/components/public/OfflineZoneForm";
@@ -9,9 +10,9 @@ import OfflineZoneForm from "@/components/public/OfflineZoneForm";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const serviceImages = {
-    "Corporate Gifting": "https://theknotcompany.in/cdn/shop/files/Webp1Eco-EssentialCorporateGiftHamper_199c1810-58e8-4f71-a7b1-e62515b725b6.webp?v=1745489970",
-    "Printing": "",
-    "Branding Services": "",
+  "Corporate Gifting": "/assets/images/home/corporate-gifting.jpeg",
+  "Printing": "/assets/images/home/print-and-pack.jpeg",
+  "Events & Experiences": "/assets/images/home/events.jpeg",
   // add more offline service images here
 };
 
@@ -63,7 +64,7 @@ export default function OfflineZonePage() {
   return (
     <main className="bg-white text-black">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-screen flex items-end pb-16">
+      <section className="relative overflow-hidden min-h-[60vh] md:min-h-[75vh] lg:min-h-screen flex items-end pb-16">
         {hero.media?.url ? (
           <>
             {hero.mediaType === "video" ? (
@@ -150,10 +151,25 @@ export default function OfflineZonePage() {
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
                       style={{ backgroundImage: `url(${image})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+
+                    {/* Bottom gradient + title */}
+                    <div className="absolute inset-x-0 bottom-0">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                      <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
+                        <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
+                          {service.title}
+                        </h3>
+
+                        <span className="shrink-0 w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
+                          <ArrowUpRight size={18} />
+                        </span>
+                      </div>
+                    </div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                       {service.title}
-                    </h3>
+                    </h3> */}
                   </Link>
                 );
               })

@@ -65,13 +65,13 @@ export default async function HomePage() {
   return (
     <main className="bg-white text-black">
       <HeroSection />
-      {/* <ClientMarquee /> */}
       <WhoAreWe />
       <Services featuredProjects={featuredProjects} services={services} />
       <RotatingCards projects={publishedProjects} />
       <OurWork featuredProjects={featuredProjects} services={services} />
       <Approach />
       <Testimonials />
+      <ClientMarquee />
       <NumbersSection />
       {/* <LetsTalk /> */}
     </main>
