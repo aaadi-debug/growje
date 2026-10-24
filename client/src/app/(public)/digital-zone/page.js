@@ -161,8 +161,26 @@ export default function DigitalZonePage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                       <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
-                        <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
-                          {service.title}
+                        <h3 className="relative text-white 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
+                          {(() => {
+                            const title = service.title || "";
+                            const spaceIndex = title.indexOf(" ");
+
+                            if (spaceIndex === -1) {
+                              // Single word – keep current weight
+                              return title;
+                            }
+
+                            const firstLine = title.slice(0, spaceIndex);
+                            const secondLine = title.slice(spaceIndex + 1);
+
+                            return (
+                              <>
+                                <span className="font-extrabold block">{firstLine}</span>
+                                <span className="font-medium block">{secondLine}</span>
+                              </>
+                            );
+                          })()}
                         </h3>
 
                         <span className="shrink-0 w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
