@@ -52,22 +52,22 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
 
             <div className="relative z-10 ">
 
-                    {/* Tabs */}
-                    {services.length > 0 && (
-                        <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10 overflow-x-auto pb-2 scrollbar-hide">
-                            <button
-                                onClick={() => setActiveTab("all")}
-                                className={`
+                {/* Tabs */}
+                {services.length > 0 && (
+                    <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10 overflow-x-auto pb-2 scrollbar-hide">
+                        <button
+                            onClick={() => setActiveTab("all")}
+                            className={`
                                 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
                                 ${activeTab === "all"
-                                        ? "bg-primary text-white" : "bg-white text-black/70 hover:bg-primary hover:text-white"
-                                    }
+                                    ? "bg-primary text-white" : "bg-white text-black/70 hover:bg-primary hover:text-white"
+                                }
                             `}
-                            >
-                                All
-                            </button>
+                        >
+                            All
+                        </button>
 
-                            {/* {services.map((service) => (
+                        {/* {services.map((service) => (
                                 <button
                                     key={service._id}
                                     onClick={() => setActiveTab(service._id)}
@@ -84,89 +84,69 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
 
 
 
-                            <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/digital-marketing-services-india"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Social Media
-                            </a>
+                        >
+                            Social Media
+                        </a>
 
 
 
-                            <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/graphic-designing"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Graphic Design
-                            </a>
+                        >
+                            Graphic Design
+                        </a>
 
-                            <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/web-development"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Web & Digital
-                            </a>
+                        >
+                            Web & Digital
+                        </a>
 
-                            <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/branding"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Branding & Identity
-                            </a>
+                        >
+                            Branding & Identity
+                        </a>
 
-                            {/* <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/priting-service-in-india"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Video & Motion
-                            </a>
+                        >
+                            Print & Packaging
+                        </a>
 
-                            <a
-                                href="#"
-                                className={`
+                        <a
+                            href="/events-experiences"
+                            className={`
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
-                            >
-                                Campaigns
-                            </a> */}
-
-                            <a
-                                href="#"
-                                className={`
-                                    px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                                    bg-white text-black/70 hover:bg-primary hover:text-white
-                                `}
-                            >
-                                Print & Packaging
-                            </a>
-
-                            <a
-                                href="#"
-                                className={`
-                                    px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                                    bg-white text-black/70 hover:bg-primary hover:text-white
-                                `}
-                            >
-                                Events & Experiences
-                            </a>
-                        </div>
-                    )}
+                        >
+                            Events & Experiences
+                        </a>
+                    </div>
+                )}
 
                 {/* Projects Grid */}
                 {/* <div className="grid md:grid-cols-3 gap-x-6 gap-y-16">

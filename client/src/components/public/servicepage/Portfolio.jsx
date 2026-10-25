@@ -40,15 +40,13 @@ export default function Portfolio({ service, projects }) {
           </div>
 
 
-          <div className="grid gap-x-12 gap-y-16 lg:grid-cols-3 md:grid-cols-2 grid-cols-2">
-
+          <div className="grid lg:gap-6 gap-4 max-sm:gap-2 lg:grid-cols-4 md:grid-cols-2 grid-cols-2">
             {projects.map((project) => (
               <ProjectCard
                 key={project._id}
                 project={project}
               />
             ))}
-
           </div>
         </section>
       )}

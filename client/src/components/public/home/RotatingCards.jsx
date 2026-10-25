@@ -50,6 +50,7 @@ export default function RotatingCards({ projects = [] }) {
 
       return {
         title: project.title,
+        shortDescription: project.shortDescription,
         href: `/portfolio/${project.slug}`,
         image,
         bg,
@@ -190,6 +191,7 @@ export default function RotatingCards({ projects = [] }) {
               className="relative h-full w-full overflow-hidden rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[1.04]"
               style={{ background: item.bg }}
             >
+              {/* Project Image */}
               {item.image ? (
                 <img
                   src={item.image}
@@ -202,6 +204,32 @@ export default function RotatingCards({ projects = [] }) {
                   {item.title}
                 </span>
               )}
+
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent
+      opacity-0 transition-opacity duration-500
+      group-hover:opacity-100 group-focus-visible:opacity-100"
+              />
+
+              {/* Project Details */}
+              <div
+                className="absolute inset-x-0 bottom-0 z-10
+      translate-y-4 p-4
+      opacity-0 transition-all duration-500 ease-out
+      group-hover:translate-y-0 group-hover:opacity-100
+      group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+              >
+                <h3 className="text-lg font-semibold leading-tight text-white">
+                  {item.title}
+                </h3>
+
+                {item.shortDescription && (
+                  <p className="mt-2 text-xs leading-relaxed text-white/80 line-clamp-3">
+                    {item.shortDescription}
+                  </p>
+                )}
+              </div>
             </div>
           </Link>
         ))}

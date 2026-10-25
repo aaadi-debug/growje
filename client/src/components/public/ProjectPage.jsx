@@ -16,6 +16,8 @@ export default function ProjectPage({ project }) {
     (a, b) => (a.order || 0) - (b.order || 0)
   );
 
+  console.log("Particular Project: ", project)
+
   return (
     <main className="bg-white text-black">
       {/* ==============================
@@ -44,7 +46,8 @@ export default function ProjectPage({ project }) {
 
               {/* Short Description */}
               {project.shortDescription && (
-                <p className="my-6 max-w-2xl 2xl:text-5xl xl:text-5xl lg:text-3xl md:text-3xl text-2xl text-white">
+                // <p className="my-6 max-w-2xl 2xl:text-5xl xl:text-5xl lg:text-3xl md:text-3xl text-2xl text-white">
+                <p className="my-6 max-w-2xl text-lg text-white">
                   {project.shortDescription}
                 </p>
               )}
@@ -98,25 +101,46 @@ export default function ProjectPage({ project }) {
       {/* ==============================
           ABOUT
       ============================== */}
-      <section className="relative overflow-hidden px-6 lg:px-10 py-16 lg:py-28">
-        <div
-          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl"
-          aria-hidden="true"
-        />
+      <section className="relative isolate overflow-hidden px-6 lg:px-10 lg:py-16 md:py-12 py-6">
+        {/* Dynamic Background Media */}
+        {project.about?.backgroundMedia?.url && (
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            {project.about.backgroundMedia.type === "video" ? (
+              <video
+                key={project.about.backgroundMedia.url}
+                src={project.about.backgroundMedia.url}
+                poster={project.about.backgroundMedia.poster || undefined}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+                aria-hidden="true"
+              />
+            ) : project.about.backgroundMedia.type === "image" ? (
+              <img
+                src={project.about.backgroundMedia.url}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+                aria-hidden="true"
+              />
+            ) : null}
+
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-white/80" />
+          </div>
+        )}
 
         {/* Optional light grid */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.65]
-                    [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
-                    [background-size:48px_48px]"
+        {/* <div
+          className="pointer-events-none absolute inset-0 -z-0 opacity-[0.35]
+      [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+      [background-size:48px_48px]"
           aria-hidden="true"
-        />
+        /> */}
 
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="relative z-10">
           <div className="lg:col-span-3">
             <p className="text-xs uppercase tracking-[0.2em] text-black/40">
               project: {project.title}
@@ -124,47 +148,63 @@ export default function ProjectPage({ project }) {
           </div>
 
           <div className="lg:col-span-8 lg:col-start-5">
-            {project.about.title && (
-              <h2 className="text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.05em] font-medium">
+            {project.about?.title && (
+              <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-[-0.06em] leading-none mb-10 text-left mt-3">
                 {project.about.title}
               </h2>
             )}
 
-            {project.about?.description && (() => {
-              const text = project.about.description.trim();
-              const sentences = text.split(/(?<=\.)\s+/); // split after full stops
+            {/* {project.about?.description &&
+              (() => {
+                const text = project.about.description.trim();
+                const sentences = text.split(/(?<=\.)\s+/);
 
-              // Find the best middle point
-              let firstHalf = [];
-              let secondHalf = [];
-              let currentLength = 0;
-              const midPoint = text.length / 2;
+                let firstHalf = [];
+                let secondHalf = [];
+                let currentLength = 0;
+                const midPoint = text.length / 2;
 
-              sentences.forEach((sentence) => {
-                if (currentLength < midPoint) {
-                  firstHalf.push(sentence);
-                  currentLength += sentence.length;
-                } else {
-                  secondHalf.push(sentence);
+                sentences.forEach((sentence) => {
+                  if (currentLength < midPoint) {
+                    firstHalf.push(sentence);
+                    currentLength += sentence.length;
+                  } else {
+                    secondHalf.push(sentence);
+                  }
+                });
+
+                if (secondHalf.length === 0 && firstHalf.length > 1) {
+                  secondHalf = [firstHalf.pop()];
                 }
-              });
 
-              // Fallback if only one sentence
-              if (secondHalf.length === 0 && firstHalf.length > 1) {
-                secondHalf = [firstHalf.pop()];
-              }
+                return (
+                  <div className="mt-12 grid md:grid-cols-2 gap-8">
+                    <p className="text-black/60 leading-relaxed">
+                      {firstHalf.join(" ")}
+                    </p>
 
-              return (
-                <div className="mt-12 grid md:grid-cols-2 gap-8">
-                  <p className="text-black/60 leading-relaxed">
-                    {firstHalf.join(" ")}
-                  </p>
-                  <p className="text-black/60 leading-relaxed">
-                    {secondHalf.join(" ")}
-                  </p>
-                </div>
-              );
-            })()}
+                    <p className="text-black/60 leading-relaxed">
+                      {secondHalf.join(" ")}
+                    </p>
+                  </div>
+                );
+              })()} */}
+
+            {project.about?.description && (
+              <div className="space-y-6">
+                {project.about.description
+                  .trim()
+                  .split(/\n\s*\n/)
+                  .map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-black/60 leading-relaxed"
+                    >
+                      {paragraph.trim()}
+                    </p>
+                  ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
