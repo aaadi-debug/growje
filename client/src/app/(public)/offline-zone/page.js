@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import About from "@/components/public/servicepage/About";
 import Faqs from "@/components/public/servicepage/Faqs";
 import OfflineZoneForm from "@/components/public/OfflineZoneForm";
+import PageSkeletonLoader from "@/components/public/PageSkeletonLoader";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -54,7 +55,7 @@ export default function OfflineZonePage() {
   }, []);
 
   if (loading) {
-    return <div className="p-20 text-center">Loading...</div>;
+    return <PageSkeletonLoader />;
   }
 
   const hero = pageData?.hero || {};
@@ -179,7 +180,7 @@ export default function OfflineZonePage() {
                           })()}
                         </h3>
 
-                        <span className="shrink-0 w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
+                        <span className="shrink-0 w-10 h-10 rounded-full border border-white/40 text-white flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
                           <ArrowUpRight size={18} />
                         </span>
                       </div>
