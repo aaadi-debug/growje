@@ -18,6 +18,8 @@ async function getProject(slug) {
 
     const data = await response.json();
 
+    // console.log("portfolio page data: ", data)
+
     if (!data.success) {
       return null;
     }

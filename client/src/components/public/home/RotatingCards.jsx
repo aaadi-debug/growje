@@ -37,7 +37,12 @@ export default function RotatingCards({ projects = [] }) {
   const cards = useMemo(() => {
     if (!projects.length) return [];
 
-    const mapped = projects.map((project, index) => {
+    // Sort projects by order (ascending)
+    const sortedProjects = [...projects].sort(
+      (a, b) => (b.order ?? Infinity) - (a.order ?? Infinity)
+    );
+
+    const mapped = sortedProjects.map((project, index) => {
       // Prefer cardImage, fallback to hero media (same as ProjectCard)
       const image =
         project.cardImage?.url ||
@@ -74,9 +79,11 @@ export default function RotatingCards({ projects = [] }) {
 
       const vw = section.clientWidth;
       const n = cards.length;
-      const cardW = Math.max(160, Math.min(vw * 0.18, 340));
+      // const cardW = Math.max(160, Math.min(vw * 0.18, 340));
+      const cardW = Math.max(240, Math.min(vw * 0.24, 420));
       const cardH = cardW * 1.38;
-      const pitch = cardW * 1.2;
+      // const pitch = cardW * 1.2;
+      const pitch = cardW * 1.22;
       const radius = pitch / (2 * Math.tan(Math.PI / n));
 
       section.style.perspective = `${radius * 1.65}px`;
@@ -166,7 +173,7 @@ export default function RotatingCards({ projects = [] }) {
         }}
       />
 
-      <h2 className="relative z-10 text-3xl lg:text-5xl md:text-4xl tracking-[-0.06em] leading-none text-white text-center pt-10">
+      <h2 className="relative z-10 text-3xl lg:text-5xl md:text-4xl tracking-[-0.06em] leading-none text-white text-center pt-">
         The Showcase
       </h2>
 

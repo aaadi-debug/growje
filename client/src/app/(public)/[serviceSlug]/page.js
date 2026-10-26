@@ -18,6 +18,8 @@ async function getService(serviceSlug) {
 
     const data = await response.json();
 
+    console.log("service data: ", data)
+
     if (!data.success) {
       return null;
     }
@@ -71,7 +73,7 @@ export default async function ServiceSlugPage({
     notFound();
   }
 
-  console.log("Projects: ", data.projects)
+  console.log("Service page Projects: ", data.projects)
 
   return (
     <ServicePage

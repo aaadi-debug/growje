@@ -154,7 +154,7 @@ const getServiceBySlug = async (req, res) => {
       status: "published",
     })
       .select(
-        "title slug clientName shortDescription category hero cardImage order"
+        "title slug clientName shortDescription category hero cardImage order workedOn"
       )
       .sort({
         order: 1,

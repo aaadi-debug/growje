@@ -39,6 +39,7 @@ const blogRoutes = require("./routes/blog.routes");
 const digitalZoneRoutes = require("./routes/digitalZone.routes")
 const offlineZoneRoutes = require("./routes/offlineZone.routes")
 const jobRoutes = require("./routes/job.routes")
+const testimonialRoutes = require("./routes/testimonial.routes");
 
 // app.use(
 //   cors({
@@ -68,6 +69,7 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/leads", leadRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/jobs", jobRoutes);
+app.use("/api/testimonials", testimonialRoutes);
 
 const multer = require("multer");
 
