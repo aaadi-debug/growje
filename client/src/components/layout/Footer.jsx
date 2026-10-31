@@ -7,6 +7,8 @@ import { FaInstagram } from "react-icons/fa6";
 import { RiYoutubeLine } from "react-icons/ri";
 import { FaGoogle } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -56,11 +58,18 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-2 mt-6">
-              <a href="https://www.facebook.com/GrowjeBrandingSolution/" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FiFacebook size={16} /> </a>
               <a href="https://www.instagram.com/growjebrandsolution/" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaInstagram size={16} /> </a>
+
+              <a href="https://www.linkedin.com/company/growje" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaLinkedinIn size={16} /> </a>
+
+              <a href="https://www.facebook.com/GrowjeBrandingSolution/" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FiFacebook size={16} /> </a>
+
               <a href="https://www.youtube.com/@growjebrandsolution" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <RiYoutubeLine size={16} /> </a>
-              <a href="https://www.google.com/search?sca_esv=7c95de8abde2ac06&sxsrf=AE3TifMV5OT9SLypZpFlDrbm957e8XOx-w:1766124870665&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1CjJq40UvUoaBOxsDOn8v1FRxMxaGo7jg0_OPd4aADRh-QEazzrblYJjPnyhUzPPUZuDB0Rxi3MSd6QeJ1DV14G3BP5hH_zdZCOMsWsR8_zeKwIcg%3D%3D&q=Growje+-+Advertising+agency+Reviews&sa=X&ved=2ahUKEwiN7q3s_8iRAxWbd2wGHXaxFxYQ0bkNegQIKRAE&biw=1536&bih=738&dpr=1.25" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaGoogle size={16} /> </a>
-              <a href="https://wa.me/919625870021?text=Hello!%20I%20want%20to%20connect%20with%20you" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaWhatsapp size={16} /> </a>
+
+              <a href="https://x.com/growje63555" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaTwitter size={16} /> </a>
+
+              {/* <a href="https://www.google.com/search?sca_esv=7c95de8abde2ac06&sxsrf=AE3TifMV5OT9SLypZpFlDrbm957e8XOx-w:1766124870665&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1CjJq40UvUoaBOxsDOn8v1FRxMxaGo7jg0_OPd4aADRh-QEazzrblYJjPnyhUzPPUZuDB0Rxi3MSd6QeJ1DV14G3BP5hH_zdZCOMsWsR8_zeKwIcg%3D%3D&q=Growje+-+Advertising+agency+Reviews&sa=X&ved=2ahUKEwiN7q3s_8iRAxWbd2wGHXaxFxYQ0bkNegQIKRAE&biw=1536&bih=738&dpr=1.25" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaGoogle size={16} /> </a>
+              <a href="https://wa.me/919625870021?text=Hello!%20I%20want%20to%20connect%20with%20you" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaWhatsapp size={16} /> </a> */}
             </div>
           </div>
 

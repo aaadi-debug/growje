@@ -7,13 +7,14 @@ import About from "@/components/public/servicepage/About";
 import Faqs from "@/components/public/servicepage/Faqs";
 import OfflineZoneForm from "@/components/public/OfflineZoneForm";
 import PageSkeletonLoader from "@/components/public/PageSkeletonLoader";
+import { gadugi } from "@/app/fonts";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const serviceImages = {
   "Corporate Gifting": "/assets/images/home/corporate-gifting.jpeg",
   "Printing": "/assets/images/home/print-and-pack.jpeg",
-  "Events & Experiences": "/assets/images/home/events.jpeg",
+  "Events Management": "/assets/images/home/events.jpeg",
   // add more offline service images here
 };
 
@@ -157,8 +158,8 @@ export default function OfflineZonePage() {
                     <div className="absolute inset-x-0 bottom-0">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-                      <div className="relative flex items-end justify-between gap-4 p-5 lg:p-6">
-                        <h3 className="relative text-white 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
+                      <div className={`relative flex items-end justify-between gap-4 p-5 lg:p-6 ${gadugi.variable}`}>
+                        <h3 className="relative text-white 2xl:text-4xl xl:text-4xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight">
                           {(() => {
                             const title = service.title || "";
                             const spaceIndex = title.indexOf(" ");
@@ -173,8 +174,8 @@ export default function OfflineZonePage() {
 
                             return (
                               <>
-                                <span className="font-extrabold block">{firstLine}</span>
-                                <span className="font-medium block">{secondLine}</span>
+                                <span className="font-normal block capitalize">{firstLine}</span>
+                                <span className="block font-[family-name:var(--font-gadugi)] font-normal capitalize">{secondLine}</span>
                               </>
                             );
                           })()}

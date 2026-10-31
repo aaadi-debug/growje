@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { gadugi } from "@/app/fonts";
 
 // ─────────────────────────────────────────────
 // Put your image links here
@@ -11,13 +12,13 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 const serviceImages = {
     // Online
     "Digital Marketing": "/assets/images/home/digital-marketing.jpeg",
-    "Video Production & Editing": "/assets/images/home/video_prod.jpeg",
+    "2D & 3D Edits": "/assets/images/home/video_prod.jpeg",
     "Graphic Designing": "/assets/images/home/graphic-design.jpeg",
     "Web development": "/assets/images/home/website-development.jpeg",
     // Offline
     "Corporate Gifting": "/assets/images/home/corporate-gifting.jpeg",
     "Printing": "/assets/images/home/print-and-pack.jpeg",
-    "Events & Experiences": "/assets/images/home/events.jpeg",
+    "Events Management": "/assets/images/home/events.jpeg",
 };
 
 const defaultImage =
@@ -40,9 +41,9 @@ export default function Services({ featuredProjects = [], services = [] }) {
     useEffect(() => {
         const updateVisible = () => {
             if (window.innerWidth >= 1440) {
-                setVisibleCount(4.6);
+                setVisibleCount(4.2);
             } else if (window.innerWidth >= 1024) {
-                setVisibleCount(4);
+                setVisibleCount(3.5);
             } else if (window.innerWidth >= 768) {
                 setVisibleCount(2.6);
             } else {
@@ -175,11 +176,11 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                                 <div className="absolute inset-x-0 bottom-0">
                                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-                                                    <div className="relative flex items-end justify-between gap-2 p-5 lg:p-6">
+                                                    <div className={`relative flex items-end justify-between gap-2 p-5 lg:p-6 ${gadugi.variable}`}>
                                                         {/* <h3 className="relative text-white 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
                                                             {service.title}
                                                         </h3> */}
-                                                        <h3 className="relative text-white 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight font-medium">
+                                                        <h3 className="relative text-white 2xl:text-4xl xl:text-4xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight">
                                                             {(() => {
                                                                 const title = service.title || "";
                                                                 const spaceIndex = title.indexOf(" ");
@@ -194,8 +195,8 @@ export default function Services({ featuredProjects = [], services = [] }) {
 
                                                                 return (
                                                                     <>
-                                                                        <span className="font-extrabold block">{firstLine}</span>
-                                                                        <span className="font-medium block">{secondLine}</span>
+                                                                        <span className="font-normal block capitalize">{firstLine}</span>
+                                                                        <span className="block font-[family-name:var(--font-gadugi)] font-normal capitalize">{secondLine}</span>
                                                                     </>
                                                                 );
                                                             })()}

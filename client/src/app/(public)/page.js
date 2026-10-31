@@ -8,6 +8,7 @@ import LetsTalk from "@/components/public/home/LetsTalk";
 import Testimonials from "@/components/public/home/Testimonials";
 import NumbersSection from "@/components/public/home/Numbers";
 import RotatingCards from "@/components/public/home/RotatingCards";
+import LeadPopup from "@/components/public/LeadPopup";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -74,6 +75,7 @@ export default async function HomePage() {
       <ClientMarquee />
       <NumbersSection />
       {/* <LetsTalk /> */}
+      <LeadPopup />
     </main>
   );
 }
