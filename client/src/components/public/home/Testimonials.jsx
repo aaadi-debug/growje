@@ -21,7 +21,7 @@ function TestimonialCard({ item }) {
         <Quote className="w-7 h-7 text-black/20" strokeWidth={1.5} />
       </div>
 
-      <div className="flex-1 mb-6 max-sm:mb-2">
+      <div className="flex-1 mb-2 max-sm:mb-2">
         <p className="leading-relaxed font-light text-black/90 max-sm:text-sm">
           “{displayText}”
         </p>
@@ -37,20 +37,35 @@ function TestimonialCard({ item }) {
         )}
       </div>
 
-      <div className="flex gap-1 mb-4 max-sm:mb-2">
+      <div className="flex gap-1">
         {[...Array(item.rating || 5)].map((_, i) => (
           <Star
             key={i}
-            size={15}
+            size={12}
             className="fill-yellow-400 text-yellow-400"
           />
         ))}
       </div>
 
+      {/* Bottom structure */}
       <div>
         <p className="text-base font-semibold text-primary">{item.name}</p>
-        {item.role && (
+
+        {item.company && (
+          <p className="text-sm text-black/70 mt-0.5">{item.company}</p>
+        )}
+
+        {item.position && (
+          <p className="text-sm text-black/50 mt-0.5">{item.position}</p>
+        )}
+
+        {/* Fallback if old data only has role */}
+        {!item.company && !item.position && item.role && (
           <p className="text-sm text-black/50 mt-0.5">{item.role}</p>
+        )}
+
+        {item.reviewTime && (
+          <p className="text-xs text-black/40 mt-1">{item.reviewTime}</p>
         )}
       </div>
     </div>

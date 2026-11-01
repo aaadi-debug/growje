@@ -3,7 +3,7 @@ const Testimonial = require("../models/Testimonial");
 // CREATE
 const createTestimonial = async (req, res) => {
   try {
-    const { name, role, content, rating, avatar, order, status } = req.body;
+    const { name, company, position, role, content, rating, reviewTime, avatar, order, status } = req.body;
 
     if (!name || !content) {
       return res.status(400).json({
@@ -14,9 +14,12 @@ const createTestimonial = async (req, res) => {
 
     const testimonial = await Testimonial.create({
       name,
+      company,
+      position,
       role,
       content,
       rating: rating || 5,
+      reviewTime,
       avatar,
       order: order ?? 0,
       status: status || "draft",

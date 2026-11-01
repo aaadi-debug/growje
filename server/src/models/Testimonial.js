@@ -7,6 +7,19 @@ const testimonialSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    // Company name
+    company: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+
+    // Job title / position
+    position: {
+      type: String,
+      default: "",
+      trim: true,
+    },
 
     role: {
       type: String,
@@ -25,6 +38,13 @@ const testimonialSchema = new mongoose.Schema(
       min: 1,
       max: 5,
       default: 5,
+    },
+
+    // e.g. "2 weeks ago", "1 year ago"
+    reviewTime: {
+      type: String,
+      default: "",
+      trim: true,
     },
 
     // Optional avatar image

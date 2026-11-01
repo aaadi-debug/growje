@@ -14,7 +14,7 @@ export default function PublicLayout({ children }) {
 
         <SocialSidebar />
         <WhatsAppPopup
-          phone="919625870021"                    // ← change to your number
+          phone="919625870021"                    
           message="Hello! I want to know more about your services."
           position="right"
         />

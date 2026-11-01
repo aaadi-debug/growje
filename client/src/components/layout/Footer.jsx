@@ -9,6 +9,9 @@ import { FaGoogle } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import Logo from "../../../public/assets/images/lgo.png";
+import Image from "next/image";
+
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -42,14 +45,19 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="px-6 lg:px-10 pt-16 lg:pt-24 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-12 grid-cols-1 gap-12">
           {/* BRAND */}
-          <div>
+          <div className="lg:col-span-3 col-span-1 min-w-0">
             <Link
               href="/"
               className="text-2xl font-bold"
             >
-              GROWJE
+              <Image
+                src={Logo}
+                width={100}
+                height={100}
+                className="border p-1 w-40 rounded"
+              />
             </Link>
 
             <p className="mt-6 text-sm text-white/60 max-w-xs leading-relaxed">
@@ -73,115 +81,102 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Digital Zone */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
-              Digital Zone
-            </h3>
+          <div className="lg:col-span-9 col-span-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 min-w-0">
+            {/* COMPANY */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
+                Company
+              </h3>
 
-            <div className="flex flex-col gap-3">
-              {digitalServices.map((service) => (
+              <div className="flex flex-col gap-3">
                 <Link
-                  key={service._id}
-                  href={`/${service.slug}`}
+                  href="/about-us"
                   className="text-sm text-white/60 hover:text-white transition"
                 >
-                  {service.title}
+                  Our DNA
                 </Link>
-              ))}
-            </div>
-          </div>
 
-          {/* Offline Zone */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
-              Offline Zone
-            </h3>
-
-            <div className="flex flex-col gap-3">
-              {offlineServices.map((service) => (
                 <Link
-                  key={service._id}
-                  href={`/${service.slug}`}
+                  href="/careers"
                   className="text-sm text-white/60 hover:text-white transition"
                 >
-                  {service.title}
+                  Careers
                 </Link>
-              ))}
+
+                <Link
+                  href="/articles"
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  Think Tank
+                </Link>
+
+                <Link
+                  href="/contact-us"
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Digital Zone */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
+                Digital Zone
+              </h3>
+
+              <div className="flex flex-col gap-3">
+                {digitalServices.map((service) => (
+                  <Link
+                    key={service._id}
+                    href={`/${service.slug}`}
+                    className="text-sm text-white/60 hover:text-white transition"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Offline Zone */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
+                Offline Zone
+              </h3>
+
+              <div className="flex flex-col gap-3">
+                {offlineServices.map((service) => (
+                  <Link
+                    key={service._id}
+                    href={`/${service.slug}`}
+                    className="text-sm text-white/60 hover:text-white transition"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* CONTACT */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
+                Find Us
+              </h3>
+
+              <div className="w-full lg:h-[160px] rounded-xl overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps?q=28.590461,77.0820116&z=15&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Growje Office Location"
+                />
+              </div>
             </div>
           </div>
-
-          {/* COMPANY */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
-              Company
-            </h3>
-
-            <div className="flex flex-col gap-3">
-              <Link
-                href="/about-us"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Our DNA
-              </Link>
-
-              <Link
-                href="/careers"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Careers
-              </Link>
-
-              <Link
-                href="/articles"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Think Tank
-              </Link>
-
-              <Link
-                href="/contact-us"
-                className="text-sm text-white/60 hover:text-white transition"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-
-          {/* CONTACT */}
-          {/* <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">
-              Get in touch
-            </h3>
-
-            <div className="flex flex-col gap-3 text-sm text-white/60">
-              <a
-                href="mailto:support@growje.com"
-                className="hover:text-white transition"
-              >
-                support@growje.com
-              </a>
-
-              <a
-                href="tel:+919625870021"
-                className="hover:text-white transition"
-              >
-                +91-9625870021
-              </a>
-              <a
-                href="tel:+917982563993"
-                className="hover:text-white transition"
-              >
-                +91-7982563993
-              </a>
-              <a
-                href="tel:+918766363438"
-                className="hover:text-white transition"
-              >
-                +91-8766363438
-              </a>
-            </div>
-          </div> */}
         </div>
 
         {/* BOTTOM */}

@@ -88,7 +88,9 @@ export default function TestimonialsAdminPage() {
             <thead className="bg-gray-200">
               <tr>
                 <th className="text-left px-6 py-4">Name</th>
-                <th className="text-left px-6 py-4">Role</th>
+                {/* <th className="text-left px-6 py-4">Role</th> */}
+                <th className="text-left px-6 py-4">Company</th>
+                <th className="text-left px-6 py-4">Position</th>
                 <th className="text-left px-6 py-4">Content</th>
                 <th className="text-left px-6 py-4">Rating</th>
                 <th className="text-left px-6 py-4">Status</th>
@@ -100,9 +102,11 @@ export default function TestimonialsAdminPage() {
               {testimonials.map((item) => (
                 <tr key={item._id} className="border-t">
                   <td className="px-6 py-4 font-medium">{item.name}</td>
-                  <td className="px-6 py-4 text-gray-500 text-sm">
+                  {/* <td className="px-6 py-4 text-gray-500 text-sm">
                     {item.role || "—"}
-                  </td>
+                  </td> */}
+                  <td className="px-6 py-4 text-gray-500 text-sm">{item.company || "—"}</td>
+                  <td className="px-6 py-4 text-gray-500 text-sm">{item.position || "—"}</td>
                   <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">
                     {item.content}
                   </td>
@@ -119,11 +123,10 @@ export default function TestimonialsAdminPage() {
                   </td>
                   <td className="px-6 py-4">
                     <span
-                      className={`px-3 py-1 capitalize rounded-full text-sm ${
-                        item.status === "published"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-yellow-100 text-yellow-700"
-                      }`}
+                      className={`px-3 py-1 capitalize rounded-full text-sm ${item.status === "published"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
+                        }`}
                     >
                       {item.status}
                     </span>

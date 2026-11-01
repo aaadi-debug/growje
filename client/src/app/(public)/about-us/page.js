@@ -472,7 +472,7 @@ export default function AboutUsPage() {
                       description: "What started with a few projects slowly grew through consistent work and social media, and by the end of 2024, clients had started finding Growje on their own and reaching out.",
                     },
                     {
-                      year: "2025",
+                      year: "2026",
                       title: "Today",
                       description: "Today, Growje is still driven by the same mindset — keep learning, keep creating, and keep finding better ways to help brands grow.",
                     },

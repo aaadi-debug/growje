@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import Logo from "../../../public/assets/images/logo-growje.png";
+import LogoWhite from "../../../public/assets/images/lgo.png";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -89,12 +90,22 @@ export default function Header() {
                         href="/"
                         className="text-2xl font-bold tracking-tight"
                     >
-                        <Image
-                            src={Logo}
-                            width={100}
-                            height={100}
-                            className="border p-1 w-40 rounded"
-                        />
+                        {scrolled ? (
+                            <Image
+                                src={Logo}
+                                width={100}
+                                height={100}
+                                className="border p-1 w-42 rounded"
+                            />
+                        ) : (
+                            <Image
+                                src={LogoWhite}
+                                width={100}
+                                height={100}
+                                className="border p-1 w-40 rounded"
+                            />
+                        )}
+
                     </Link>
 
                     {/* DESKTOP NAV */}
@@ -184,7 +195,7 @@ export default function Header() {
                             )}
                         </div> */}
 
-                         {/* Offline Marekting */}
+                        {/* Offline Marekting */}
                         {/* <div
                             className="relative"
                             // onMouseEnter={() => setServicesOpen(true)}
@@ -279,90 +290,90 @@ export default function Header() {
 
             {/* MOBILE MENU */}
             {/* {mobileMenuOpen && ( */}
-                <div
-                    className={`
+            <div
+                className={`
                         fixed inset-0 z-40 lg:hidden
                         transition-all duration-500 ease-in-out
                         ${mobileMenuOpen ? "visible" : "invisible"}
                     `}
-                >
-                    {/* Backdrop */}
-                    <div
-                        className={`
+            >
+                {/* Backdrop */}
+                <div
+                    className={`
                             absolute inset-0 bg-black/50 transition-opacity duration-500
                             ${mobileMenuOpen ? "opacity-100" : "opacity-0"}
                         `}
-                        onClick={() => setMobileMenuOpen(false)}
-                    />
+                    onClick={() => setMobileMenuOpen(false)}
+                />
 
-                    {/* Sliding Panel */}
-                    <div
-                        className={`
+                {/* Sliding Panel */}
+                <div
+                    className={`
                             absolute top-0 right-0 h-full w-full max-w-md
                             bg-white text-black
                             transition-transform duration-500 ease-in-out
                             ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
                             flex flex-col
                         `}
-                    >
-                        {/* Header */}
-                        <div className="flex items-center justify-between px-6 h-20 border-b">
-                            <Image
-                                src={Logo}
-                                width={100}
-                                height={100}
-                                className="w-36"
-                                alt="Growje"
-                            />
-                            <button onClick={() => setMobileMenuOpen(false)}>
-                                <X size={24} />
-                            </button>
-                        </div>
+                >
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-6 h-20 border-b">
+                        <Image
+                            src={Logo}
+                            width={100}
+                            height={100}
+                            className="w-36"
+                            alt="Growje"
+                        />
+                        <button onClick={() => setMobileMenuOpen(false)}>
+                            <X size={24} />
+                        </button>
+                    </div>
 
-                        {/* Nav Links */}
-                        <nav className="flex-1 px-6 py-8 flex flex-col gap-6 text-lg font-medium">
-                            {/* <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                    {/* Nav Links */}
+                    <nav className="flex-1 px-6 py-8 flex flex-col gap-6 text-lg font-medium">
+                        {/* <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                                 Home
                             </Link> */}
 
-                            <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>
-                                Our DNA
-                            </Link>
+                        <Link href="/about-us" onClick={() => setMobileMenuOpen(false)}>
+                            Our DNA
+                        </Link>
 
-                            <Link href="/digital-zone" onClick={() => setMobileMenuOpen(false)}>
-                                Digital Zone
-                            </Link>
+                        <Link href="/digital-zone" onClick={() => setMobileMenuOpen(false)}>
+                            Digital Zone
+                        </Link>
 
-                            <Link href="/offline-zone" onClick={() => setMobileMenuOpen(false)}>
-                                Offline Zone
-                            </Link>
+                        <Link href="/offline-zone" onClick={() => setMobileMenuOpen(false)}>
+                            Offline Zone
+                        </Link>
 
-                            <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>
-                                Think Tank
-                            </Link>
+                        <Link href="/articles" onClick={() => setMobileMenuOpen(false)}>
+                            Think Tank
+                        </Link>
 
-                            <Link href="/careers" onClick={() => setMobileMenuOpen(false)}>
-                                Careers
-                            </Link>
+                        <Link href="/careers" onClick={() => setMobileMenuOpen(false)}>
+                            Careers
+                        </Link>
 
-                            <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
-                                Get In Touch
-                            </Link>
-                        </nav>
+                        <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
+                            Get In Touch
+                        </Link>
+                    </nav>
 
-                        {/* Bottom CTA */}
-                        <div className="px-6 pb-10">
-                            <Link
-                                href="tel:+919625870021"
-                                className="flex items-center justify-center gap-2 w-full bg-black text-white py-4 rounded-full text-sm font-medium"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <Phone size={16} />
-                                Call Now
-                            </Link>
-                        </div>
+                    {/* Bottom CTA */}
+                    <div className="px-6 pb-10">
+                        <Link
+                            href="tel:+919625870021"
+                            className="flex items-center justify-center gap-2 w-full bg-black text-white py-4 rounded-full text-sm font-medium"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <Phone size={16} />
+                            Call Now
+                        </Link>
                     </div>
                 </div>
+            </div>
             {/* )} */}
         </header>
     );

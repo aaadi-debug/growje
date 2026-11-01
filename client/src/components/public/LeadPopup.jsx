@@ -11,8 +11,18 @@ const initialForm = {
     phone: "",
     company: "",
     service: "",
+    budget: "",
     message: "",
 };
+
+const budgetOptions = [
+    "0 - 10,000",
+    "10,000 - 25,000",
+    "25,000 - 50,000",
+    "50,000 - 1,00,000",
+    "1,00,000 - 2,50,000",
+    "2,50,000+",
+];
 
 export default function LeadPopup() {
     const [isOpen, setIsOpen] = useState(false);
@@ -96,6 +106,10 @@ export default function LeadPopup() {
             newErrors.service = services.length
                 ? "Please select a service."
                 : "No services are currently available.";
+        }
+
+        if (!form.budget) {
+            newErrors.budget = "Please select your budget range.";
         }
 
         if (!message) newErrors.message = "Please tell us a little about your project.";
@@ -249,36 +263,67 @@ export default function LeadPopup() {
                             />
                         </div>
 
-                        {/* Service */}
-                        <div>
-                            <label htmlFor="service" className="mb-2 block text-xs font-medium">
-                                What can we help with?
-                                <span className="ml-1 text-red-500">*</span>
-                            </label>
-                            <select
-                                id="service"
-                                name="service"
-                                value={form.service}
-                                onChange={handleChange}
-                                disabled={loadingServices}
-                                className={`w-full border-b bg-transparent px-0 py-2 text-base outline-none transition ${errors.service
+                        {/* Service + Budget */}
+                        <div className="grid gap-4 md:grid-cols-2">
+                            <div>
+                                <label htmlFor="service" className="mb-2 block text-xs font-medium">
+                                    What can we help with?
+                                    <span className="ml-1 text-red-500">*</span>
+                                </label>
+                                <select
+                                    id="service"
+                                    name="service"
+                                    value={form.service}
+                                    onChange={handleChange}
+                                    disabled={loadingServices}
+                                    className={`w-full border-b bg-transparent px-0 py-2 text-base outline-none transition ${errors.service
                                         ? "border-red-500"
                                         : "border-black/20 focus:border-black"
-                                    }`}
-                            >
-                                <option value="">
-                                    {loadingServices ? "Loading services..." : "Select a service"}
-                                </option>
-                                {!loadingServices &&
-                                    services.map((service) => (
-                                        <option key={service._id} value={service.title}>
-                                            {service.title}
+                                        }`}
+                                >
+                                    <option value="">
+                                        {loadingServices ? "Loading services..." : "Select a service"}
+                                    </option>
+                                    {!loadingServices &&
+                                        services.map((service) => (
+                                            <option key={service._id} value={service.title}>
+                                                {service.title}
+                                            </option>
+                                        ))}
+                                </select>
+                                {errors.service && (
+                                    <p className="mt-2 text-xs text-red-500">{errors.service}</p>
+                                )}
+                            </div>
+                            <div>
+                                <label htmlFor="budget" className="mb-2 block text-xs font-medium">
+                                    What's your estimated budget?
+                                    <span className="ml-1 text-red-500">*</span>
+                                </label>
+
+                                <select
+                                    id="budget"
+                                    name="budget"
+                                    value={form.budget}
+                                    onChange={handleChange}
+                                    className={`w-full border-b bg-transparent px-0 py-2 text-base outline-none transition ${errors.budget
+                                        ? "border-red-500"
+                                        : "border-black/20 focus:border-black"
+                                        }`}
+                                >
+                                    <option value="">Select budget range</option>
+
+                                    {budgetOptions.map((option) => (
+                                        <option key={option} value={option}>
+                                            ₹ {option}
                                         </option>
                                     ))}
-                            </select>
-                            {errors.service && (
-                                <p className="mt-2 text-xs text-red-500">{errors.service}</p>
-                            )}
+                                </select>
+
+                                {errors.budget && (
+                                    <p className="mt-2 text-xs text-red-500">{errors.budget}</p>
+                                )}
+                            </div>
                         </div>
 
                         {/* Message */}
@@ -296,8 +341,8 @@ export default function LeadPopup() {
                                 maxLength={2000}
                                 placeholder="Tell us about your business, project, goals..."
                                 className={`w-full resize-none border-b bg-transparent px-0 py-2 text-base outline-none transition ${errors.message
-                                        ? "border-red-500"
-                                        : "border-black/20 focus:border-black"
+                                    ? "border-red-500"
+                                    : "border-black/20 focus:border-black"
                                     }`}
                             />
                             <div className="mt-2 flex justify-between">
