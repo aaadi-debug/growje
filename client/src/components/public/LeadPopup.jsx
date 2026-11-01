@@ -37,7 +37,7 @@ export default function LeadPopup() {
     // Show popup after 3–5 seconds (only once per session)
     // Show popup after 3–5 seconds on every page load/refresh
     useEffect(() => {
-        const delay = 3000 + Math.random() * 2000; // 3–5 seconds
+        const delay = 7000 + Math.random() * 9000; // 3–5 seconds
 
         const timer = setTimeout(() => {
             setIsOpen(true);

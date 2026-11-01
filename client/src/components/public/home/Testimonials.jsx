@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import GoogleLogo from "../../../../public/assets/images/google_logo.webp"
+import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -17,8 +19,9 @@ function TestimonialCard({ item }) {
 
   return (
     <div className="h-full bg-black/[0.03] border border-black/10 rounded-3xl p-6 lg:p-8 backdrop-blur-sm flex flex-col">
-      <div className="mb-5">
+      <div className="mb-5 flex justify-between">
         <Quote className="w-7 h-7 text-black/20" strokeWidth={1.5} />
+        <Image src={GoogleLogo} alt="Google Reviews" width={100} height={100} className="w-6 h-6" title="Google Review" />
       </div>
 
       <div className="flex-1 mb-2 max-sm:mb-2">
@@ -206,6 +209,7 @@ export default function Testimonials() {
                 className="w-11 h-11 rounded-full border border-black/20 bg-primary flex items-center justify-center
                            hover:bg-black text-white transition-all duration-300 cursor-pointer"
                 aria-label="Previous"
+                title="Left Button"
               >
                 <ChevronLeft size={20} />
               </button>
@@ -214,6 +218,7 @@ export default function Testimonials() {
                 className="w-11 h-11 rounded-full border border-black/20 bg-primary flex items-center justify-center
                            hover:bg-black text-white transition-all duration-300 cursor-pointer"
                 aria-label="Next"
+                title="Right Button"
               >
                 <ChevronRight size={20} />
               </button>

@@ -224,8 +224,8 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                             key={index}
                                             onClick={() => setCurrent(index)}
                                             className={`h-1.5 rounded-full transition-all duration-300 ${index === current
-                                                    ? "w-8 bg-primary"
-                                                    : "w-1.5 bg-white/30 hover:bg-white/50"
+                                                ? "w-8 bg-primary"
+                                                : "w-1.5 bg-white/30 hover:bg-white/50"
                                                 }`}
                                             aria-label={`Go to slide ${index + 1}`}
                                         />
@@ -239,6 +239,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                         className="w-11 h-11 rounded-full border border-white/20 bg-primary flex items-center justify-center
                                hover:bg-white hover:text-black text-white transition-all duration-300 cursor-pointer"
                                         aria-label="Previous"
+                                        title="Left Button"
                                     >
                                         <ChevronLeft size={20} />
                                     </button>
@@ -247,6 +248,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                         className="w-11 h-11 rounded-full border border-white/20 bg-primary flex items-center justify-center
                                hover:bg-white hover:text-black text-white transition-all duration-300 cursor-pointer"
                                         aria-label="Next"
+                                        title="Right Button"
                                     >
                                         <ChevronRight size={20} />
                                     </button>
