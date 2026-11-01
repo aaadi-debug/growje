@@ -21,7 +21,7 @@ export default function WhatsAppPopup({
 
   return (
     <div
-      className={`fixed bottom-6 z-50 flex flex-col items-end gap-3 ${
+      className={`fixed bottom-10 z-50 flex flex-col items-end gap-3 ${
         position === "left" ? "left-6" : "right-6"
       }`}
     >
