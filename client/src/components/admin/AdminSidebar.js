@@ -63,6 +63,7 @@ export default function AdminSidebar() {
         >
           <Image
             src={Logo}
+            alt="Logo"
             width={100}
             height={100}
             className="border p-1 w-30 rounded"

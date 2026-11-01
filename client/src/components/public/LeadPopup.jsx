@@ -362,6 +362,7 @@ export default function LeadPopup() {
                             <button
                                 type="submit"
                                 disabled={loading}
+                                aria-label="Submit Button"
                                 className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
                             >
                                 {loading ? "Sending..." : "Send enquiry"}

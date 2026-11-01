@@ -121,7 +121,7 @@ export default function ProjectPage({ project }) {
             ) : project.about.backgroundMedia.type === "image" ? (
               <img
                 src={project.about.backgroundMedia.url}
-                alt=""
+                alt="Project About Background media"
                 className="absolute inset-0 h-full w-full object-cover"
                 aria-hidden="true"
               />

@@ -22,7 +22,7 @@ export default function AdminHeader({ user }) {
           <div className="h-10 w-10 bg-gray-300 rounded-full">
             <Image
               src="/assets/images/Founder.png"   // ← correct path
-              alt="Founder / CEO"
+              alt="Founder / CEO Image"
               width={100}
               height={100}
               className="rounded-full h-10 w-10 border border-gray-500"

@@ -63,6 +63,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     ? "bg-primary text-white" : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
                             `}
+                            aria-label="All Button"
                         >
                             All
                         </button>
@@ -90,6 +91,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Social Media"
                         >
                             Social Media
                         </a>
@@ -102,6 +104,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Graphic Design"
                         >
                             Graphic Design
                         </a>
@@ -112,6 +115,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Web & Digital"
                         >
                             Web & Digital
                         </a>
@@ -122,6 +126,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Brand & Identity"
                         >
                             Branding & Identity
                         </a>
@@ -132,6 +137,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Print & Packaging"
                         >
                             Print & Packaging
                         </a>
@@ -142,6 +148,7 @@ export default function OurWork({ featuredProjects = [], services = [] }) {
                                     px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
                                     bg-white text-black/70 hover:bg-primary hover:text-white
                                 `}
+                                aria-label="Events & Experiences"
                         >
                             Events & Experiences
                         </a>

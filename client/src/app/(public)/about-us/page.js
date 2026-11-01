@@ -654,22 +654,21 @@ export default function AboutUsPage() {
       <section className="bg-black text-white py-10">
         {/* Header */}
         <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-tight text-center text-white mb-6">
-
           Our Secret Sauce
         </h2>
 
         <div className="lg:block md:block hidden">
-          <img src="/assets/images/home/approach_1.png" />
-          <img src="/assets/images/home/approach_2.png" />
-          <img src="/assets/images/home/approach_3.png" />
-          <img src="/assets/images/home/approach_4.png" />
+          <img src="/assets/images/home/approach_1.png" alt="Approach 1 Image" />
+          <img src="/assets/images/home/approach_2.png" alt="Approach 2 Image" />
+          <img src="/assets/images/home/approach_3.png" alt="Approach 3 Image" />
+          <img src="/assets/images/home/approach_4.png" alt="Approach 4 Image" />
         </div>
 
         <div className="lg:hidden md:hidden block">
-          <img src="/assets/images/home/approach_mobile_1.png" />
-          <img src="/assets/images/home/approach_mobile_2.png" />
-          <img src="/assets/images/home/approach_mobile_3.png" />
-          <img src="/assets/images/home/approach_mobile_4.png" />
+          <img src="/assets/images/home/approach_mobile_1.png" alt="Approach 1 Image" />
+          <img src="/assets/images/home/approach_mobile_2.png" alt="Approach 2 Image" />
+          <img src="/assets/images/home/approach_mobile_3.png" alt="Approach 3 Image" />
+          <img src="/assets/images/home/approach_mobile_4.png" alt="Approach 4 Image" />
         </div>
       </section>
 

@@ -34,6 +34,7 @@ function TestimonialCard({ item }) {
             type="button"
             onClick={() => setExpanded((prev) => !prev)}
             className="mt-2 text-sm font-medium text-primary hover:underline cursor-pointer"
+            aria-label="Show More Less Button"
           >
             {expanded ? "Show less" : "Show more"}
           </button>

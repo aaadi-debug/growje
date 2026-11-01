@@ -54,6 +54,7 @@ export default function Footer() {
             >
               <Image
                 src={Logo}
+                alt="Logo"
                 width={100}
                 height={100}
                 className="border p-1 w-40 rounded"

@@ -8,7 +8,7 @@ export default function HeroSection() {
 
             <Image
                 src="/assets/images/home/home_video_thumb.webp"
-                alt=""
+                alt="Hero Video"
                 fill
                 priority
                 fetchPriority="high"
@@ -18,9 +18,7 @@ export default function HeroSection() {
             />
 
             <HeroVideo />
-
             <div className="absolute inset-0 bg-black/30" />
-
             {/* Keep your existing hero content here */}
 
         </section>

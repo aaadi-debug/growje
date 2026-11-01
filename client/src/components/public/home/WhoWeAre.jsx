@@ -54,6 +54,7 @@ export default function WhoAreWe() {
                                 hover:after:w-full
                                 hover:text-primary hover:border-primary
                             "
+                            aria-label="About Us Section Button"
                         >
                             More of Our DNA
                             <ArrowUpRight

@@ -99,12 +99,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("all")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
-                ${activeTab === "all"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
+                                ${activeTab === "all"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             All
                         </button>
@@ -112,12 +112,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("digital")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                ${activeTab === "digital"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                ${activeTab === "digital"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             Digital
                         </button>
@@ -125,12 +125,12 @@ export default function Services({ featuredProjects = [], services = [] }) {
                         <button
                             onClick={() => setActiveTab("ground")}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
-                ${activeTab === "ground"
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap cursor-pointer
+                                ${activeTab === "ground"
                                     ? "bg-primary text-white"
                                     : "bg-white text-black/70 hover:bg-primary hover:text-white"
                                 }
-              `}
+                            `}
                         >
                             Ground
                         </button>
@@ -165,6 +165,7 @@ export default function Services({ featuredProjects = [], services = [] }) {
                                             <Link
                                                 href={`/${service.slug}`}
                                                 className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 block"
+                                                aria-label="Service Card"
                                             >
                                                 {/* Background image */}
                                                 <div
