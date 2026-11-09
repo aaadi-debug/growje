@@ -106,8 +106,8 @@ export default function OfflineZoneForm({ services = [] }) {
         [background-size:48px_48px]"
       />
 
-      <div className="relative z-10 px-2 max-sm:px-0 mx-auto max-w-xl">
-        {/* <div className="grid lg:grid-cols-2 gap-12 lg:gap-20"> */}
+      <div className="relative z-10 px-2 max-sm:px-0 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Left - Form */}
           <div className="bg-white border border-primary/50 rounded-2xl p-6 md:p-8 shadow-sm">
             {success ? (
@@ -119,8 +119,8 @@ export default function OfflineZoneForm({ services = [] }) {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <h2 className="text-3xl font-semibold tracking-tight max-sm:text-2xl">
+              <form onSubmit={handleSubmit} className="space-y-2">
+                <h2 className="text-2xl font-semibold tracking-tight max-sm:text-2xl">
                   Tell us about your project
                 </h2>
 
@@ -134,7 +134,7 @@ export default function OfflineZoneForm({ services = [] }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Full Name"
-                      className="w-full border-b bg-transparent px-0 py-4 text-base outline-none transition border-black/20 focus:border-black"
+                      className="w-full border-b bg-transparent px-0 py-2 text-base outline-none transition border-black/20 focus:border-black"
                     />
                   </div>
 
@@ -147,7 +147,7 @@ export default function OfflineZoneForm({ services = [] }) {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Email"
-                      className="w-full border-b bg-transparent px-0 py-4 text-base outline-none transition border-black/20 focus:border-black"
+                      className="w-full border-b bg-transparent px-0 py-2 text-base outline-none transition border-black/20 focus:border-black"
                     />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function OfflineZoneForm({ services = [] }) {
                       name="countryCode"
                       value={formData.countryCode}
                       onChange={handleChange}
-                      className="w-28 text-black/50 focus:text-black border-b border-black/15 px-3 py-3 bg-white focus:outline-none focus:border-black"
+                      className="w-28 text-black/50 focus:text-black border-b border-black/15 px-3 py-2 bg-white focus:outline-none focus:border-black"
                     >
                       {countryCodes.map((item) => (
                         <option key={item.code} value={item.code}>
@@ -174,45 +174,46 @@ export default function OfflineZoneForm({ services = [] }) {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Phone"
-                      className="w-full border-b bg-transparent px-0 py-4 text-base outline-none transition border-black/20 focus:border-black"
+                      className="w-full border-b bg-transparent px-0 py-2 text-base outline-none transition border-black/20 focus:border-black"
                     />
                   </div>
                 </div>
 
-                {/* Service Dropdown (Offline services only) */}
-                <div>
-                  <select
-                    name="service"
-                    required
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full text-black/50 focus:text-black border-b border-black/15 px-3 py-3 bg-white focus:outline-none focus:border-black"
-                  >
-                    <option value="">Select a service</option>
-                    {services.map((service) => (
-                      <option key={service._id} value={service.title}>
-                        {service.title}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Budget */}
-                <div>
-                  <select
-                    name="budget"
-                    required
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full text-black/50 focus:text-black border-b border-black/15 px-3 py-3 bg-white focus:outline-none focus:border-black"
-                  >
-                    <option value="">Select budget range</option>
-                    {budgetOptions.map((option) => (
-                      <option key={option} value={option}>
-                        ₹ {option}
-                      </option>
-                    ))}
-                  </select>
+                <div className="grid lg:grid-cols-2 gap-6">
+                  {/* Service Dropdown (Offline services only) */}
+                  <div>
+                    <select
+                      name="service"
+                      required
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full text-black/50 focus:text-black border-b border-black/15 px-3 py-2 bg-white focus:outline-none focus:border-black"
+                    >
+                      <option value="">Select a service</option>
+                      {services.map((service) => (
+                        <option key={service._id} value={service.title}>
+                          {service.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* Budget */}
+                  <div>
+                    <select
+                      name="budget"
+                      required
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="w-full text-black/50 focus:text-black border-b border-black/15 px-3 py-2 bg-white focus:outline-none focus:border-black"
+                    >
+                      <option value="">Select budget range</option>
+                      {budgetOptions.map((option) => (
+                        <option key={option} value={option}>
+                          ₹ {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* Message */}
@@ -242,17 +243,20 @@ export default function OfflineZoneForm({ services = [] }) {
           </div>
 
           {/* Right side text */}
-          {/* <div className="lg:sticky lg:top-32">
-            <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
-              Get Started
-            </p>
-            <h2 className="text-lg max-sm:text-base text-black/60">
-              Looking for powerful offline / ground marketing? Tell us about
-              your project and we’ll help you create impactful real-world
-              experiences.
-            </h2>
-          </div> */}
-        {/* </div> */}
+          <div className="">
+            <div className="relative w-full overflow-hidden rounded-2xl aspect-video bg-black">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/124n5OGXgcM"
+                title="GROWJE About Us"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

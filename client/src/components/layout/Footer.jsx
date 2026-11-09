@@ -9,6 +9,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
 import Logo from "../../../public/assets/images/lgo.png";
 import Image from "next/image";
 
@@ -65,6 +66,13 @@ export default function Footer() {
               Creative digital solutions for ambitious brands,
               businesses and ideas.
             </p>
+
+            <div className="mt-3">
+              <a href="tel:+919625870021" className="flex gap-2 text-white/60 hover:text-white transition text-sm">
+              <IoIosCall size={16} />
+              +91 96258 70021
+              </a>
+            </div>
 
             <div className="flex gap-2 mt-6">
               <a href="https://www.instagram.com/growjebrandsolution/" target="_blank" className="border rounded-full hover:bg-white hover:text-primary transition duration-300 p-2"> <FaInstagram size={16} /> </a>

@@ -233,7 +233,7 @@ export default function RotatingCards({ projects = [] }) {
                 {/* Worked On */}
                 {item.workedOn?.[0] && (
                   <div className="mt-2">
-                    <span className={`relative text-white 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight uppercase tracking-wider ${gadugi.variable}`}>
+                    <span className={`relative text-white 2xl:text-4xl xl:text-4xl lg:text-2xl md:text-3xl text-2xl max-sm:text-base max-sm:leading-tight uppercase tracking-wider ${gadugi.variable}`}>
                       {(() => {
                         const title = item.workedOn[0] || "";
                         const words = title.trim().split(/\s+/);
