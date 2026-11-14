@@ -44,6 +44,7 @@ const jobRoutes = require("./routes/job.routes")
 const testimonialRoutes = require("./routes/testimonial.routes");
 const clientRoutes = require("./routes/client.routes")
 const teamRoutes = require("./routes/team.routes")
+const aboutPageRoutes = require("./routes/aboutPage.routes.js")
 
 // app.use(
 //   cors({
@@ -76,6 +77,7 @@ app.use("/api/jobs", jobRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/team", teamRoutes);
+app.use("/api/about-page", aboutPageRoutes);
 
 const multer = require("multer");
 

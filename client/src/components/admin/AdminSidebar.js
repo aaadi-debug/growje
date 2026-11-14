@@ -52,6 +52,10 @@ const menuItems = [
     name: "Team Members",
     href: "/admin/team",
   },
+    {
+    name: "About Page",
+    href: "/admin/about",
+  },
 ];
 
 export default function AdminSidebar() {
