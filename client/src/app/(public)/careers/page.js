@@ -36,7 +36,7 @@ export default function CareersPage() {
         <div
           className="absolute inset-0 bg-top bg-no-repeat"
           style={{
-            backgroundImage: "url('assets/images/careers_hero_bg.png')", // ← change to your actual filename
+            backgroundImage: "url('assets/images/careers_hero_bg.png')",
           }}
         />
 
@@ -50,7 +50,7 @@ export default function CareersPage() {
             </p>
           </div>
 
-          <div delay={100}>
+          <div>
             <h1 className="2xl:text-[clamp(2.5rem,6vw,6.8rem)] xl:text-[clamp(1.5rem,6vw,4rem)] lg:text-[clamp(1.5rem,4vw,4rem)] text-[clamp(1.5rem,6vw,4rem)] font-medium leading-[0.92] tracking-[-0.06em] text-white">
               We build brands
               <br />
@@ -60,29 +60,29 @@ export default function CareersPage() {
             <Link
               href="/contact-us"
               className="
-                                group
-                                inline-flex
-                                items-center
-                                text-white
-                                gap-3
-                                mt-10
-                                text-sm
-                                font-medium
-                                border-b
-                                border-white
-                                pb-2
-                                relative
-                                after:absolute
-                                after:bottom-0
-                                after:left-0
-                                after:h-px
-                                after:w-0
-                                after:bg-primary
-                                after:transition-all
-                                after:duration-300
-                                hover:after:w-full
-                                hover:text-white/80 hover:border-white/80
-                            "
+                group
+                inline-flex
+                items-center
+                text-white
+                gap-3
+                mt-10
+                text-sm
+                font-medium
+                border-b
+                border-white
+                pb-2
+                relative
+                after:absolute
+                after:bottom-0
+                after:left-0
+                after:h-px
+                after:w-0
+                after:bg-primary
+                after:transition-all
+                after:duration-300
+                hover:after:w-full
+                hover:text-white/80 hover:border-white/80
+              "
             >
               Find Your Job
               <ArrowUpRight
@@ -92,16 +92,6 @@ export default function CareersPage() {
             </Link>
           </div>
         </div>
-
-        {/* right */}
-        {/* <div className="relative flex flex-col justify-end lg:px-16 px-6 max-sm:hidden">
-          <div delay={200}>
-            <p className="mt-10 max-sm:mt-6 max-w-xl 2xl:text-xl xl:text-xl text-lg max-sm:text-base lg:font-semibold leading-relaxed text-white">
-              A creative digital agency focused on strategy, design and
-              technology that helps ambitious brands grow and stand out.
-            </p>
-          </div>
-        </div> */}
       </section>
 
       {/* Jobs */}
@@ -119,21 +109,23 @@ export default function CareersPage() {
         {/* Optional light grid */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.65]
-              [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
-              [background-size:48px_48px]"
+            [background-image:linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)]
+            [background-size:48px_48px]"
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto">
+        <div className="relative mx-auto max-w-[1600px]">
           <h2 className="text-3xl lg:text-5xl md:text-4xl tracking-[-0.06em] leading-none mb-10 text-center">
             Open Positions
           </h2>
 
           {loading ? (
-            <p className="text-gray-500">Loading...</p>
+            <p className="text-center text-gray-500 py-10">Loading...</p>
           ) : jobs.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-600 mb-2">No open positions right now</p>
+              <p className="text-xl text-gray-600 mb-2">
+                No open positions right now
+              </p>
               <p className="text-gray-500 text-sm">
                 Check back soon, or send your resume to{" "}
                 <a href="mailto:support@growje.com" className="underline">
@@ -142,19 +134,20 @@ export default function CareersPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {jobs.map((job) => (
                 <Link
                   key={job._id}
                   href={`/careers/${job.slug}`}
                   target="_blank"
-                  className="group flex flex-col md:flex-row md:items-center justify-between gap-4 border border-black/10 rounded-2xl p-6 hover:border-primary hover:bg-primary/5 transition"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 hover:bg-primary/5"
                 >
-                  <div>
-                    <h3 className="text-xl font-medium group-hover:text-primary transition">
+                  <div className="flex-1">
+                    <h3 className="text-xl md:text-2xl font-medium leading-tight tracking-[-0.02em] group-hover:text-primary transition-colors">
                       {job.title}
                     </h3>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-black/50">
+
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-sm text-black/50">
                       {job.department && (
                         <span className="flex items-center gap-1.5">
                           <Briefcase size={14} />
@@ -167,15 +160,23 @@ export default function CareersPage() {
                       </span>
                       <span className="capitalize">{job.employmentType}</span>
                     </div>
+
                     {job.shortDescription && (
-                      <p className="mt-3 text-sm text-black/60 line-clamp-2">
+                      <p className="mt-4 text-sm leading-relaxed text-black/60 line-clamp-3">
                         {job.shortDescription}
                       </p>
                     )}
                   </div>
-                  <span className="shrink-0 w-10 h-10 rounded-full border border-black/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition">
-                    <ArrowUpRight size={18} />
-                  </span>
+
+                  {/* Arrow */}
+                  <div className="mt-6 flex items-center justify-between">
+                    <span className="text-sm font-medium text-black/40 group-hover:text-primary transition-colors">
+                      View role
+                    </span>
+                    <span className="w-10 h-10 rounded-full border border-black/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+                      <ArrowUpRight size={18} />
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>

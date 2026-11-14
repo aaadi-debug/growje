@@ -48,6 +48,10 @@ const menuItems = [
     name: "Careers",
     href: "/admin/careers",
   },
+  {
+    name: "Team Members",
+    href: "/admin/team",
+  },
 ];
 
 export default function AdminSidebar() {

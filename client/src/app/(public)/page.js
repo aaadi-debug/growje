@@ -56,7 +56,8 @@ async function getHomeData() {
 export default async function HomePage() {
   const { services, projects } = await getHomeData();
 
-  const featuredProjects = projects.slice(0, 6);
+  // const featuredProjects = projects.slice(0, 6);
+  const featuredProjects = projects;
   // console.log(services)
 
   const publishedProjects = projects.filter(

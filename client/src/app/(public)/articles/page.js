@@ -26,8 +26,9 @@ function FadeUp({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        } ${className}`}
+      className={`transition-all duration-1000 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -79,15 +80,12 @@ function RotatingBadge() {
 
 export default function ArticlesPage() {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] =
-    useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadBlogs = async () => {
       try {
-        const data =
-          await getPublishedBlogs();
-
+        const data = await getPublishedBlogs();
         setBlogs(data.blogs || []);
       } catch (error) {
         console.error(error);
@@ -110,7 +108,7 @@ export default function ArticlesPage() {
         <div
           className="absolute inset-0 bg-top bg-no-repeat bg-cover"
           style={{
-            backgroundImage: "url('assets/images/blogs_hero_bg.png')", // ← change to your actual filename
+            backgroundImage: "url('assets/images/blogs_hero_bg.png')",
           }}
         />
 
@@ -138,7 +136,7 @@ export default function ArticlesPage() {
       </section>
 
       {/* ARTICLES */}
-      <section className="relative overflow-hidden px-6 lg:px-10 py-16 lg:py-28">
+      <section className="relative overflow-hidden px-6 lg:px-10 py-16 lg:py-20">
         <div
           className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"
           aria-hidden="true"
@@ -158,9 +156,7 @@ export default function ArticlesPage() {
 
         <div className="mx-auto max-w-[1600px]">
           {loading ? (
-            <div className="p-10 text-center h-20">
-              Loading articles...
-            </div>
+            <div className="p-10 text-center h-20">Loading articles...</div>
           ) : blogs.length === 0 ? (
             <div className="flex min-h-[40vh] flex-col items-center justify-center text-center px-6">
               <h3 className="text-xl font-medium text-gray-700 mb-2">
@@ -171,61 +167,49 @@ export default function ArticlesPage() {
               </p>
             </div>
           ) : (
-            blogs.map((blog, index) => (
-              <Link
-                href={`/article/${blog.slug}`}
-                key={blog._id}
-                className="group block border-b border-black px-6 py-10 transition-colors hover:bg-black hover:text-white md:px-10 md:py-14 lg:px-16"
-              >
-                <div className="grid gap-8 md:grid-cols-[1fr_2fr_auto] md:items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {blogs.map((blog) => (
+                <Link
+                  href={`/article/${blog.slug}`}
+                  key={blog._id}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-black/20"
+                >
                   {/* IMAGE */}
                   <div className="aspect-[4/3] overflow-hidden bg-neutral-200">
                     {blog.hero?.media?.url && (
                       <img
-                        src={
-                          blog.hero.media.url
-                        }
-                        alt={
-                          blog.hero.media.alt ||
-                          blog.title
-                        }
+                        src={blog.hero.media.url}
+                        alt={blog.hero.media.alt || blog.title}
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                       />
                     )}
                   </div>
 
                   {/* CONTENT */}
-
-                  <div>
-                    <div className="flex flex-wrap gap-4 text-[10px] font-semibold uppercase tracking-[0.2em]">
-                      <span>
-                        {blog.category}
-                      </span>
-
-                      <span>
-                        {blog.readTime} min read
-                      </span>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <div className="flex flex-wrap gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/60">
+                      <span>{blog.category}</span>
+                      <span>{blog.readTime} min read</span>
                     </div>
 
-                    <h2 className="mt-5 max-w-4xl text-3xl font-medium leading-[1] tracking-[-0.03em] md:text-5xl lg:text-6xl">
+                    <h2 className="mt-4 text-xl font-medium leading-tight tracking-[-0.02em] md:text-2xl group-hover:text-[#08689A] transition-colors">
                       {blog.title}
                     </h2>
 
                     {blog.excerpt && (
-                      <p className="mt-5 max-w-2xl text-sm leading-6 opacity-60">
+                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-black/60">
                         {blog.excerpt}
                       </p>
                     )}
-                  </div>
 
-                  {/* ARROW */}
-
-                  <div className="text-3xl transition-transform group-hover:translate-x-2">
-                    ↗
+                    {/* ARROW */}
+                    {/* <div className="mt-auto pt-5 text-xl opacity-60 transition-all group-hover:translate-x-1 group-hover:opacity-100">
+                      ↗
+                    </div> */}
                   </div>
-                </div>
-              </Link>
-            ))
+                </Link>
+              ))}
+            </div>
           )}
         </div>
       </section>

@@ -184,6 +184,11 @@ export default function Footer() {
                   title="Growje Office Location"
                 />
               </div>
+
+              <div className="mt-3 flex gap-4 items-end max-sm:pr-20">
+                <img src="/assets/images/MSME_Logo.svg" alt="MSME LOGO" className="bg-white rounded w-20" />
+                <p className="text-lg/[1.2] font-medium ">Delhi Government Approved</p>
+              </div>
             </div>
           </div>
         </div>
